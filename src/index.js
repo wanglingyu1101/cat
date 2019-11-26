@@ -9,6 +9,7 @@ import store from './store'
 import axios from 'axios'
 import tools from './filters'
 React.Component.prototype.$tools = tools
+React.Component.prototype.$axios = axios
 
 axios.interceptors.response.use(({data})=>{
     return data

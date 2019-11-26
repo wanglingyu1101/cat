@@ -14,5 +14,11 @@ class Tools {
          }
          return Ids.slice(12*page-12,12*page)
     }
+    static date(v){
+        const date = new Date(v);
+        return date.getFullYear()+"-"
+            + (date.getMonth()+1).toString().padStart(2,0) + "-"
+            +date.getDate().toString().padStart(2,0)
+    }
 }
 export  default  Tools

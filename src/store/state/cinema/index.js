@@ -1,4 +1,4 @@
-const cinemaList = ['cin','ema','List']
+const cinemaList = []
 export  default {
     cinemaList
 }

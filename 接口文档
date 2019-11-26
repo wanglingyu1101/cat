@@ -81,7 +81,15 @@
     districtId=-1&lineId=-1&hallType=-1&brandId=-1&serviceId=-1&areaId=-1&stationId=-1&item=&updateShowDay=false&reqId=1574407908493&cityId=1
     lineId地铁线id（subway）  areaId  地址id(district)   stationId地区Id(subway)
     返回参数：{
-       cinemas: [,…]
+       cinemas: [
+           tag:{
+               snack:1  //有小吃
+               allowRefund:1   //退
+               endorse:1   // 改签
+               vipTag:"折扣卡"
+               hallType:[]  //大厅类别
+           }
+       ]
        ct_pois: [{ct_poi: "936879945111165696_a2243_c0", poiid: 1677952},…]
        paging: {hasMore: true, limit: 20, offset: 20, total: 283}
     }
