@@ -1,0 +1,87 @@
+一、正在热映界面接口
+
+1、正在热映接口：
+    请求地址：http://m.maoyan.com/ajax/movieOnInfoList
+    请求方式：get
+    发送参数：token
+    返回参数：{
+        coming:[],
+        movieIds:[] , //所有正在热映的电影id名
+        stid:"  ",
+        stids:[],
+        total:45，
+        movieList:[]  //电影列表
+	}
+
+2、根据id请求热映电影  接口
+    请求地址：http://m.maoyan.com/ajax/moreComingList
+    请求方式：get
+    发送参数：token,moveIds=id1,id2           %2c  就是   ，
+    返回参数：{
+        coming:[
+            {
+
+            },
+            {
+
+            }
+        ]  //正在热映
+    }
+
+二、即将上映页面接口
+
+1、最近最受期待  接口
+    请求地址：http://m.maoyan.com/ajax/mostExpected
+    请求方式：get
+    发送参数：ci =1 或不写 （city  1  北京）  limit 显示数量    offset 偏移量（跳过前几个电影）     token
+    返回参数：{
+        coming:[]， //返回的电影信息
+        paging:{
+            "hasMore": true,   //是否还有更多
+            "limit": 10,      //显示电影数
+            "offset": 0,    //偏移量
+            "total": 148   //电影总数
+        }
+    }
+2、即将上映   接口
+    请求地址：http://m.maoyan.com/ajax/comingList
+    请求方式：get
+    发送参数：ci =1 或不写   limit 显示数量    token   moveIds=id1,id2 //此处的id  从moveIds  第11个开始
+    返回参数：{
+        coming:[]， //返回的电影信息
+    }
+3、根据id名请求 即将上映   接口
+    请求地址：http://m.maoyan.com/ajax/moreComingList
+    请求方式：get
+    发送参数：ci =1 或不写   token   moveIds
+    返回参数：{
+        coming:[]， //返回的电影信息
+        movieIds：[]   //所有电影id名
+    }
+
+三、影院
+
+1、根据城市（ci）过滤影院   接口
+    请求地址：http://m.maoyan.com/ajax/filterCinemas
+    请求方式：get
+    发送参数：ci =1
+    返回参数：{
+       brand: {name: "品牌", subItems: [{count: 283, id: -1, name: "全部"}, {count: 13, id: 102642, name: "万达影城"},…]}//id -1  为全部信息
+       district: {name: "行政区", subItems: [{count: 283, id: -1, name: "全部"}, {count: 80, id: 14, name: "朝阳区",…},…]}
+       hallType: {name: "特殊厅",…}
+       service: {name: "服务",…}
+       subway: {name: "地铁", subItems: [{count: 283, id: -1, name: "全部"}, {count: 37, id: 4, name: "1号线",…},…]}
+       timeRanges: {name: "时段",…}
+    }
+   
+2、影院列表  接口
+    请求地址：http://m.maoyan.com/ajax/cinemaList
+    请求方式：get
+    发送参数：day=2019-11-22&offset=20&limit=20
+    districtId=-1&lineId=-1&hallType=-1&brandId=-1&serviceId=-1&areaId=-1&stationId=-1&item=&updateShowDay=false&reqId=1574407908493&cityId=1
+    lineId地铁线id（subway）  areaId  地址id(district)   stationId地区Id(subway)
+    返回参数：{
+       cinemas: [,…]
+       ct_pois: [{ct_poi: "936879945111165696_a2243_c0", poiid: 1677952},…]
+       paging: {hasMore: true, limit: 20, offset: 20, total: 283}
+    }
