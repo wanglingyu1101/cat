@@ -81,17 +81,17 @@ export  default  {
     },
     //获取受欢迎电影
     getExpectMovie(page=1){
+        // let offset = 10*page-10
         return async (dispatch) =>{
             const data = await axios.get("/mostExpected",{
                 params:{
                     ci:1,
                     token:'',
                     limit:10,
-                    offset:10*page-10
+                    offset:page*10-10
                 }
             })
             dispatch(upExpected(data.coming))
-            console.log(data)
         }
     }
 }
