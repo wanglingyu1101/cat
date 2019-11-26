@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cinema</title>
+    <meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <style>
+        @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 3)
+            .mb-line-all, .mb-line-b, .mb-line-l, .mb-line-lr, .mb-line-r, .mb-line-t, .mb-line-tb, .mb-outline-b, .mb-outline-t, .mb-outline-tb {
+                background-size: 1px 1px;
+            }
+        body,ul,ol,h1,h2,h3,h4,h5,input,p{/*清除标签自带的缝隙，如果有用其他的标签可以继续书写进来*/
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: "微软雅黑";/*避免字体兼容，给body设置字体，这样的话所有浏览器统一字体*/
+            font-size: 12px;/*网页设计当中常用的字号是12号，先统一设置，后面的很多12就可以不用写了*/
+        }
+        a{
+            text-decoration: none; /*去除下划线*/
+        }
+        li{
+            list-style: none; /*去除自带的黑点*/
+        }
+        img{
+            border: 0;/*解决图片添加超链接之后，在IE上的边框*/
+            vertical-align: top;  /*解决图片撑大3像素的兼容*/
+            display: block;
+        }
+        .clearbox:after{/*万能清除法解决高度塌陷*/
+            content: "";
+            display: block;
+            clear: both;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+        .clearbox{
+            zoom: 1;
+        }
+        body {
+            overflow: hidden;
+            height: 100%;
+            font-size: 14px;
+            color: #777;
+            font-family: PingFangSC-Regular,Hiragino Sans GB,sans-serif;
+            -webkit-touch-callout: inherit;
+            -webkit-user-select: none;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            margin: 0;
+            display: block;
+        }
+        .navbar {
+            height: 50.5px;
+            color: #fff;
+            background: #e54847;
+            border-bottom: 1px solid #e54847;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            position: relative;
+            font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+        }
+        .navbar .h1.nav-header, .navbar h1.nav-header {
+            display: block;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            font-size: 18px;
+            font-weight: 400;
+            text-align: center;
+            line-height: 50px;
+            margin: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-right: 52.5px;
+        }
+        .navbar:not(.icbcback) h1.nav-header {
+            margin-right: 0!important;
+        }
+        .topbar {
+            border-bottom: 1px solid #e6e6e6;
+            height: 44px;
+        }
+        .gray-bg {
+            background: #f5f5f5;
+        }
+        .topbar-bg {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            height: 44px;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+        }
+        .city-entry {
+            padding-left: 15px;
+            font-size: 15px;
+            color: #666;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+        .city-entry .city-name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 70px;
+            max-width: 19.2vw;
+        }
+        .city-entry-arrow {
+            width: 0;
+            height: 0;
+            border: 4px solid #b0b0b0;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            display: inline-block;
+            margin-left: 4px;
+            margin-top: 5px;
+        }
+        .topbar .search-input {
+            -webkit-box-flex: 1;
+            flex-grow: 1;
+        }
+        .search-input {
+            display: -webkit-box;
+            display: flex;
+            background-color: #fff;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            height: 28px;
+            font-size: 13px;
+            color: #b2b2b2;
+            margin-left: 18px;
+            border: .5px solid #e6e6e6;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .search-input img {
+            width: 14px;
+            height: 14px;
+            margin-left: 3px;
+            margin-right: 4px;
+        }
+        .page.singleton, .page.singleton-notab {
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        .page.singleton-notab .page-wrap, .page.singleton .page-wrap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+        .cinema .page-wrap.fix-nav .nav-wrap {
+            position: fixed;
+        }
+        .nav-wrap.filter-nav-wrap {
+            width: 100%;
+            height: 40px;
+            z-index: 10;
+            background-color: #fff;
+            border-bottom: 1px solid #e8e8e8;
+        }
+            .nav-wrap.filter-nav-wrap .tab {
+                display: -webkit-box;
+                display: flex;
+            }
+            .nav-wrap.filter-nav-wrap .tab .item {
+                -webkit-box-flex: 1;
+                flex: 1;
+                text-align: center;
+                line-height: 40px;
+                position: relative;
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 13px;
+                text-overflow: ellipsis;
+            }
+            .nav-wrap.filter-nav-wrap .tab .item {
+                -webkit-box-flex: 1;
+                flex: 1;
+                text-align: center;
+                line-height: 40px;
+                position: relative;
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 13px;
+                text-overflow: ellipsis;
+            }
+            .nav-wrap.filter-nav-wrap .tab .item {
+                -webkit-box-flex: 1;
+                flex: 1;
+                text-align: center;
+                line-height: 40px;
+                position: relative;
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 13px;
+                text-overflow: ellipsis;
+            }
+            .nav-wrap.filter-nav-wrap .tab .item .drop {
+                display: inline-block;
+                position: absolute;
+                top: 18px;
+                width: 0;
+                height: 0;
+                margin-left: 4px;
+                border: 4px solid transparent;
+                border-top-color: #b0b0b0;
+            }
+            .nav-wrap.filter-nav-wrap .tab .item+.item:before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 20px;
+                top: 10px;
+                left: 0;
+                border-left: 1px solid #e8e8e8;
+            }
+            .cinema-list .list-wrap {
+                background-color: #fff;
+                margin-right: 10px;
+            }
+            .cinema-list .list-wrap .item {
+                padding: 13px 15px 13px 0;
+                margin-left: 15px;
+                background-color: #fff;
+                position: relative;
+                overflow: hidden;
+            }
+            .cinema-list .list-wrap .title-block {
+                display: block;
+            }
+            .box-flex:not(.column).middle, .inline-flex:not(.column).middle {
+                -webkit-box-align: center;
+                border-bottom: 1px solid #E8E8E8;
+                align-items: center;
+                padding-bottom: 5px;
+            }
+            .cinema-list .location-block, .cinema-list .price-block, .cinema-list .title-block {
+                line-height: 1.5;
+            }
+            .cinema-list .list-wrap .title-block .title {
+                height: 23px;
+                line-height: 23px;
+                font-size: 16px;
+                color: #000;
+            }
+            .line-ellipsis {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .cinema-list .list-wrap .location-block {
+                margin-top: 6px;
+                font-size: 13px;
+                color: #666;
+            }
+            .flex {
+                -webkit-box-flex: 1;
+                flex: 1;
+            }
+            .cinema-list .list-wrap .title-block .label-block {
+                height: 17px;
+                line-height: 17px;
+                margin-top: 4px;
+                margin-bottom: 4px;
+                overflow: hidden;
+                font-size: 0;
+                flex-shrink: 0;
+            }
+            .cinema-list .list-wrap .title-block .label-block div.allowRefund, .cinema-list .list-wrap .title-block .label-block div.endorse, .cinema-list .list-wrap .title-block .label-block div.hallType, .cinema-list .list-wrap .title-block .label-block div.sell {
+                color: #589daf;
+                border: 1px solid #589daf;
+            }
+            .cinema-list .list-wrap .title-block .label-block>div {
+                position: relative;
+                display: inline-block;
+                padding: 0 3px;
+                height: 15px;
+                line-height: 15px;
+                border-radius: 2px;
+                font-size: .6rem;
+            }
+            .cinema-list .list-wrap .title-block .label-block div.snack, .cinema-list .list-wrap .title-block .label-block div.vipTag {
+                color: #f90;
+                border: 1px solid #f90;
+            }
+            .cinema-list .list-wrap .title-block .label-block>div+div {
+                margin-left: 5px;
+            }
+            .cinema-list .discount-block {
+                color: #999;
+                margin-bottom: 4px;
+            }
+            .cinema-list .discount-block .discount-label {
+                width: 15px;
+                height: 14px;
+                position: relative;
+                top: 3px;
+                display: inline-flex;
+            }
+            .cinema-list .discount-block .discount-label-text {
+                margin-left: 0;
+                font-size: 11px;
+                display: inline-block;
+            }
+            .discount-label-text {
+                display: inline-block;
+                margin-left: 8px;
+                font-size: 13px;
+            }
+            .cinema-list .list-wrap .location-block .distance, .cinema-list .list-wrap .location-block .region {
+                margin-left: 5px;
+            }
+            .cinema-list .list-wrap .price-block .d, .cinema-list .list-wrap .price-block .price, .cinema-list .list-wrap .price-block .q {
+                font-size: 11px;
+                color: #f03d37;
+            }
+            .cinema-list .list-wrap .price-block .price {
+                font-size: 18px;
+            }
+            .box-flex {
+                display: -webkit-box;
+                display: flex;
+            }
+        
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<!--影院头部-->
+<header class="navbar  ">
+    <div class="nav-wrap-left">
+        <a class="back" href="#" onclick="javascript: window.history.back();return false;"><i class="icon-back"></i></a>
+    </div>
+    <h1 class="nav-header">影院</h1>
+</header>
+<!--定位及搜索-->
+<section class="topbar" style="">
+    <div class="gray-bg topbar-bg ">
+        <div class="city-entry">
+            <span class="city-name">北京</span><i class="city-entry-arrow"></i>
+        </div>
+        <div class="search-entry search-input" data-type="cinema">
+            <img src="img/cinema%20sousuo.png">
+            <span>搜影院</span>
+        </div>
+    </div>
+
+</section>
+<!--下拉选项, 影院在内-->
+<section data-page=".cinema" class="cinema singleton page active" style="height: 640.5px;">
+
+    <div class="nav-wrap filter-nav-wrap" style="top: 95px;">
+        <div class="tab mb-line-b">
+            <div class="item" data-tab=".region">全城<span class="drop"></span></div>
+            <div class="item" data-tab=".brand">品牌<span class="drop"></span></div>
+            <div class="item" data-tab=".special">特色<span class="drop"></span></div>
+        </div>
+        <!--影院-->
+        <div class="cinema-list" data-cid="c_5ovvtlp2"style="margin-bottom: 55px; margin-top: 1px;">
+            <div class="list-wrap" style="margin-top: 0px; min-height: 696px;">
+                <div class="item mb-line-b" data-id="26195" data-bid="dp_wx_home_cinema_list">
+
+                    <div class="title-block box-flex middle">
+                        <div class="title line-ellipsis">
+                            <span>大地院线影城（珠江摩尔店）</span>
+
+                            <span class="price-block">
+                <span class="price">33</span><span class="q">元起</span>
+            </span>
+
+                        </div>
+                        <div class="location-block box-flex">
+                            <div class="flex line-ellipsis">昌平区回龙观镇北清路1号院7号楼内7-101-26</div>
+
+                            <div class="distance">3.9km</div>
+
+                        </div>
+                        <div class="flex"></div>
+
+                        <div class="label-block">
+
+
+
+                            <div class="allowRefund">退</div>
+
+
+
+                            <div class="endorse">改签</div>
+
+
+
+                            <div class="snack">小吃</div>
+
+
+
+                            <div class="vipTag">折扣卡</div>
+
+                            <div class="hallType">DTS:X 临境音厅</div>
+
+                            <div class="hallType">60帧厅</div>
+
+                        </div>
+
+
+
+
+                        <div class="discount-block">
+
+
+
+                            <div>
+                                <div class="discount-label normal card">
+                                    <img src="img/ka.png" alt="" height="15px">
+                                </div>
+                                <div class="discount-label-text">开卡特惠，首单2张最高立减6元</div>
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+</section>
+<
+
+
+
+</body>
+</html>
