@@ -1,18 +1,16 @@
 import  React from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
-<<<<<<< HEAD:src/views/Cinema.js
 // import ReactPullLoad,{STATS} from 'react-pullload';
-import actionCinemaCreators from "../store/actionCreateors/cinema";
-=======
 import ReactPullLoad,{STATS} from 'react-pullload';
 import actionCinemaCreators from "../../store/actionCreateors/cinema/index";
->>>>>>> fefee7f0186dd72fe8113081ccd49c3a80deb3aa:src/views/cinema/Cinema.js
+import Header from '../../component/Header'
 let cinemaPage = 1;
 class Cinema extends React.Component{
     render(){
         return (
             <div>
+                <Header head={"影院"}></Header>
                 {
                     this.props.cinemaList.map((v,i)=>(
                         <div key={v.id}>
