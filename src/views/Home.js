@@ -24,7 +24,7 @@ class Home extends React.Component{
         )
     }
     UNSAFE_componentWillMount(){
-        this.props.history.push("/movie")
+
     }
 
 }
