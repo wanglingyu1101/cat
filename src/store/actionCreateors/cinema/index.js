@@ -13,7 +13,7 @@ export default {
     getCinema() {
         return async (dispatch)=>{
             offset += 20;
-            const data =await axios.get("/cinemaList", {
+            const data =await axios.get("/m/ajax/cinemaList", {
                 params: {
                     day: tools.date(Date.now()),
                     offset,

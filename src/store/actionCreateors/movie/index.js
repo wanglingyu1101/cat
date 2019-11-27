@@ -40,7 +40,7 @@ export  default  {
     //获取第一页正在热映的电影  和 所有movieids
     getOnInfo(){
         return async (dispatch) =>{
-            const data = await axios.get("/movieOnInfoList")
+            const data = await axios.get("/m/ajax/movieOnInfoList")
             dispatch(clearMovie(data.movieList))
             dispatch(getMoviesId(data.movieIds))
         }
@@ -48,7 +48,7 @@ export  default  {
     //获取第一页即将上映的电影  和 所有movieids
     getComing(){
         return async (dispatch) =>{
-            const data = await axios.get("/comingList",{
+            const data = await axios.get("/m/ajax/comingList",{
                 params:{
                     ci:1,
                     token:'',
@@ -70,7 +70,7 @@ export  default  {
         //限制边界条件   在过滤器中 超过限制 返回 -1
         if(movieId === -1) return false
         return async (dispatch) =>{
-            const data = await axios.get("/moreComingList",{
+            const data = await axios.get("/m/ajax/moreComingList",{
                 params:{
                     token:'',
                     movieIds
@@ -82,7 +82,7 @@ export  default  {
     //获取受欢迎电影
     getExpectMovie(page=1){
         return async (dispatch) =>{
-            const data = await axios.get("/mostExpected",{
+            const data = await axios.get("/m/ajax/mostExpected",{
                 params:{
                     ci:1,
                     token:'',
