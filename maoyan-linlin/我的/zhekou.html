@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zhekou</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <style>
+        html {
+            font-size: 50px;
+            -webkit-tap-highlight-color: transparent;
+            height: 100%;
+            min-width: 320px;
+            overflow-x: hidden;
+            display: block;
+        }
+        body, ul, ol, h1, h2, h3, h4, h5, input, p { /*清除标签自带的缝隙，如果有用其他的标签可以继续书写进来*/
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-action: manipulation;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            overflow-x: hidden;
+            background: #f4f4f4;
+            font: 14px/1.5 Arial, Helvetica, sans-serif;
+        }
+        div {
+            display: block;
+        }
+        a {
+            text-decoration: none; /*去除下划线*/
+        }
+        li {
+            list-style: none; /*去除自带的黑点*/
+        }
+        img {
+            border: 0; /*解决图片添加超链接之后，在IE上的边框*/
+            vertical-align: top; /*解决图片撑大3像素的兼容*/
+        }
+        .clearbox:after { /*万能清除法解决高度塌陷*/
+            content: "";
+            display: block;
+            clear: both;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+        .clearbox {
+            zoom: 1;
+        }
+        .navbar {
+            position: relative;
+            top: 0;
+            z-index: 10;
+            background-color: #e54847 !important;
+            display: -webkit-box;
+            padding: 6px;
+            height: 38px;
+            overflow: hidden;
+        }
+        .navbar nav {
+            width: 100%;
+            display: -webkit-box;
+        }
+        article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+            display: block;
+        }
+        .navbar-logo {
+            width: 2rem;
+            background-size: 37%;
+        }
+        a {
+            cursor: pointer;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        a:-webkit-any-link {
+            color: -webkit-link;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        a:-webkit-any-link {
+            color: -webkit-link;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .navbar-back:after {
+            content: '';
+            top: 16px;
+            left: 12px;
+            width: 13px;
+            height: 13px;
+            position: absolute;
+            border: 2px solid #FFF;
+            border-width: 0 0 2px 2px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        .navbar-title {
+            -webkit-box-flex: 1;
+            color: #FFF;
+            font-size: 18px;
+            text-align: center;
+            line-height: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            position: relative;
+            left: -1rem;
+        }
+        .list {
+            padding: 0 .3rem .6rem;
+            background: #f5f5f5;
+        }
+        .list .no-card {
+            text-align: center;
+            padding-top: 2.56rem;
+        }
+        .list .no-card img {
+            width: 1.86rem;
+        }
+        .list .no-card div {
+            text-align: center;
+            font-size: .28rem;
+            color: #999;
+        }
+        .list .no-card .btn {
+            margin-top: .58rem;
+            padding: .26rem;
+            font-size: .28rem;
+            color: #f34d41;
+            background: #fff;
+            border: 1px solid #f34d41;
+        }
+        .list .no-card .btn span {
+            margin-left: .1rem;
+            vertical-align: middle;
+        }
+        .btn {
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            padding: .13rem .24rem;
+            display: inline-block;
+            text-align: center;
+            border-radius: 4px;
+            line-height: 1;
+            background: #e54847;
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="app" class="page-multiplecardlist">
+    <div class="layout hairlines" data-reactid=".19g61vwspt2" data-react-checksum="1992628977">
+        <div class="navbar" data-reactid=".19g61vwspt2.3">
+            <nav data-reactid=".19g61vwspt2.3.0">
+                <div class="navbar-logo" data-reactid=".19g61vwspt2.3.0.0"><a class="navbar-back"
+                                                                              href="javascript:history.back();"
+                                                                              data-reactid=".19g61vwspt2.3.0.0.0"></a>
+                </div>
+                <div class="navbar-title" data-reactid=".19g61vwspt2.3.0.1">我的折扣卡</div>
+            </nav>
+        </div>
+        <div class="list" data-reactid=".19g61vwspt2.4">
+            <div class="no-card" data-reactid=".19g61vwspt2.4.2"><img class="img"
+                                                                      src="//s0.meituan.net/bs/?f=myfe/canary:/img/card.png"
+                                                                      alt="暂无会员卡" data-reactid=".19g61vwspt2.4.2.0">
+                <div data-reactid=".19g61vwspt2.4.2.1">暂无影院会员卡</div>
+                <div data-reactid=".19g61vwspt2.4.2.2"><span class="link icon icon-add2 btn">查看本城市全部会员卡</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

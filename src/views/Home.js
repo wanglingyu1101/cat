@@ -3,7 +3,7 @@ import {NavLink,Route,withRouter} from  'react-router-dom'
 
 import Movie from './Movie'
 import Cinema from './Cinema'
-import My from './My'
+import My from './My/My'
 import GuardRouter from '../router/GuardRouter'
 
 class Home extends React.Component{

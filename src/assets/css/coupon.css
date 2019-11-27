@@ -1,0 +1,174 @@
+
+.coupon {
+    padding: 15px 15px 0 20px;
+}
+
+.coupon .input-wrapper {
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.coupon .input-wrapper, .coupon a {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.coupon .input-wrapper input {
+    display: block;
+    padding: 5px 0 5px 5px;
+    width: calc(100% - 5px);
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+button, input, select, textarea {
+    outline: none;
+    resize: none;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+input {
+    line-height: normal;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+.coupon a {
+    margin-left: 10px;
+    color: #f03d37;
+}
+
+.container {
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.coupon-list {
+    padding-bottom: 15px;
+}
+
+.coupon-list .coupon-item.outTime {
+    background-image: url(../img/gouqi.png);
+}
+
+.coupon-list .coupon-item {
+    background-size: 65px 65px;
+    background-position: top 7px right 7px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    margin: 15px 15px 0;
+    display: -webkit-box;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.coupon-list .deleted .coupon-left, .coupon-list .hasUsed .coupon-left, .coupon-list .outTime .coupon-left {
+    background-color: #c3c3c3;
+}
+
+.coupon-list .coupon-left {
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    min-height: 125px;
+    width: 108px;
+    background-color: #ff9d00;
+    color: #fff;
+}
+
+.coupon-list .coupon-left .left-wrapper {
+    position: absolute;
+    top: 50%;
+    margin-top: -33px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    width: 108px;
+}
+
+.coupon-list .coupon-left .left-wrapper .desc {
+    font-size: 35px;
+}
+
+.coupon-list .coupon-left .left-wrapper .desc span {
+    font-size: 18px;
+}
+
+.coupon-list .coupon-left .left-wrapper .type {
+    display: inline-block;
+    padding: 6px 12px 0;
+    font-size: 14px;
+    font-weight: 400;
+    border-top: 1px solid rgba(0, 0, 0, .08);
+}
+
+.coupon-list .deleted .coupon-right, .coupon-list .hasUsed .coupon-right, .coupon-list .outTime .coupon-right {
+    border-left: 1px dashed #c3c3c3;
+}
+
+.coupon-list .coupon-right .title {
+    margin-top: 10px;
+    padding: 0 16px;
+    font-size: 16px;
+    line-height: 24px;
+    height: 24px;
+    color: #333;
+}
+
+.coupon-right .line-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.coupon-list .coupon-right .limitDesc {
+    margin-top: 6px;
+    padding: 0 16px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #999;
+    margin-bottom: 36px;
+}
+
+.coupon-list .coupon-right .range-status-container {
+    position: relative;
+    width: 100%;
+    border-top: 1px solid #d8d8d8;
+}
+
+.coupon-list .coupon-right .range-left-status, .coupon-list .coupon-right .range-status {
+    position: relative;
+    line-height: 22px;
+    font-size: 12px;
+    text-align: right;
+    padding: 0 16px;
+    white-space: pre-wrap;
+}

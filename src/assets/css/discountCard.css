@@ -1,0 +1,50 @@
+html {
+    font-size: 50px;
+    -webkit-tap-highlight-color: transparent;
+    height: 100%;
+    min-width: 320px;
+    overflow-x: hidden;
+    display: block;
+}
+
+.cardlist {
+    padding: 0 .3rem .6rem;
+    background: #f5f5f5;
+}
+.cardlist .no-card {
+    text-align: center;
+    padding-top: 2.56rem;
+}
+.cardlist .no-card img {
+    width: 1.86rem;
+}
+.cardlist .no-card div {
+    text-align: center;
+    font-size: .28rem;
+    color: #999;
+}
+.cardlist .no-card .btn {
+    margin-top: .58rem;
+    padding: .26rem;
+    font-size: .28rem;
+    color: #f34d41;
+    background: #fff;
+    border: 1px solid #f34d41;
+}
+.cardlist .no-card .btn span {
+    margin-left: .1rem;
+    vertical-align: middle;
+}
+.btn {
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: .13rem .24rem;
+    display: inline-block;
+    text-align: center;
+    border-radius: 4px;
+    line-height: 1;
+    background: #e54847;
+    color: #fff;
+    text-decoration: none;
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shangcheng</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+     <style>
+         html {
+             font-size: 50px;
+             -webkit-tap-highlight-color: transparent;
+             height: 100%;
+             min-width: 320px;
+             overflow-x: hidden;
+             display: block;
+             color: -internal-root-color;
+         }
+         element.style {
+             font-size: 110.4px;
+         }
+        body,ul,ol,h1,h2,h3,h4,h5,input,p{/*清除标签自带的缝隙，如果有用其他的标签可以继续书写进来*/
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            margin: 0;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: .28em;
+            line-height: 1;
+            color: #333;
+            background-color: #f0efed;
+            height: 100%;
+            display: block;
+        }
+         div {
+             display: block;
+         }
+        a{
+            text-decoration: none; /*去除下划线*/
+        }
+        li{
+            list-style: none; /*去除自带的黑点*/
+        }
+        img{
+            border: 0;/*解决图片添加超链接之后，在IE上的边框*/
+            vertical-align: top;  /*解决图片撑大3像素的兼容*/
+        }
+        .clearbox:after{/*万能清除法解决高度塌陷*/
+            content: "";
+            display: block;
+            clear: both;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+        .clearbox{
+            zoom: 1;
+        }
+        .navbar {
+            height: 1.01rem;
+            color: #fff;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            position: relative;
+        }
+        .nav-dropdown li, .navbar {
+            border-bottom: 1px solid #e54847;
+        }
+        .navbar, .tab-strong li.active {
+            background: #e54847;
+        }
+        header.navbar .nav-wrap-left {
+            float: none;
+            position: absolute;
+            height: 1.01rem;
+            line-height: 1.01rem;
+        }
+        .nav-wrap-left a.back {
+            height: 1rem;
+            width: .45rem;
+            line-height: 1rem;
+            padding: 0 .3rem;
+        }
+         .text-icon.icon-back {
+             width: .45rem;
+             height: .45rem;
+             vertical-align: middle;
+         }
+         .text-icon.icon-back:before {
+             position: absolute;
+             left: .07rem;
+             top: 0;
+             width: .4rem;
+             height: .4rem;
+             border-bottom: .04rem solid #fff;
+             border-left: .04rem solid #fff;
+             -webkit-transform: scaleY(.8) rotateZ(45deg);
+             -moz-transform: scaleY(.8) rotateZ(45deg);
+             -ms-transform: scaleY(.8) rotateZ(45deg);
+         }
+         .nav-wrap-right a {
+             display: inline-block;
+             height: 100%;
+             line-height: 1rem;
+             text-align: center;
+             width: .94rem;
+         }
+         .text-icon.icon-back:after, .text-icon.icon-back:before {
+             content: '';
+             display: block;
+         }
+         .icon-downarrow, .icon-downarrow:after, .icon-toggle-arrow, .text-icon.icon-back {
+             position: relative;
+         }
+         .text-icon {
+             font-family: base_icon;
+             display: inline-block;
+             vertical-align: middle;
+             font-style: normal;
+         }
+         .navbar .nav-wrap-right {
+             height: 100%;
+         }
+         .nav-wrap-right a:last-child {
+             margin-right: .04rem;
+         }
+         .text-icon.icon-back:after {
+             position: absolute;
+             top: .2rem;
+             left: .03rem;
+             height: 0;
+             width: .45rem;
+         }
+        header.navbar h1.nav-header {
+            margin-left: .94rem;
+        }
+        .navbar .h1.nav-header, .navbar h1.nav-header {
+            display: block;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            font-size: .36rem;
+            font-weight: 400;
+            text-align: center;
+            line-height: 1rem;
+            margin: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+         .no-data {
+             z-index: -9;
+             position: absolute;
+             left: 0;
+             right: 0;
+             top: 0;
+             bottom: 0;
+         }
+         .no-data .wrapper {
+             background-image: url(../img/spdingdan.png);
+             background-repeat: no-repeat;
+             background-position: top center;
+             background-size: 2.2rem 2.2rem;
+             top: 50%;
+             margin-top: -2rem;
+             height: 4rem;
+             box-sizing: border-box;
+         .history-link, .no-data .wrapper {
+             position: absolute;
+             display: block;
+             width: 100%;
+             text-align: center;
+         }
+         .wrapper {
+             overflow: hidden;
+             padding: 0 .2rem;
+         }
+         .no-data .wrapper .tip-text {
+             display: block;
+             padding-top: 2.4rem;
+             font-size: .32rem;
+             height: .56rem;
+             line-height: .56rem;
+             color: #999;
+         }
+
+
+
+     </style>
+</head>
+<body class="list-index">
+
+<!--头部-->
+<header class="navbar ">
+    <div class="nav-wrap-left">
+        <a class="react back" href="#" onclick="javascript: window.history.back();return false;"><i class="text-icon icon-back"></i></a>
+    </div>
+    <h1 class="nav-header">我的周边商品</h1>
+    <div class="nav-wrap-right">
+        <a>
+            <span>
+                <i></i>
+            </span>
+        </a>
+    </div>
+</header>
+<!--内容-->
+<div class="body-wrapper" id="bodyWrapper">
+    <div id="deal-orderlist">
+        <div class="no-data">
+            <div class="wrapper">
+                <div class="tip-text">您最近还没有新订单，赶快去下一单吧</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

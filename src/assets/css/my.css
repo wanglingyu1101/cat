@@ -1,0 +1,234 @@
+
+body,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+p {
+    /*清除标签自带的缝隙，如果有用其他的标签可以继续书写进来*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "微软雅黑";
+    /*避免字体兼容，给body设置字体，这样的话所有浏览器统一字体*/
+    font-size: 12px;
+    /*网页设计当中常用的字号是12号，先统一设置，后面的很多12就可以不用写了*/
+}
+
+a {
+    text-decoration: none;
+    /*去除下划线*/
+}
+
+a,
+div {
+    -webkit-tap-highlight-color: transparent;
+}
+
+li {
+    list-style: none;
+    /*去除自带的黑点*/
+}
+
+img {
+    border: 0;
+    /*解决图片添加超链接之后，在IE上的边框*/
+    vertical-align: top;
+    /*解决图片撑大3像素的兼容*/
+    display: block;
+}
+
+.clearbox:after {
+    /*万能清除法解决高度塌陷*/
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.clearbox {
+    zoom: 1;
+}
+
+body {
+    -webkit-touch-callout: inherit;
+    -webkit-user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    display: block;
+    background-color: rgb(243, 243, 243);
+    font-size: 14px;
+    color: #777;
+}
+
+.my-center {
+    min-height: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.my-center .header {
+    background-color: #f03d37;
+    background-image: url(../img/beijing.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 150px;
+    height: 150px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.my-center .header img {
+    display: inline-block;
+    margin-top: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: 3px solid #fff;
+}
+
+.my-center .header .name {
+    margin-top: 7px;
+    font-size: 16px;
+    line-height: 22.5px;
+    color: #fff;
+}
+
+.container {
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.my-center .group {
+    margin-top: 10px;
+    background: #fff;
+}
+
+.mb-outline-tb {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFW…I/PqBKdxIAAAAYSURBVHjaYnz48OF/BiBg/P8fTDMABBgATToGolgmNfoAAAAASUVORK5CYII=) 0 top repeat-x, url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFW…I/PoL90/MAAAAZSURBVHjaYvr//z8DCLM8evToPwMQAAQYAGuLCaa37ZaAAAAAAElFTkSuQmCC) 0 bottom repeat-x;
+}
+
+.my-center .group .orders {
+    padding: 0 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.my-center .group .title {
+    position: relative;
+    margin: 13px 0 0;
+    font-size: 15px;
+    line-height: 21px;
+    height: 21px;
+    color: #333;
+    z-index: 9;
+    display: inline-block;
+    width: 80px;
+    background-color: #fff;
+}
+
+.my-center .group .title-line {
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    margin-left: -80px;
+    width: 160px;
+    height: 1px;
+}
+
+.my-center .group .list {
+    overflow: hidden;
+}
+
+.my-center .group .orders .list .order-item.movie {
+    background-image: url(../img/yingpian.png);
+}
+
+.my-center .group .list.list-two .order-item {
+    width: 50%;
+}
+
+.my-center .group .list .order-item {
+    width: 25%;
+    float: left;
+    height: 97px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 42px auto;
+    margin-top: 18px;
+}
+
+.my-center .group .list .order-item a {
+    display: block;
+    height: 90px;
+}
+
+.my-center .group .list .order-item a p {
+    position: relative;
+    top: 53px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 21px;
+    height: 21px;
+    margin: 0;
+    color: #333;
+}
+
+.my-center .group .orders .list .order-item.store {
+    background-image: url(../img/shangpin.png);
+}
+
+.mb-outline-tb {
+    background-size: 1px 1px;
+}
+
+.my-center .group {
+    margin-top: 10px;
+    background: #fff;
+}
+
+.my-center .group .item {
+    position: relative;
+    height: 44px;
+    line-height: 44px;
+    font-size: 15px;
+    margin-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid rgb(243, 243, 243);
+}
+
+.my-center .group .item a {
+    display: block;
+    color: #333;
+}
+
+.my-center .group .item span {
+    text-align: left;
+}
+
+.my-center .group .item:after {
+    position: absolute;
+    right: 15px;
+    top: 18px;
+    display: inline-block;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
