@@ -1,4 +1,6 @@
 const searchList = []
+const searchCinemaList = []
 export  default {
-    searchList
+    searchList,
+    searchCinemaList
 }

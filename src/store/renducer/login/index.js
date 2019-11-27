@@ -8,3 +8,4 @@ function testLogin(state=loginObj,{type,payload}) {
         state.usertoken =  payload.token
     return state
 }
+export  default  testLogin
