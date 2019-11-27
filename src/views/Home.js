@@ -28,6 +28,5 @@ class Home extends React.Component{
             this.props.history.push("/movie")
         }
     }
-
 }
 export  default withRouter(Home)

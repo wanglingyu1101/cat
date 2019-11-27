@@ -1,7 +1,9 @@
 import  React from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
+import ReactPullLoad,{STATS} from 'react-pullload';
 import actionCinemaCreators from "../store/actionCreateors/cinema";
+let cinemaPage = 1;
 class Cinema extends React.Component{
     render(){
         return (
@@ -17,7 +19,7 @@ class Cinema extends React.Component{
                         </div>
                     ))
                 }
-                <input type="button"  value={"点击加载更多"} onClick={this.props.getCinema}/>
+                <input type="button"  value={"点击加载更多"} onClick={()=>this.props.upCinema(cinemaPage++)}/>
             </div>
         )
     }
