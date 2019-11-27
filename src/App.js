@@ -12,7 +12,7 @@ class App extends  React.Component{
             <Switch>
                 <Route path={'/search'} render={()=><GuardRouter component={Search}></GuardRouter>}></Route>
                 <Route path={'/login'} render={()=><GuardRouter component={Login}></GuardRouter>}></Route>
-                <Route path={'/'} render={()=><GuardRouter component={Home} ></GuardRouter>}></Route>
+                <Route path={'/'} render={()=><GuardRouter component={Home}></GuardRouter>}></Route>
             </Switch>
         </>
     )
