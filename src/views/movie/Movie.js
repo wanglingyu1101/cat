@@ -3,7 +3,7 @@ import MovieOnInfo from './MovieOnInfo'
 import MovieComing from './MovieComing'
 import {NavLink,Route} from 'react-router-dom'
 
-import GuardRouter from '../router/GuardRouter'
+import GuardRouter from '../../router/GuardRouter'
 class Movie extends React.Component{
     render(){
         return (

@@ -1,7 +1,7 @@
 import  React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from "redux";
-import searchActionCreators from '../store/actionCreateors/search'
+import searchActionCreators from '../../store/actionCreateors/search/index'
 
 class Search extends React.Component{
     render(){

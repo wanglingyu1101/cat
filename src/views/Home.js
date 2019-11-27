@@ -1,9 +1,15 @@
 import  React from 'react'
 import {NavLink,Route,withRouter} from  'react-router-dom'
 
+<<<<<<< HEAD
 import Movie from './Movie'
 import Cinema from './Cinema'
 import My from './My/My'
+=======
+import Movie from './movie/Movie'
+import Cinema from './cinema/Cinema'
+import My from './My'
+>>>>>>> fefee7f0186dd72fe8113081ccd49c3a80deb3aa
 import GuardRouter from '../router/GuardRouter'
 
 class Home extends React.Component{
