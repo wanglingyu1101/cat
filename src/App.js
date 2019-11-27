@@ -4,15 +4,13 @@ import Home from './views/Home'
 import Login from './views/login/Login'
 import Search from './views/search/Search'
 import GuardRouter from './router/GuardRouter'
-<<<<<<< HEAD
 import Coupon from "./views/My/Coupon";
 import DiscountCard from "./views/My/DiscountCard";
 import MyCinemaOrder from "./views/My/MyCinemaOrder";
 import MyShop from "./views/My/MyShop";
 import OnlineCinema from "./views/My/OnlineCinema";
-=======
+
 import SearchCinema from './views/search/cinemaSearch'
->>>>>>> fefee7f0186dd72fe8113081ccd49c3a80deb3aa
 
 class App extends  React.Component{
   render(){
