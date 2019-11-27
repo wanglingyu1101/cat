@@ -12,7 +12,7 @@ class Search extends React.Component{
                 {
                     this.props.searchMovieList?this.props.searchMovieList.map((v,i)=>(
                         <div key={i}>
-                            <p><h4>{v.nm}</h4> {v.version} {v.sc===0?'暂无评分':v.sc}</p>
+                            <p>{v.nm}{v.version} {v.sc===0?'暂无评分':v.sc}</p>
                             <p>{v.enm}</p>
                             <p>{v.cat}</p>
                             <p>{v.rt}</p>

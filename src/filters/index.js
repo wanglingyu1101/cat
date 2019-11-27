@@ -2,8 +2,8 @@ class Tools {
      static movieImg(imgUrl=''){
         return  "https://p0.meituan.net/128.180/"+imgUrl.slice(imgUrl.search('movie'))
     }
-    static  expecctedImg(imgUrl=''){
-         
+    static  expectedImg(imgUrl=''){
+         return "https://p0.meituan.net/170.230/"+imgUrl.slice(imgUrl.search('movie'))
     }
     static exactedImg(imgUrl=''){
          return  false
