@@ -1,8 +1,8 @@
 import  React from 'react'
 import {NavLink,Route,withRouter} from  'react-router-dom'
 
-import Movie from './Movie'
-import Cinema from './Cinema'
+import Movie from './movie/Movie'
+import Cinema from './cinema/Cinema'
 import My from './My'
 import GuardRouter from '../router/GuardRouter'
 

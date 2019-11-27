@@ -1,7 +1,7 @@
 import  React from 'react'
 import {bindActionCreators} from "redux";
 import {connect} from 'react-redux'
-import actionMovieCreators from '../store/actionCreateors/movie'
+import actionMovieCreators from '../../store/actionCreateors/movie/index'
 let onInfoPage = 2
 class MovieOnInfo extends React.Component{
     render(){

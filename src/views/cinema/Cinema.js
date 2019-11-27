@@ -2,7 +2,7 @@ import  React from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 import ReactPullLoad,{STATS} from 'react-pullload';
-import actionCinemaCreators from "../store/actionCreateors/cinema";
+import actionCinemaCreators from "../../store/actionCreateors/cinema/index";
 let cinemaPage = 1;
 class Cinema extends React.Component{
     render(){

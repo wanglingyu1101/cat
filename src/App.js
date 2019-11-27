@@ -1,8 +1,8 @@
 import React from 'react';
 import {Route,Switch} from 'react-router-dom'
 import Home from './views/Home'
-import Login from './views/Login'
-import Search from './views/Search'
+import Login from './views/login/Login'
+import Search from './views/search/Search'
 import GuardRouter from './router/GuardRouter'
 
 class App extends  React.Component{
