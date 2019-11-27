@@ -1,6 +1,11 @@
 class Tools {
      static movieImg(imgUrl=''){
-        return  "https://p0.meituan.net/128.180/"+imgUrl.slice(imgUrl.search('movie'))
+         if(imgUrl.indexOf('movie') === -1)
+             if(imgUrl.indexOf('w.h/') !== -1)
+             return imgUrl.slice(0,imgUrl.indexOf('w.h/'))+imgUrl.slice(imgUrl.indexOf('w.h/')+4)
+             else return imgUrl   //待定
+         else
+             return  "https://p0.meituan.net/128.180/"+imgUrl.slice(imgUrl.search('movie'))
     }
     static  expectedImg(imgUrl=''){
          return "https://p0.meituan.net/170.230/"+imgUrl.slice(imgUrl.search('movie'))

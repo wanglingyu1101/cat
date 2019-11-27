@@ -24,8 +24,9 @@ class Home extends React.Component{
         )
     }
     UNSAFE_componentWillMount(){
-
+        if(this.props.location.pathname === '/'){
+            this.props.history.push("/movie")
+        }
     }
-
 }
 export  default withRouter(Home)

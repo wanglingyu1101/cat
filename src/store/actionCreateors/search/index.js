@@ -10,7 +10,7 @@ export const  searchMovie = (searchMovieList)=>({
 export  default  {
   upMovieList(kw=''){
       return async (dispatch)=>{
-          const data = await  axios.get("/search",{
+          const data = await  axios.get("/m/ajax/search",{
               params:{
                   kw,
                   cityId:1
