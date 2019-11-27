@@ -1,10 +1,12 @@
 import  React from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
+
 // import ReactPullLoad,{STATS} from 'react-pullload';
+import Header from '../../component/Header'
 import ReactPullLoad,{STATS} from 'react-pullload';
 import actionCinemaCreators from "../../store/actionCreateors/cinema/index";
-import Header from '../../component/Header'
+
 let cinemaPage = 1;
 class Cinema extends React.Component{
     render(){
