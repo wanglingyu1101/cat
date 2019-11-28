@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        a, div {
+            -webkit-tap-highlight-color: transparent;
+            display: block;
+        }
+        body {
+            font-size: 14px;
+            color: #777;
+            font-family: PingFangSC-Regular,Hiragino Sans GB,sans-serif;
+            -webkit-touch-callout: inherit;
+            -webkit-user-select: none;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        .cinema-info {
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+        .name {
+            color: #333;
+            font-size: 16px;
+            padding: 10px 0 10px 15px;
+        }
+        .contact, .name {
+            border-bottom: 1px solid #ddd;
+        }
+        .contact {
+            padding: 10px 55px 10px 40px;
+            position: relative;
+        }
+        .contact .map, .contact .phone {
+            position: absolute;
+            top: 50%;
+            margin-top: -10px;
+        }
+        .contact .map {
+            width: 14px;
+            height: 18px;
+            left: 13px;
+        }
+        a, img {
+            display: block;
+            width: 100%;
+            border: 0;
+        }
+        .contact .address {
+            border-right: 1px solid #eee;
+            width: 100%;
+        }
+        .contact .address p {
+            margin-right: 10px;
+        }
+        .contact .phone {
+            width: 55px;
+            text-align: center;
+            right: 0;
+        }
+        .contact .map, .contact .phone {
+            position: absolute;
+            top: 50%;
+            margin-top: -10px;
+        }
+        .contact .phone img {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+        .cinema-features {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            padding-left: 15px;
+        }
+        .cinema-features h3 {
+            padding: 10px 0;
+        }
+        .feature-cell {
+            padding: 15px;
+            padding-left: 0;
+            border-top: 1px solid #ddd;
+        }
+        .feature-cell .tag {
+            float: left;
+            color: #87b6c4;
+            border: 1px solid #87b6c4;
+            border-radius: 3px;
+            margin-right: 10px;
+            font-size: 12px;
+            padding: 0 3px;
+            margin-top: 2px;
+        }
+        .feature-cell .desc {
+            color: #333;
+            font-size: 16px;
+            min-height: 22px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="body" style="">
+    <div class="cinema-wrapper" data-cinemaid="26195">
+
+        <div class="cinema-info">
+            <h2 class="name">
+                大地院线影城（珠江摩尔店）
+            </h2>
+            <div class="contact">
+                <img class="map" src="data:image/png;base64,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" alt="map">
+                <div class="address">
+                    <p>昌平区回龙观镇北清路1号院7号楼内7-101-26</p>
+                </div>
+                <a href="tel:010-69739899" class="phone"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAYAAACcuBHKAAAAAXNSR0IArs4c6QAABYVJREFUWAm1V2tsVEUUnpl7t3e35VWrgYj4IDXGJ6I8pNuHRRBs6WOraEUDMWoIER8YE8MPoPpDaoLPiKCoIYgGSGR3bVFEFOluW5DGCAGTKlq02khtlUC73aV7Z/zOvbtkWXYF2vX+uI8z53znm3POnJnLWdJ1RUuLq1d2e6RUUznjR8ZNGL352DWl4SS1jH7yRDRnwLdQSfmSYmx8gvww13l1xO35OUGW0Ved0C5va8juCQ1ulFLOt9F5BOx2Ka5mMcVuUib7GPLp9ljm74Ige/ujW+DMIsA59wnhuCFS4qkUQiu3XCo1zQj6KzPv3kbkAJ+tTHMXfXLBn4sUeV5JdGbs9e5QTJUxzg5ibDJIIluZvQSTarYNyVuTCZBc4/oKa1yxSUbQe5+tm9m7YErlECRn6s9U0KHiiu9QH15LR/IX6pSyUphKd6gywQT7xTLmbFI6EIeetZIhDUjL9fUB34J0ekOVC53pu8kYHiYaLf78VEB97nmHobHV1lMrlVJnLe1UNhcjE32F8w6hKR23jEx1dzpjLrQ6GkNVXusK+krS6Q1FLqjaMa8vLWMly9KB5OfmdyAlp2icSz42nd5Q5LEi434yRkrmOpt3XJUM5GppGH+0p30nFEaCQlTpjn3JOsP5tkgUFI32ISKdANKUGVmaCGg0+cvNwehBpKHUlqsVYXf5r4k6w323SHzDS6OK87UEhtw8NvbgF9aydQW99ysmGyDNQ930CKY9fLqkpn64TpPtz6x5p+bcgJyH4HDMiZMDj9qKqotY0btgvCpcUvVRMkAmvs+QOFkw92805I0EqpRcNbKt4dKQ29MMBr+TTHL1ID3/j+sMCQJ3cKMO0fgH6/CSSH/0ZWufEHwNjaFRLc5p8t9C75m+rFAnghp7fYtRB+upQ2pMFE3Myz9wtPfHQ2hQ14FU+0ghpvYUVllLNdFuOO9nRYKAlhdXUW3sp1owlVzXn90tdI3VYmlGiMgpafryf/rMGI7TZNtzSNRxLnVdLIGiiSTc3NV54oN+t+d7IdjjFB30kpmdXeFtmSRyTjriLI2A92kl1evWN2erThfXvGg0+ZahaF8lGefsa0PPnk8FHbeJP+mMwkz5JOroMixtFLe2NlxS2REfT36mJUGKRmD7eiXZYoqAJljtQKFnG2TPIlNrKF1WgxNiaaSw6tM4sFVTXK2LL+2Y3MRZYUuWllVvb4Zxbfv5nyTuVHv01sCJncjBXVAPA6gWEfG7mvy1pjI3QDYiBncAm9CbmPkIxfjbMQL7hOC7kb6FsL/S0sNk0AYaha5WD7hrWmO2gD3PNTrQmBuWg810loCqyZl4IlJS/Y617Q/KNyA/Z9NDqprysh33dE2pCN3e1uY40v/bApB7PoZhe+S8RTjYQ+EZnmPnJUEW1LgioWgjZmiduJHnd/Ny9GXkxLXXV2By9RSKuAbNxIEU7RqVN+bev24s7bO92XdEg86z1UzK5ZBMJSl0O7DkJ10QCTKg3wI6lWM2FTGAdqRg0UBR9X76zvl2xzgzEim7ozB3E+1FJEt30aaIAv8ExA1EdukFkyBAmo0z6MUKYasx6ywqWIg3a7q+fKCg4o90TlPJjabtjcApRzTeuigScbCcZu+tg6Z6H0Rus2ScDaAONjGuvYaV0h7XS/e8umOPE/2HNsdc2C0ZEgkCr8Opuz7oXxT7bRxnOaTqZ+wr1MxWhyG9p6bX9KYiYi1j2hpwQHK4siYMmUQc3K4V8xEk6xnUS8JBmUfxGxHATFuV0PbjLPCDJlkoKuUMRPA96I9BOj88XexZOGwScTIUmdVBbxnK5gHIKhHqUfGxVE9qdA4te0qfe053xkgkOqJ9pfP44By07pmo3GmY9WSMO2M6fehOnxsGWxJP179PlC9/yUXmnwAAAABJRU5ErkJggg==" alt="phone"></a>
+            </div>
+        </div>
+
+
+        <div class="cinema-features">
+            <h3>特色信息</h3>
+
+
+            <div class="feature-cell">
+                <span class="tag">退</span>
+                <p class="desc">未取票用户放映前60分钟可退票</p>
+            </div>
+
+
+
+            <div class="feature-cell">
+                <span class="tag">改签</span>
+                <p class="desc">未取票用户放映前60分钟可改签</p>
+            </div>
+
+
+
+            <div class="feature-cell">
+                <span class="tag">3D眼镜</span>
+                <p class="desc">免押金</p>
+            </div>
+
+
+
+            <div class="feature-cell">
+                <span class="tag">儿童优惠</span>
+                <p class="desc">1.3米以下儿童观看2D、3D影片免票无座</p>
+            </div>
+
+
+
+            <div class="feature-cell">
+                <span class="tag">可停车</span>
+                <p class="desc">凭影票可换取4小时停车券一张</p>
+            </div>
+
+
+
+            <div class="feature-cell">
+                <span class="tag">WiFi</span>
+                <p class="desc">影院有WIFI</p>
+            </div>
+
+
+
+            <div class="feature-cell">
+                <span class="tag">情侣座</span>
+                <p class="desc">1厅7厅设有情侣座</p>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script src="//s0.meituan.net/bs/?f=myfe/canary:/static/deploy/dpmmweb/common.87b81cf9.js" crossorigin="anonymous"></script>
+    <script src="//s0.meituan.net/bs/?f=myfe/canary:/static/deploy/dpmmweb/cinema-detail-page.7c017b60.js" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
