@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>yingcheng</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <style>
+        html {
+            display: block;
+            color: -internal-root-color;
+        }
+
+        html {
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            width: 100% !important;
+        }
+
+        body {
+            font-size: 14px;
+            color: #777;
+            display: block;
+        }
+
+        body {
+            font-family: PingFangSC-Regular, Hiragino Sans GB, sans-serif;
+            -webkit-touch-callout: inherit;
+            -webkit-user-select: none;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        a, div {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        i {
+            font-style: italic;
+        }
+
+        body, ul, ol, h1, h2, h3, h4, h5, input, p { /*清除标签自带的缝隙，如果有用其他的标签可以继续书写进来*/
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "微软雅黑"; /*避免字体兼容，给body设置字体，这样的话所有浏览器统一字体*/
+            font-size: 12px; /*网页设计当中常用的字号是12号，先统一设置，后面的很多12就可以不用写了*/
+        }
+
+        a {
+            text-decoration: none; /*去除下划线*/
+            cursor: pointer;
+        }
+
+        a, img {
+            display: block;
+        }
+
+        li {
+            list-style: none; /*去除自带的黑点*/
+        }
+
+        img {
+            border: 0; /*解决图片添加超链接之后，在IE上的边框*/
+            vertical-align: top; /*解决图片撑大3像素的兼容*/
+            width: 100%;
+            display: block;
+        }
+
+        .clearbox:after { /*万能清除法解决高度塌陷*/
+            content: "";
+            display: block;
+            clear: both;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+        .clearbox {
+            zoom: 1;
+        }
+
+        .navbar {
+            height: 50.5px;
+            color: #fff;
+            background: #e54847;
+            border-bottom: 1px solid #e54847;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            position: relative;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 3)
+            .mb-line-all, .mb-line-b, .mb-line-l, .mb-line-lr, .mb-line-r, .mb-line-t, .mb-line-tb, .mb-outline-b, .mb-outline-t, .mb-outline-tb {
+                background-size: 1px 1px;
+            }
+
+            .navbar .nav-wrap-left {
+                height: 50.5px;
+                line-height: 50.5px;
+            }
+
+            .nav-wrap-left a.back {
+                height: 50px;
+                width: 22.5px;
+                line-height: 50px;
+                padding: 0 15px;
+            }
+
+            .icon-back {
+                display: inline-block;
+                width: 22.5px;
+                height: 22.5px;
+                vertical-align: middle;
+                position: relative;
+            }
+
+            .icon-back:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                width: 16px;
+                height: 16px;
+                border-bottom: 2px solid #fff;
+                border-left: 2px solid #fff;
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+
+            .navbar .h1.nav-header, .navbar h1.nav-header {
+                display: block;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                font-size: 18px;
+                font-weight: 400;
+                text-align: center;
+                line-height: 50px;
+                margin: 0;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                margin-right: 52.5px;
+            }
+
+            .download-app-bar {
+                position: relative;
+                height: 63px;
+                background-color: #fff;
+                border-bottom: 1px solid #e6e6e6;
+            }
+
+            .download-app-bar img.logo {
+                position: absolute;
+                left: 15px;
+                top: 11px;
+                width: 44px;
+                height: 44px;
+            }
+
+            .download-app-bar .app-name-desc {
+                position: absolute;
+                left: 66px;
+                top: 13px;
+            }
+
+            .download-app-bar .app-name-desc .app-name {
+                font-size: 17px;
+                color: #222;
+                line-height: 23px;
+            }
+
+            .download-app-bar .app-name-desc .app-desc {
+                font-size: 12px;
+                color: #999;
+            }
+
+            .download-app-bar .btn-open-app {
+                position: absolute;
+                right: 15px;
+                top: 17px;
+                width: 68px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                background: #ef4238;
+                border-radius: 3px;
+                font-size: 13px;
+                color: #fff;
+            }
+
+            .body .body-wrap {
+                margin-bottom: 25px;
+            }
+
+            element.style {
+                transform: translate3d(157px, 0px, 0px);
+                transition-duration: 0ms;
+            }
+
+            .body .body-wrap > div {
+                background-color: #fff;
+            }
+
+            .cinema-block .cinema-info {
+                position: relative;
+                padding: 15px;
+                padding-right: 100px;
+            }
+
+            .cinema-block .cinema-info .title {
+                font-size: 17px;
+                line-height: 24px;
+                font-weight: 700;
+                color: #333;
+            }
+
+            .cinema-block .cinema-info .location {
+                margin-top: 2px;
+                font-size: 13px;
+                line-height: 18.5px;
+                color: #999;
+            }
+
+            .cinema-block .cinema-info .location-icon {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                width: 70px;
+                height: 31px;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                border-left: 1px solid #d8d8d8;
+                text-align: center;
+            }
+
+            .cinema-block .cinema-info .location-icon img {
+                display: inline-block;
+                width: 19px;
+                height: 22px;
+                margin-top: 5px;
+            }
+
+            .cinema-block .cinema-nav {
+                padding: 20px 0;
+                padding-left: 5px;
+                padding-right: 15px;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+
+            .swiper-container {
+                margin-left: auto;
+                margin-right: auto;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+            }
+
+            .cinema-block .cinema-nav .post-bg {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                overflow: hidden;
+                -webkit-filter: blur(30px);
+                filter: blur(30px);
+                background-position-y: 40%;
+            }
+
+            .cinema-block .cinema-nav .post-bg-filter {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: #40454d;
+                opacity: .55;
+            }
+
+            .cinema-block .cinema-nav .swiper-slide.swiper-slide-active {
+                padding-right: 5px;
+            }
+
+            .cinema-block .cinema-nav .swiper-slide:first-child {
+                margin-left: 10px;
+            }
+
+            .cinema-block .cinema-nav .swiper-slide {
+                width: 65px;
+                height: 95px;
+            }
+
+            .swiper-slide {
+                -webkit-flex-shrink: 0;
+                -ms-flex: 0 0 auto;
+                flex-shrink: 0;
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+
+            .cinema-block .cinema-nav .swiper-slide + .swiper-slide {
+                margin-left: 15px;
+            }
+
+            .cinema-block .cinema-nav .swiper-slide {
+                width: 65px;
+                height: 95px;
+            }
+
+            .cinema-block .movie-info {
+                padding: 11px 15px;
+                text-align: center;
+                border-bottom: 1px solid #e6e6e6;
+            }
+
+            .cinema-block .movie-info .movie-title {
+                height: 24px;
+                line-height: 24px;
+                font-size: 17px;
+                color: #333;
+                font-weight: 700;
+            }
+
+            .line-ellipsis {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .movie-title {
+                height: 24px;
+                line-height: 24px;
+                font-size: 17px;
+                color: #333;
+                font-weight: 700;
+            }
+
+            .cinema-block .movie-info .movie-title .grade {
+                color: #ffb400;
+                font-size: 16px;
+            }
+
+            .cinema-block .movie-info .movie-title .grade .small {
+                font-size: 10px;
+            }
+
+            .cinema-block .movie-info .movie-desc {
+                margin-top: 2px;
+                height: 18.5px;
+                line-height: 18.5px;
+                font-size: 13px;
+                color: #999;
+            }
+
+            .body .body-wrap > div {
+                background-color: #fff;
+            }
+
+            .body .nav-wrap {
+                position: relative;
+            }
+
+            .nav-block .nav-bar {
+                position: relative;
+                height: 45px;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .nav-block .nav-bar .nav-bar-wrap {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: -20px;
+                padding-bottom: 20px;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .nav-block .nav-bar .nav-item.active {
+                color: #f03d37;
+                position: relative;
+            }
+
+            .nav-block .nav-bar .nav-item:first-child {
+                margin-left: 15px;
+            }
+
+            .nav-block .nav-bar .nav-item {
+                display: inline-block;
+                line-height: 45px;
+                height: 45px;
+                text-align: center;
+                font-size: 14px;
+                color: #666;
+            }
+
+            .nav-block .nav-bar .nav-item.active:after {
+                content: "";
+                position: absolute;
+                width: 110%;
+                height: 2px;
+                bottom: 0;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+                background-color: #f03d37;
+            }
+            .nav-block .nav-bar .nav-item+.nav-item {
+                margin-left: 30px;
+            }
+            .discount-block {
+                padding-top: 1px;
+            }
+            .vip-tips {
+                background-color: #fff5ea;
+            }
+            .discount-tips, .vip-tips {
+                padding: 0 15px;
+                height: 42px;
+                line-height: 42px;
+                margin-top: -1px;
+            }
+            .discount-tips a, .vip-tips a {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                color: #777;
+            }
+            .vip-tips .label {
+                background-color: #ff941a;
+            }
+            .discount-tips .label, .vip-tips .label {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+                display: inline-block;
+                border-radius: 2px;
+                font-size: 10px;
+                line-height: 15px;
+                height: 15px;
+                text-align: center;
+                color: #fff;
+                margin-top: 13px;
+                margin-right: 10px;
+            }
+            .vip-tips .label-text {
+                color: #fa9600;
+            }
+            .line-ellipsis {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .discount-tips .process, .vip-tips .process {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+                line-height: 42px;
+                color: #999;
+                font-size: 12px;
+                margin-left: 90px;
+            }
+            .discount-tips .process:after, .vip-tips .process:after {
+                display: inline-block;
+                content: "";
+                width: 7px;
+                height: 7px;
+                border-left: 1px solid #ccc;
+                border-top: 1px solid #ccc;
+                -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+            }
+            .seat-list .list-wrap .item-outer {
+                padding: 17px 0;
+                margin-left: 12.5px;
+                border-bottom: 1px solid #e6e6e6;
+            }
+            .seat-list .list-wrap .item {
+                padding-right: 12.5px;
+            }
+            .box-flex {
+                display: -webkit-box;
+                display: flex;
+            }
+            .seat-list .list-wrap .item .time-block {
+                position: relative;
+            }
+            .seat-list .list-wrap .item .time-block .begin {
+                font-size: 20px;
+                color: #333;
+                line-height: 1;
+                white-space: nowrap;
+            }
+            .seat-list .list-wrap .item .time-block .end {
+                margin-top: 10px;
+                color: #999;
+                font-size: 11px;
+                line-height: 1;
+                white-space: nowrap;
+            }
+            .seat-list .list-wrap .item .time-block .end>.tui {
+                margin-left: 4px;
+                display: inline-block;
+                -webkit-transform: translateY(-.5px);
+                transform: translateY(-.5px);
+            }
+            .seat-list .list-wrap .item .info-block {
+                margin-left: 17px;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+                overflow-x: hidden;
+            }
+            .seat-list .list-wrap .item .info-block .lan {
+                margin-top: 2px;
+                line-height: 18px;
+                font-size: 13px;
+                color: #333;
+                white-space: normal;
+            }
+            .seat-list .list-wrap .item .info-block .hall {
+                margin-top: 7px;
+                font-size: 11px;
+                color: #999;
+                white-space: normal;
+            }
+            .seat-list .list-wrap .item .price {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 1 auto;
+                flex: 0 1 auto;
+                width: 130px;
+                margin-left: 5px;
+            }
+            .seat-list .list-wrap .item .price .sellPr {
+                display: inline-block;
+                line-height: 1;
+                color: #f03d37;
+                margin-top: 1px;
+                font-size: 19px;
+            }
+            .seat-list .list-wrap .item .price .sellPr .d {
+                color: 13px;
+                font-size: 11px;
+            }
+            .vipPrice {
+                display: inline-block;
+                line-height: 15px;
+                height: 15px;
+                -webkit-transform: scale(.8);
+                transform: scale(.8);
+                -webkit-transform-origin: left;
+                transform-origin: left;
+                margin-right: -16px;
+                border: 1px solid #ff9000;
+                border-radius: 2px;
+                font-size: 12px;
+            }
+            .vipPrice .icon, .vipPrice .num {
+                display: inline-block;
+                padding: 0 2px;
+            }
+            .vipPrice .icon {
+                color: #fff;
+                background-color: #f90;
+            }
+            .seat-list .list-wrap .item .price .extraDesc {
+                margin-top: 5px;
+                display: block;
+                font-size: 11px;
+                color: #999;
+            }
+            .seat-list .list-wrap .item .button-block {
+                width: 45px;
+                margin-left: 2px;
+                position: relative;
+            }
+            .seat-list .list-wrap .item .button-block .button {
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                width: 100%;
+                height: 27px;
+                line-height: 28px;
+                font-size: 12px;
+                background-color: #f03d37;
+                color: #fff;
+                border-radius: 4px;
+                text-align: center;
+            }
+        }
+        element.style {
+            height: 10px;
+            background-color: #f0f0f0;
+        }
+        .body .body-wrap>div {
+            background-color: #fff;
+        }
+            .tuan-wrap .tuan-list {
+                position: relative;
+                margin: 0 0 0 15px;
+            }
+            .tuan-wrap .tuan-list .tuan-title {
+                line-height: 45px;
+                height: 45px;
+                font-size: 15px;
+                color: #666;
+                border-bottom: 1px solid #e6e6e6;
+            }
+            .tuan-wrap .tuan-list .tuan-item {
+                cursor: pointer;
+                position: relative;
+                width: 100%;
+                padding: 13px 0;
+                overflow: hidden;
+                border-bottom: 1px solid #e6e6e6;
+            }
+            .tuan-wrap .tuan-list .tuan-item img {
+                display: inline-block;
+                width: 92px;
+                height: 92px;
+                float: left;
+            }
+            .tuan-wrap .tuan-list .tuan-item .hot-tag {
+                position: absolute;
+                left: 0;
+                top: 13px;
+                display: inline-block;
+                height: 18px;
+                line-height: 18px;
+                background-color: #fa5939;
+                font-size: 12px;
+                padding: 0 5px;
+                color: #fff;
+                border-bottom-right-radius: 2px;
+            }
+            .tuan-wrap .tuan-list .tuan-item .item-info {
+                position: relative;
+                margin: 0 15px 0 102px;
+                height: 92px;
+                overflow: hidden;
+            }
+            .tuan-wrap .tuan-list .tuan-item .item-info .title {
+                font-size: 14px;
+                line-height: 18px;
+                color: #333;
+                display: -webkit-box;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .tuan-wrap .tuan-list .tuan-item .item-info .title span {
+                display: inline-block;
+                vertical-align: top;
+                margin-top: 1px;
+                margin-right: 7px;
+                padding: 0 4px;
+                font-size: 10px;
+                line-height: 15px;
+                height: 15px;
+                background: #f90;
+                border-radius: 2px;
+                color: #fff;
+            }
+            .tuan-wrap .tuan-list .tuan-item .item-info .sell-num {
+                display: inline-block;
+                position: absolute;
+                bottom: 34px;
+                right: 0;
+                line-height: 16px;
+                height: 16px;
+                font-size: 12px;
+                color: #999;
+            }
+            .tuan-wrap .tuan-list .tuan-item .item-info .price {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+            .tuan-wrap .tuan-list .tuan-item .item-info .price .sell-price {
+                color: #f03d37;
+                display: inline-block;
+            }
+            .tuan-wrap .tuan-list .tuan-item .item-info .price .sell-price span {
+                font-size: 14px;
+            }
+            .tuan-wrap .tuan-list .tuan-item .item-info .price .sell-price .num {
+                font-size: 17px;
+            }
+            .tuan-wrap .tuan-list .tuan-item .item-info .buy-btn {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                display: inline-block;
+                padding: 0 8px;
+                height: 27px;
+                line-height: 27px;
+                font-size: 12px;
+                border-radius: 3px;
+                color: #fff;
+                background-color: #f03d37;
+            }
+        .no-seat {
+            text-align: center;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            height: 230px;
+            background-color: #f0f0f0;
+        }
+        .no-seat .icon {
+            width: 77.5px;
+        }
+        .no-seat .text {
+            margin-top: 12px;
+            line-height: 1;
+            font-size: 16px;
+            color: #acacac;
+        }
+        .no-seat .next-date-button {
+            margin: 20px auto 0;
+            border-radius: 5px;
+            width: 170px;
+            height: 35px;
+            line-height: 35px;
+            font-size: 14px;
+            color: #f03d37;
+            border: 1px solid rgba(0,0,0,.15);
+            background-color: #fff;
+            text-align: center;
+        }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<!--头部-->
+<header class="navbar  ">
+    <div class="nav-wrap-left">
+        <a class="back" href="#" onclick="javascript: window.history.back();return false;"><i class="icon-back"></i></a>
+    </div>
+    <h1 class="nav-header">大地院线影城（珠江摩尔店）</h1>
+</header>
+<!--内容-->
+<div class="body" style="">
+    <a id="download-header" href="/app?channel=mymovie1yuan-dy" data-cid="c_76cEz" data-view-bid=""
+       data-bid="b_53up23as"
+       data-lab="{&quot;position&quot;:&quot;home&quot;, &quot;utm_content&quot;: &quot;&quot;, &quot;utm_source&quot;: &quot;&quot;}">
+        <div class="download-app-bar">
+            <img class="img noneBg logo" alt="logo" src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/avatar.png"
+                 width="42" height="42">
+            <div class="app-name-desc">
+                <div class="app-name">猫眼</div>
+                <div class="app-desc">在线选座，热门影讯，爱上看电影</div>
+            </div>
+            <div class="btn-open-app">立即打开</div>
+        </div>
+    </a>
+    <a id="download-tip" class="download-tip" href="/app?channel=mymovie1yuan-dy" data-cid="c_76cEz" data-view-bid=""
+       data-bid="b_53up23as"
+       data-lab="{&quot;position&quot;:&quot;bottom&quot;, &quot;utm_content&quot;: &quot;&quot;, &quot;utm_source&quot;: &quot;&quot;}"
+       style="display: none;"></a>
+    <div class="body-wrap">
+        <div class="cinema-wrap">
+            <div class="cinema-block">
+                <div class="cinema-info">
+                    <div class="title line-ellipsis">大地院线影城（珠江摩尔店）</div>
+                    <div class="location line-ellipsis">昌平区回龙观镇北清路1号院7号楼内7-101-26</div>
+                    <div class="location-icon" data-bid="dp_wx_cinema_map"><img
+                            src="data:image/png;base64,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">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div class="cinema-nav swiper-container swiper-container-horizontal">
+                            <div class="post-bg"
+                                 style="background-image: url(&quot;//p0.meituan.net/148.208/moviemachine/58ee13be6dc60bf5e636cf915bbbaaa55787785.jpg&quot;);"></div>
+                            <div class="post-bg-filter"></div>
+                            <div class="swiper-wrapper"
+                                 style="transform: translate3d(159.5px, 0px, 0px); transition-duration: 0ms;">
+                                <div class="swiper-slide swiper-slide-active"
+                                     data-obj="{&quot;movieId&quot;:247949,&quot;globalReleased&quot;:true,&quot;desc&quot;:&quot;104分钟 | 喜剧 | 克里斯汀·贝尔&quot;,&quot;nm&quot;:&quot;冰雪奇缘2&quot;,&quot;sc&quot;:&quot;9.0&quot;,&quot;wish&quot;:204361,&quot;bgImage&quot;:&quot;http://p0.meituan.net/148.208/moviemachine/58ee13be6dc60bf5e636cf915bbbaaa55787785.jpg&quot;,&quot;preferential&quot;:0}">
+                                    <div class="post" data-bid="dp_wx_cinema_movie_pic_click">
+                                        <img src="//p0.meituan.net/148.208/moviemachine/58ee13be6dc60bf5e636cf915bbbaaa55787785.jpg">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <div class="movie-title line-ellipsis">
+                                <span class="title">冰雪奇缘2</span>
+                                <span class="grade">
+						<span>9.0<span class="small">分</span></span>
+
+					</span>
+
+                            </div>
+                            <div class="movie-desc line-ellipsis">104分钟 | 喜剧 | 克里斯汀·贝尔</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="no-sell-cinema" style="display:none;">
+            <div class="tip-text mb-line-t line-ellipsis">暂无该影院的影片信息</div>
+            <div class="gap" style="height: 10px; background-color: #f0f0f0;"></div>
+            <div class="cinema-list">
+                <div class="reCinema-title mb-line-b line-ellipsis">为您推荐该影院附近的可选座影院</div>
+                <div class="list-wrap"></div>
+            </div>
+        </div>
+        <div class="nav-wrap">
+            <div class="nav-block mb-line-t">
+                <div class="nav-bar mb-line-b">
+                    <div class="nav-bar-wrap">
+                        <div class="nav-item active" data-bid="dp_wx_cinema_show_date" data-id="2019-11-27">
+                            <span class="date-title">今天11月27日</span>
+
+                        </div>
+                        <div class="nav-item active" data-bid="dp_wx_cinema_show_date" data-id="2019-11-28">
+                            <span class="date-title">今天11月28日</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="seat-wrap">
+            <div class="discount-block">
+
+                <div class="vip-tips">
+                    <a>
+                        <div class="label">折扣卡</div>
+                        <div class="label-text line-ellipsis">现在开卡，首单2张最高立减6元</div>
+                        <div class="process">20元起开卡</div>
+                    </a>
+                </div>
+            </div>
+            <div class="seat-inner-wrap">
+                <div class="seat-list">
+                    <div class="list-wrap">
+                        <div class="item-outer mb-line-b" data-bid="dp_wx_cinema_show_item">
+
+                            <div class="item box-flex">
+                                <div class="time-block">
+                                    <div class="begin">16:00</div>
+                                    <div class="end">17:44<span class="tui">散场</span></div>
+
+                                </div>
+                                <div class="info-block">
+                                    <div class="lan">原版 3D</div>
+                                    <div class="hall">1号激光厅</div>
+                                </div>
+                                <div class="price">
+                                    <div class="sellPr"><span class="d">¥</span><span><span class="stonefont"></span></span>
+                                    </div>
+                                    <div class="vipPrice"><span class="icon">折扣卡</span><span class="num">¥28</span>
+                                    </div>
+                                    <div class="extraDesc">折扣卡首单特惠</div>
+                                </div>
+                                <div class="button-block">
+                                    <div class="button" data-bid="dp_wx_cinema_show_btn">购票</div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="tuan-wrap">
+
+    <div class="no-seat">
+        <div class="icon"><img src="data:image/png;base64,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"></div>
+
+        <div class="text">今日暂无场次</div>
+        <div class="next-date-button" data-id="2019-11-27">
+            点击查看11月27日场次
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="gap" style="height: 10px; background-color: #f0f0f0;"></div>
+    <div class="tuan-list">
+        <div class="tuan-title mb-line-b">影院超值套餐</div>
+        <div class="tuan-item mb-line-b">
+            <img data-ui-type="image-viewer"
+                 src="//p0.meituan.net/440.0/movie/4b94cdb55d271185e2ecb17a97a6f61f1020393.png@750w_750h_1e_1c">
+
+            <span class="hot-tag ">HOT</span>
+
+            <div class="item-info"
+                 data-href="/deal/submitorder/100269074?_v_=yes&amp;promotionsId=0&amp;cinemaId=26195&amp;category=11&amp;poiId=0&amp;channelId=4"
+                 data-bid="dp_wx_cinema_deal_list">
+                <div class="title">
+
+                    <span>双人</span>
+
+                    85oz爆米花1桶+22oz可乐2杯
+                </div>
+
+                <div class="sell-num">已售464</div>
+                <div class="price">
+
+				<span class="sell-price">
+					<span>¥</span><span class="num">38</span>
+				</span>
+
+                </div>
+                <div class="buy-btn">去购买</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
