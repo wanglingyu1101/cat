@@ -26,7 +26,7 @@ class MovieComing extends React.Component{
                     <div className="most-expected-list-ll">
 
                     {
-                        this.props.expectedList.map((v,i)=>(
+                        this.props.expectedList?this.props.expectedList.map((v,i)=>(
                                 <div className="expected-item-ll" key={i}>
                                     <div className="poster default-img-bg-ll">
                                         <img src={this.props.movieList?this.$tools.movieImg(v.img):''}/>
@@ -39,7 +39,7 @@ class MovieComing extends React.Component{
                                     <h5 className="name line-ellipsis-ll">{v.nm}</h5>
                                     <p className="date-ll">{v.comingTitle}</p>
                                 </div>
-                        ))
+                        )):null
                     }
                 </div>
                 </div>
@@ -62,7 +62,7 @@ class MovieComing extends React.Component{
                     >
                 {
 
-                    this.props.movieList.map((v,i)=>(
+                    this.props.movieList?this.props.movieList.map((v,i)=>(
                         <div className="item"  data-bid="dp_wx_home_movie_list" key={i}>
 
                             <div className="main-block" >
@@ -103,7 +103,7 @@ class MovieComing extends React.Component{
                             </div>
                         </div>
 
-                    ))
+                    )):null
                 }
                     </PullToRefresh>
 
