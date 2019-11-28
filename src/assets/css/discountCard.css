@@ -17,6 +17,7 @@ html {
 }
 .cardlist .no-card img {
     width: 1.86rem;
+    display: inline;
 }
 .cardlist .no-card div {
     text-align: center;
