@@ -2,11 +2,12 @@ import  React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from "redux";
 import searchActionCreators from '../../store/actionCreateors/search/index'
-
+import Header from '../../component/Header'
 class cinemaSearch extends React.Component{
     render(){
         return (
             <>
+                <Header head={"猫眼电影"} back={true}></Header>
                 <input type="text" placeholder="搜影院" onChange={this.searchCinema.bind(this)}/>
                 {
                     this.props.searchMovieList?this.props.searchMovieList.map((v,i)=>(

@@ -1,14 +1,16 @@
 import  React from 'react'
 import '../../assets/css/coupon.css'
+import Header from '../../component/Header'
 class Coupon extends React.Component{
     render(){
         return (
             <div>
+                <Header head={"我的优惠券"} back={true}></Header>
                 <div className="coupon">
                     <div className="input-wrapper">
                         <input type="text" placeholder="请输入优惠券密码" className="coupon-psw"/>
                     </div>
-                    <a className="add-coupon">添加</a>
+                    <p className="add-coupon">添加</p>
                 </div>
                 <div className="container">
                     <div className="coupon-list">

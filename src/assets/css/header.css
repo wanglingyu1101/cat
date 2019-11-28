@@ -1,25 +1,43 @@
-.header {
+.header-header {
     height: 50.5px;
     color: #fff;
     background: #e54847;
     border-bottom: 1px solid #e54847;
     display: -webkit-box;
     display: -ms-flexbox;
+    display: flex;
+    justify-items: center;
     position: relative;
-    top:0;
+    top: 0;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
-.header .h1.nav-header, .header h1.nav-header {
-    display: block;
+.header-header .nav-back {
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    line-height: 50px;
+    text-align: center;
+
+}
+
+.header-header .nav-back .iconfont {
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+}
+
+.header-header .nav-header {
+    display: inline-block;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     font-size: 18px;
     font-weight: 400;
     text-align: center;
     line-height: 50px;
-    margin: 0;
+    margin: 0 50px 0 0;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    flex: 1;
 }
