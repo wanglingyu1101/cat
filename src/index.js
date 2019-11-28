@@ -16,8 +16,8 @@ axios.interceptors.response.use(({data})=>{
     return data
 })
 
-// ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
-ReactDOM.render(<Position></Position>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
+// ReactDOM.render(<Position></Position>, document.getElementById('root'));
 
 
 // If you want your app to work offline and load faster, you can change

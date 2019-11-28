@@ -169,6 +169,7 @@
         height: 90px;
         max-height: 90px;
         position: relative;
+        border-bottom: 1px solid #e6e6e6;
     }
     .list-wrap .item .content {
         padding-right: 5px;
