@@ -9,7 +9,7 @@
     border-radius: 5px;
 }
 
-.coupon .input-wrapper, .coupon a {
+.coupon .input-wrapper, .coupon p {
     display: inline-block;
     box-sizing: border-box;
 }
@@ -59,7 +59,7 @@ input {
     border-image: initial;
 }
 
-.coupon a {
+.coupon p {
     margin-left: 10px;
     color: #f03d37;
 }

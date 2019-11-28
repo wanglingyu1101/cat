@@ -99,8 +99,7 @@ class MovieComing extends React.Component{
                                                 <div className="btn normal" ><span className="fix" data-bid="dp_wx_home_movie_btn">想看</span></div>
                                         }
                                     </div>
-                                    <hr/>
-                                </div>
+                                        </div>
                             </div>
                         </div>
 

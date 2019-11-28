@@ -1,0 +1,15 @@
+.am-wingblank {
+    overflow: hidden;
+    padding:10px 0;
+    position: relative;
+    left:0;
+    touch-action: none;
+}
+.am-carousel{
+    wdith:80px;
+    height:100px;
+    display: block;
+    position:absolute;
+    left:50%;
+    transform: translateX(-40px);
+}

@@ -3,7 +3,7 @@
     bottom: -1px;
     width: 100%;
     background: #fff;
-    border-top: 1px solid #d8d8d8;
+    border-top: 2px solid #d8d8d8;
     display: -webkit-box;
     display: flex;
     justify-content: space-around;
@@ -14,8 +14,8 @@
     float: left;
     width: 25px;
     height: 48px;
-    padding-top:2px;
-    font-size:10px;
+    padding-top: 2px;
+    font-size: 10px;
     line-height: 24px;
     box-sizing: border-box;
     color: #696969;
@@ -24,6 +24,7 @@
     -webkit-box-flex: 1;
     flex: 1;
 }
-.bottom-nav-bar .navLink .iconfont{
+
+.bottom-nav-bar .navLink .iconfont {
     font-size: 22px;
 }

@@ -1,20 +1,20 @@
 import React from 'react'
 import '../../assets/css/myCinemaOrder.css'
-
+import Header from '../../component/Header'
 class MyCinemaOrder extends React.Component {
     render() {
         return (
             <div>
+                <Header back={true} head={"我的电影订单"}></Header>
                 <div className="order-content">
                     <div className="order-list">
                         <div className="order-item mb-line-tb">
                             <div className="order-title mb-line-b">
-                                <a className="cinema-name line-ellipsis"
-                                   data-link="/shows/14488?_v_=yes&amp;movieId=1203084&amp;$from=canary">
+                                <div className="cinema-name line-ellipsis">
                                     横店电影城(顺城店)
-                                </a>
+                                </div>
                             </div>
-                            <a data-link="/order/3342006426?$from=canary&amp;_v_=yes" className="order-detail-link">
+                            <div className="order-detail-link">
                                 <div className="order-info">
                                     <img
                                         src="//p0.meituan.net/114.160/movie/c6b9bfb37fdb6dc01f700bd3f8d383c92054736.jpg"
@@ -27,7 +27,7 @@ class MyCinemaOrder extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                             <div className="order-more  mb-line-t">
                                 <div className="price">总价：<span>22.9元</span></div>
                                 <div className="status">已完成</div>

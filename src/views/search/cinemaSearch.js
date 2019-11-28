@@ -2,11 +2,12 @@ import  React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from "redux";
 import searchActionCreators from '../../store/actionCreateors/search/index'
-
-class cinemaSearch extends React.Component{
+import Header from '../../component/Header'
+class CinemaSearch extends React.Component{
     render(){
         return (
             <>
+                <Header head={"猫眼电影"} back={true}></Header>
                 <input type="text" placeholder="搜影院" onChange={this.searchCinema.bind(this)}/>
                 {
                     this.props.searchMovieList?this.props.searchMovieList.map((v,i)=>(
@@ -30,4 +31,4 @@ function mapStateToProps(state) {
         searchCinemaList:state.search.searchCinemaList
     }
 }
-export  default connect(mapStateToProps,dispatch=>bindActionCreators(searchActionCreators,dispatch))(cinemaSearch)
+export  default connect(mapStateToProps,dispatch=>bindActionCreators(searchActionCreators,dispatch))(CinemaSearch)
