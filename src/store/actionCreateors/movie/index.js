@@ -91,7 +91,6 @@ export  default  {
                 }
             })
             dispatch(upExpected(data.coming))
-            console.log(data)
         }
     }
 }

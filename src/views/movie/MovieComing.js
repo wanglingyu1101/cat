@@ -2,52 +2,76 @@ import  React from 'react'
 import {bindActionCreators} from "redux";
 import {connect} from 'react-redux'
 import '../../assets/css/movieComing.css'
+import {PullToRefresh} from 'antd-mobile'
 import actionMovieCreators from '../../store/actionCreateors/movie/index'
 let comingPage = 2;
-let exactedPage = 2;
+// let exactedPage = 2;
 let comingTitle = '';
 class MovieComing extends React.Component{
+    constructor(){
+        super()
+        this.state = {
+            refreshing: false,
+            height: document.documentElement.clientHeight,
+            width:document.documentElement.clientWidth,
+            showCat:'none'
+        };
+    }
     render(){
         return (
             <div id={'coming'}>
-                {/*{*/}
-                    {/*this.props.expectedList.map((v,i)=>*/}
-                        {/*<div key={i}>*/}
-                            {/*<p> 电影名:{v.nm}</p>*/}
-                            {/*<p>上映时间：{v.comingTitle}</p>*/}
-                            {/*<img src={this.props.expectedList?this.$tools.expectedImg(v.img):""} alt=""/>*/}
-                        {/*</div>)*/}
-                {/*}*/}
-                {/*<button onClick={()=>this.props.getExpectMovie(exactedPage++)}>加载更多</button>*/}
-                {/*{*/}
-                    {/*this.props.movieList.map((v,i)=>*/}
-                        {/*<div key={i}>*/}
-                            {/*<p> 电影名:{v.nm}</p>*/}
-                            {/*<p>{v.version}</p>*/}
-                            {/*/!*{  imgurl  中的  /w.h/    ===>    /128.180/  }*!/*/}
-                            {/*<img src={this.props.movieList?this.$tools.movieImg(v.img):''} alt=""/>*/}
-                            {/*<p>{v.showInfo}</p>*/}
-                            {/*<p>观众评：{v.sc}</p>*/}
-                            {/*<p>主演：{v.star}</p>*/}
-                            {/*<hr/>*/}
-                        {/*</div>)*/}
-                {/*}*/}
-                <div className="list-wrap" style={{marginTop:"0px"}}>
 
+                <div className="most-expected-ll">
+                    <p className="title-ll">近期最受期待</p>
+                    <div className="most-expected-list-ll">
+
+                    {
+                        this.props.expectedList.map((v,i)=>(
+                                <div className="expected-item-ll" key={i}>
+                                    <div className="poster default-img-bg-ll">
+                                        <img src={this.props.movieList?this.$tools.movieImg(v.img):''}/>
+                                        <span className="wish-bg-ll"></span>
+                                        <span className="wish-ll"><span className="wish-num-ll">{v.wish}</span>人想看</span>
+                                        <div className="toggle-wish-ll" data-wishst="0" data-movieid="1217023">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <h5 className="name line-ellipsis-ll">{v.nm}</h5>
+                                    <p className="date-ll">{v.comingTitle}</p>
+                                </div>
+                        ))
+                    }
+                </div>
+                </div>
+                <div className="list-wrap" style={{marginTop:"0px",display:'block'}}>
+                    <PullToRefresh
+                        damping={60}
+                        style={{
+                            height: this.state.height,
+                            overflow: 'auto',
+                        }}
+                        indicator={{ deactivate: '上拉可以刷新' }}
+                        direction={'up'}
+                        refreshing={this.state.refreshing}
+                        onRefresh={() => {
+                            this.setState({ refreshing: false });
+                            setTimeout(() => {
+                                this.props.upMovie(this.$tools.moviePage(comingPage++,this.props.allMoviesId))
+                            },1000);
+                        }}
+                    >
                 {
 
                     this.props.movieList.map((v,i)=>(
                         <div className="item"  data-bid="dp_wx_home_movie_list" key={i}>
 
                             <div className="main-block" >
-                                {/*{*/}
-                                    {/*comingTitle === v.comingTitile?<p>{不知哪里出错了？？？不显示}</p>:<p>{v.comingTitle}</p>*/}
-                                {/*}*/}
-                                {/*{*/}
-                                    {/*comingTitle = v.comingTitile*/}
-                                {/*}*/}
-
-                                <p>{v.comingTitle}</p>
+                                <p style={{paddingTop:'10px'}}>
+                                {
+                                    v.comingTitle === comingTitle?null:comingTitle=v.comingTitle
+                                }
+                                </p>
+                                {/*<p>{v.comingTitle}</p>*/}
                                 <div className="avatar" sort-flag="">
                                     <div className="default-img-bg">
                                         <img src={this.props.movieList?this.$tools.movieImg(v.img):''} />
@@ -82,10 +106,9 @@ class MovieComing extends React.Component{
 
                     ))
                 }
+                    </PullToRefresh>
 
-
-                    <a id="download-tip" className="download-tip" href="/app?channel=mymovie1yuan-dy" data-lab="{&quot;position&quot;:&quot;bottom&quot;, &quot;utm_content&quot;: &quot;&quot;, &quot;utm_source&quot;: &quot;&quot;}" ></a>
-                <button onClick={this.props.upMovie.bind(this,this.$tools.moviePage(comingPage++,this.props.allMoviesId))}>加载更多</button>
+                    <a id="download-tip" className="download-tip" href="/app?channel=mymovie1yuan-dy" style={{display:this.state.showCat}}></a>
                 </div>
             </div>
         )
@@ -93,6 +116,19 @@ class MovieComing extends React.Component{
     componentDidMount(){
         this.props.getComing()
         this.props.getExpectMovie()
+
+        window.addEventListener('scroll', this.handleScroll);
+
+    }
+
+    handleScroll =()=>{
+        let ctx=this;
+        let scrollTop  = document.documentElement.scrollTop;  //滚动条滚动高度
+        if(scrollTop>100){
+            ctx.setState( {showCat: "block"})
+        }else{
+            ctx.setState({showCat:'none'})
+        }
     }
 }
 function mapStateToProps(state) {
