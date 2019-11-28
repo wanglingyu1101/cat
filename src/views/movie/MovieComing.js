@@ -5,7 +5,7 @@ import '../../assets/css/movieComing.css'
 import actionMovieCreators from '../../store/actionCreateors/movie/index'
 let comingPage = 2;
 let exactedPage = 2;
-let comingTitle = ''
+let comingTitle = '';
 class MovieComing extends React.Component{
     render(){
         return (
@@ -41,7 +41,7 @@ class MovieComing extends React.Component{
 
                             <div className="main-block" >
                                 {/*{*/}
-                                    {/*comingTitle === v.comingTitile?<p>{v.comingTitile}</p>:<p>{}</p>*/}
+                                    {/*comingTitle === v.comingTitile?<p>{不知哪里出错了？？？不显示}</p>:<p>{v.comingTitle}</p>*/}
                                 {/*}*/}
                                 {/*{*/}
                                     {/*comingTitle = v.comingTitile*/}

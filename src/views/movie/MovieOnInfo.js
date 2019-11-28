@@ -2,7 +2,6 @@ import  React from 'react'
 import {bindActionCreators} from "redux";
 import {connect} from 'react-redux'
 import actionMovieCreators from '../../store/actionCreateors/movie/index'
-import '../../assets/css/movieOnInfo.css'
 let onInfoPage = 2
 class MovieOnInfo extends React.Component{
     render(){
@@ -23,37 +22,11 @@ class MovieOnInfo extends React.Component{
                         {/*<hr/>*/}
                     {/*</div>)*/}
             {/*}*/}
-                <header className="navbar">
-                    <h1 className="nav-header">猫眼电影</h1>
-                </header>
-                <div className="body" style={{display:"block"}}>
-                    <div className="download-app-bar">
-                        <img src={"//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/avatar.png"} alt="logo" style={{width:"42px" ,height:"42px"}}/>
-                        <div className="app-name-desc">
-                            <div className="app-name">猫眼</div>
-                            <div className="app-desc">在线选座，热门影讯，爱上看电影</div>
-                        </div>
-                        <div className="btn-open-app">立即打开</div>
-                    </div>
-                    <section className="topbar">
-                        <div className="white-bg topbar-bg ">
-                            <div className="city-entry">
-                                <span className="city-name">北京</span><i className="city-entry-arrow"></i>
-                            </div>
-                            <div className="switch-hot" data-active=".n-hot">
-                                <div className="hot-item active" data-tab=".n-hot">正在热映</div>
-                                <div className="hot-item " data-tab=".f-hot">即将上映</div>
-                            </div>
-                            <div className="search-entry search-icon" data-type="movie"></div>
-                        </div>
-                    </section>
-                </div>
+
+
 
 
                 <div className="list-wrap" style={{marginTop:"0px"}}>
-
-
-
                 {
                     this.props.movieList.map((v,i)=>(
                         <div className="item"  data-bid="dp_wx_home_movie_list" key={i}>

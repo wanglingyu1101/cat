@@ -1,12 +1,12 @@
 
 
-    #oninfo     .navbar {
+   .navbar {
         background: #e54847;
         height: 50px;
         width: 100%;
     }
 
-    #oninfo    .nav-header {
+   .nav-header {
         color: rgb(255, 255, 255);
         display: block;
         font-size: 18px;
@@ -15,34 +15,34 @@
         text-align: center;
     }
 
-    #oninfo     .download-app-bar {
+   .download-app-bar {
         height: 63px;
         position: relative;
         border-bottom: 1px solid #e6e6e6;
     }
 
-    #oninfo    .download-app-bar img {
+   .download-app-bar img {
         position: absolute;
         left: 15px;
         top: 11px;
         width: 44px;
         height: 44px;
     }
-    #oninfo     .download-app-bar .app-name-desc{
+    .download-app-bar .app-name-desc{
         position: absolute;
         left: 66px;
         top: 13px;
     }
-    #oninfo     .download-app-bar .app-name-desc .app-name{
+    .download-app-bar .app-name-desc .app-name{
         font-size: 17px;
         color: #222;
         line-height: 23px;
     }
-    #oninfo     .download-app-bar .app-name-desc .app-desc{
+   .download-app-bar .app-name-desc .app-desc{
         font-size: 12px;
         color: #999999;
     }
-    #oninfo    .download-app-bar .btn-open-app{
+   .download-app-bar .btn-open-app{
         position: absolute;
         margin-right: 14px;
         right: 15px;
@@ -56,14 +56,14 @@
         font-size: 13px;
         color: #fff;
     }
-    #oninfo    .topbar{
+   .topbar{
         border-bottom:1px solid #e6e6e6;
         height: 44px;
     }
-    #oninfo    .white-bg{
+  .white-bg{
         background-color:#fff;
     }
-    #oninfo    .topbar-bg{
+   .topbar-bg{
         display: flex;
         -webkit-box-align:center;
         align-items: center;
@@ -71,7 +71,7 @@
         -webkit-box-pack:justify;
         justify-content:space-between;
     }
-    #oninfo    .city-entry{
+    .city-entry{
         padding-left: 15px;
         font-size: 15px;
         color: #666;
@@ -79,14 +79,14 @@
         -webkit-box-align: center;
         align-items: center;
     }
-    #oninfo    .city-entry .city-name {
+   .city-entry .city-name {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 70px;
         max-width: 19.2vw;
     }
-    #oninfo    .city-entry-arrow {
+    .city-entry-arrow {
         width: 0;
         height: 0;
         border: 4px solid #b0b0b0;
@@ -97,18 +97,18 @@
         margin-left: 4px;
         margin-top: 5px;
     }
-    #oninfo    .switch-hot {
+   .switch-hot {
         display: -webkit-box;
         display: flex;
         height: 44px;
         line-height: 44px;
         position: relative;
     }
-    #oninfo    .switch-hot .hot-item.active {
+  .switch-hot .hot-item.active {
         color: #ef4238;
         /* color: black; */
     }
-    #oninfo    .switch-hot .hot-item {
+    .switch-hot .hot-item {
         font-size: 15px;
         color: #666;
         width: 80px;
@@ -117,11 +117,11 @@
         margin: 0 12px;
         font-weight: 700;
     }
-    #oninfo     .switch-hot[data-active=".n-hot"]:after {
+      .switch-hot[data-active=".n-hot"]:after {
         left: 12px;
         left: 3.2vw;
     }
-    #oninfo    .search-icon {
+    .search-icon {
         width: 20px;
         height: 20px;
         margin-right: 14px;
