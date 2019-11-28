@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from "redux";
 import searchActionCreators from '../../store/actionCreateors/search/index'
 import Header from '../../component/Header'
-class cinemaSearch extends React.Component{
+class CinemaSearch extends React.Component{
     render(){
         return (
             <>
@@ -31,4 +31,4 @@ function mapStateToProps(state) {
         searchCinemaList:state.search.searchCinemaList
     }
 }
-export  default connect(mapStateToProps,dispatch=>bindActionCreators(searchActionCreators,dispatch))(cinemaSearch)
+export  default connect(mapStateToProps,dispatch=>bindActionCreators(searchActionCreators,dispatch))(CinemaSearch)

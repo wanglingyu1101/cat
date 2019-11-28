@@ -9,7 +9,7 @@ import DiscountCard from "./views/My/DiscountCard";
 import MyCinemaOrder from "./views/My/MyCinemaOrder";
 import MyShop from "./views/My/MyShop";
 import OnlineCinema from "./views/My/OnlineCinema";
-import SearchCinema from './views/search/cinemaSearch'
+import CinemaSearch from './views/search/cinemaSearch'
 
 class App extends  React.Component{
   render(){
@@ -22,7 +22,7 @@ class App extends  React.Component{
                 <Route path={'/my/myshop'} render={()=><GuardRouter component={MyShop}></GuardRouter>}></Route>
                 <Route path={'/my/onlinecinema'} render={()=><GuardRouter component={OnlineCinema}></GuardRouter>}></Route>
                 <Route path={'/search'} render={()=><GuardRouter component={Search}></GuardRouter>}></Route>
-                <Route path={'/searchcinema'} render={()=><GuardRouter component={SearchCinema}></GuardRouter>}></Route>
+                <Route path={'/cinemasearch'} render={()=><GuardRouter component={CinemaSearch}></GuardRouter>}></Route>
                 <Route path={'/moviesearch/:keyword/:ci/:offset/:limit'} render={()=><GuardRouter component={Search}></GuardRouter>}></Route>
                 <Route path={'/login'} render={()=><GuardRouter component={Login}></GuardRouter>}></Route>
                 <Route path={'/'} render={()=><GuardRouter component={Home}></GuardRouter>}></Route>

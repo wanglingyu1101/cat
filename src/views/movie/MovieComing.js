@@ -33,9 +33,7 @@ class MovieComing extends React.Component{
                         {/*</div>)*/}
                 {/*}*/}
                 <div className="list-wrap" style={{marginTop:"0px"}}>
-
                 {
-
                     this.props.movieList.map((v,i)=>(
                         <div className="item"  data-bid="dp_wx_home_movie_list" key={i}>
 
@@ -82,8 +80,6 @@ class MovieComing extends React.Component{
 
                     ))
                 }
-
-
                     <a id="download-tip" className="download-tip" href="/app?channel=mymovie1yuan-dy" data-lab="{&quot;position&quot;:&quot;bottom&quot;, &quot;utm_content&quot;: &quot;&quot;, &quot;utm_source&quot;: &quot;&quot;}" ></a>
                 <button onClick={this.props.upMovie.bind(this,this.$tools.moviePage(comingPage++,this.props.allMoviesId))}>加载更多</button>
                 </div>

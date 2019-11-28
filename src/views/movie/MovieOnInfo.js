@@ -77,7 +77,7 @@ class MovieOnInfo extends React.Component{
                     ))
                 }
                     </PullToRefresh>
-                    <a id="download-tip" className="download-tip" href="/app?channel=mymovie1yuan-dy" data-lab="{&quot;position&quot;:&quot;bottom&quot;, &quot;utm_content&quot;: &quot;&quot;, &quot;utm_source&quot;: &quot;&quot;}" ></a>
+
 
                     <button onClick={this.props.upMovie.bind(this,this.$tools.moviePage(onInfoPage++,this.props.allMoviesId))}>加载更多</button>
                 </div>

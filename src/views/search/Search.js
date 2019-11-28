@@ -20,7 +20,7 @@ class Search extends React.Component {
                             <p>{v.rt}</p>
                             <img src={this.$tools.movieImg(v.img)} alt=""/>
                             <hr/>
-                            <div className="search-wrapper" data-search-type="movie">
+                            <div className="search-wrapper">
                                 <div className="search-header">
                                     <div className="input-wrapper">
                                         {/*<img className="search-icon" src="//s0.meituan.net/bs/?f=myfe/canary:/static/deploy/images/search.png" alt=""/>*/}
