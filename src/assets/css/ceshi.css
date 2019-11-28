@@ -1,0 +1,286 @@
+
+
+
+.download-app-bar img {
+    position: absolute;
+    left: 15px;
+    top: 11px;
+    width: 44px;
+    height: 44px;
+}
+
+.download-app-bar .app-name-desc {
+    position: absolute;
+    left: 66px;
+    top: 13px;
+}
+
+.download-app-bar .app-name-desc .app-name {
+    font-size: 17px;
+    color: #222;
+    line-height: 23px;
+}
+
+.download-app-bar .app-name-desc .app-desc {
+    font-size: 12px;
+    color: #999999;
+}
+
+.download-app-bar .btn-open-app {
+    position: absolute;
+    right: 15px;
+    top: 17px;
+    width: 68px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #ef4238;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #fff;
+}
+
+
+.city-entry .city-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70px;
+    max-width: 19.2vw;
+}
+
+
+
+.switch-hot .hot-item.active {
+    color: #ef4238;
+    /* color: black; */
+}
+
+.switch-hot .hot-item {
+    font-size: 15px;
+    color: #666;
+    width: 80px;
+    width: 21.33333vw;
+    text-align: center;
+    margin: 0 12px;
+    font-weight: 700;
+}
+
+
+
+
+.list-wrap .most-expected {
+    padding: 12px 15px 12px 15px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.list-wrap .most-expected .title {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 12px;
+}
+.list-wrap .most-expected-list {
+    overflow: scroll;
+    white-space: nowrap;
+}
+.list-wrap .expected-item {
+    display: inline-block;
+    width: 85px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.list-wrap .expected-item .poster {
+    width: 85px;
+    height: 115px;
+    position: relative;
+    margin-bottom: 6px;
+}
+.list-wrap .expected-item .poster img {
+    height: 100%;
+}
+.list-wrap .expected-item .poster .wish-bg {
+    display: inline-block;
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    bottom: 0;
+    background-image: -webkit-linear-gradient(top,rgba(77,77,77,0),#000);
+    background-image: linear-gradient(-180deg,rgba(77,77,77,0),#000);
+}
+.list-wrap .expected-item .poster .wish {
+    position: absolute;
+    left: 4px;
+    bottom: 2px;
+    color: #faaf00;
+    font-size: 11px;
+    font-weight: 600;
+}
+.list-wrap .expected-item .poster .toggle-wish {
+    width: 28px;
+    line-height: 28px;
+    background: rgba(61,63,71,.6);
+    text-align: center;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.list-wrap .expected-item .poster .toggle-wish[data-wishst="0"] span {
+    background-image: url("/img/love.png");
+}
+.list-wrap .expected-item .poster .toggle-wish span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.list-wrap .expected-item .name {
+    margin: 0;
+    font-size: 13px;
+    color: #222;
+    margin-bottom: 3px;
+}
+
+.list-wrap .expected-item .date {
+    margin: 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.list-wrap .coming-list {
+    background-color: #fff;
+}
+.list-wrap .coming-list .group-date {
+    padding: 12px 15px 0;
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+.list-wrap .item {
+    padding-left: 15px;
+    background-color: #fff;
+}
+.list-wrap .item .main-block {
+    position: relative;
+    width: 100%;
+}
+.list-wrap .item .avatar {
+    width: 64px;
+    height: 90px;
+    position: relative;
+    margin-top: 12px;
+    float: left;
+}
+.list-wrap .item .avatar:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.list-wrap .item .avatar img {
+    background-color: transparent;
+    height: 90px;
+}
+img {
+    width: 100%;
+}
+.list-wrap .item .content-wrapper {
+    padding: 12px 14px 12px 0;
+    margin-left: 74px;
+    height: 90px;
+    max-height: 90px;
+    position: relative;
+}
+.list-wrap .item .content {
+    padding-right: 5px;
+    margin-right: 48px;
+    overflow: hidden;
+}
+.list-wrap .item .movie-title {
+    max-height: 24px;
+    margin-bottom: 7px;
+    line-height: 24px;
+    overflow: hidden;
+}
+
+.list-wrap .item .name, .tab-content .list-wrap .item .title {
+    font-size: 17px;
+    color: #333;
+    font-weight: 700;
+    padding-right: 5px;
+    flex-shrink: 1;
+}
+
+.list-wrap .item .detail {
+    box-sizing: border-box;
+    line-height: 1;
+    overflow: hidden;
+}
+
+.list-wrap .item .detail .wantsee .person {
+    color: #faaf00;
+    font-size: 15px;
+    font-weight: 600;
+}
+.list-wrap .item .detail .wantsee .p-suffix {
+    font-size: 13px;
+    margin-left: -2px;
+    display: inline-block;
+    color: #666;
+}
+.list-wrap .item .detail .actor {
+    font-size: 13px;
+    color: #666;
+}
+.list-wrap .item .detail>div+div {
+    margin-top: 6px;
+    line-height: 15px;
+}
+.list-wrap .item .button-block {
+    font-size: 12px;
+    position: absolute;
+    right: 14px;
+    top: 0;
+    bottom: 0;
+    height: 27px;
+    margin: auto;
+}
+.list-wrap .item .button-block .btn.pre {
+    background-color: #3c9fe6;
+}
+.list-wrap .item .button-block .btn {
+    width: 47px;
+    height: 27px;
+    line-height: 28px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #f03d37;
+    color: #fff;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+    cursor: pointer;
+}
+.list-wrap .item .button-block .btn.toggle-wish-btn[data-wishst="0"] {
+    background-color: #faaf00;
+    border: none;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
