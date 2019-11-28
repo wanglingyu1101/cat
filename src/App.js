@@ -9,7 +9,6 @@ import DiscountCard from "./views/My/DiscountCard";
 import MyCinemaOrder from "./views/My/MyCinemaOrder";
 import MyShop from "./views/My/MyShop";
 import OnlineCinema from "./views/My/OnlineCinema";
-
 import SearchCinema from './views/search/cinemaSearch'
 
 class App extends  React.Component{

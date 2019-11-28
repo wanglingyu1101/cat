@@ -2,6 +2,8 @@ import  React from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 
+// import ReactPullLoad,{STATS} from 'react-pullload';
+import Header from '../../component/Header'
 import ReactPullLoad,{STATS} from 'react-pullload';
 import actionCinemaCreators from "../../store/actionCreateors/cinema/index";
 
@@ -10,6 +12,7 @@ class Cinema extends React.Component{
     render(){
         return (
             <div>
+                <Header head={"影院"}></Header>
                 {
                     this.props.cinemaList.map((v,i)=>(
                         <div key={v.id}>

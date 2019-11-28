@@ -1,9 +1,11 @@
 import React from 'react'
 import '../../assets/css/my.css'
+import Header from '../../component/Header'
 class My extends React.Component {
     render() {
         return (
             <div>
+                <Header head={"我的"}></Header>
                 <div className="my-center">
                     <div className="header">
                         <img src="https://img.meituan.net/avatar/baf5a17d101ccb1cb52df6fae1166dee39970.jpg" className="head-icon" alt=""/>
