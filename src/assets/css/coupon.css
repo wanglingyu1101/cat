@@ -1,20 +1,21 @@
 
-.coupon {
+.couponAdd {
     padding: 15px 15px 0 20px;
+    margin-top:50px;
 }
 
-.coupon .input-wrapper {
+.couponAdd .input-wrapper {
     width: 80%;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.coupon .input-wrapper, .coupon p {
+.couponAdd .input-wrapper, .couponAdd p {
     display: inline-block;
     box-sizing: border-box;
 }
 
-.coupon .input-wrapper input {
+.couponAdd .input-wrapper input {
     display: block;
     padding: 5px 0 5px 5px;
     width: calc(100% - 5px);

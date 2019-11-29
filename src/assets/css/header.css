@@ -1,16 +1,15 @@
 .header-header {
     height: 50.5px;
+    width:100%;
     color: #fff;
     background: #e54847;
     border-bottom: 1px solid #e54847;
     display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     justify-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 99;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .header-header .nav-back {

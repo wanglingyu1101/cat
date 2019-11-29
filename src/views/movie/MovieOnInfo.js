@@ -16,7 +16,7 @@ class MovieOnInfo extends React.Component{
     render(){
         return (
         <div id={'oninfo'}>
-                <div className="list-wrap" style={{marginTop:"0px"}}>
+                <div className="list-wrap">
                     <PullToRefresh
                         damping={60}
                         style={{
@@ -47,6 +47,7 @@ class MovieOnInfo extends React.Component{
                                         <div className="box-flex movie-title">
                                             <div className="title line-ellipsis v3dimax_title">{v.nm}</div>
                                             <span className={v.version}></span>
+
                                         </div>
                                         <div className="detail column">
                                             <div className="score line-ellipsis">

@@ -68,6 +68,9 @@ body {
     background-color: rgb(243, 243, 243);
     font-size: 14px;
     color: #777;
+    /*overflow: hidden;*/
+    height:100%;
+    width:100%;
 }
 
 .my-center {
@@ -77,6 +80,7 @@ body {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;
+    margin-top:50px;
 }
 
 .my-center .header {

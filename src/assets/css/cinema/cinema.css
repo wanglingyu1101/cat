@@ -1,6 +1,10 @@
-.topbar {
+.topbarc {
     border-bottom: 1px solid #e6e6e6;
     height: 44px;
+    width:100%;
+    position: fixed;
+    top:52px;
+    z-index: 9;
 }
 
 .gray-bg {
@@ -47,7 +51,7 @@
     margin-top: 5px;
 }
 
-.topbar .search-input {
+.topbarc .search-input {
     -webkit-box-flex: 1;
     flex-grow: 1;
 }
@@ -78,6 +82,10 @@
 
 .page {
     /*min-height: 640.5px;*/
+    width:100%;
+    position: fixed;
+    top:95px;
+    z-index: 9;
 }
 
 .page.singleton, .page.singleton-notab {
@@ -86,20 +94,23 @@
 }
 
 .page.singleton-notab .page-wrap, .page.singleton .page-wrap {
-    position: absolute;
-    top: 95px;
-    width: 100%;
-    height: 100%;
+    /*position: fixed;*/
+    /*top: 100px;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
     overflow: auto;
 }
 
 .cinema .page-wrap.fix-nav .nav-wrap {
-    position: fixed;
+    /*position: fixed;*/
+    /*top: 100px;*/
+    /*width: 100%;*/
 }
 
 .nav-wrap.filter-nav-wrap {
     width: 100%;
     height: 40px;
+    top:95px;
     z-index: 10;
     background-color: #fff;
     border-bottom: 1px solid #e8e8e8;
@@ -168,15 +179,14 @@
 }
 
 .cinema-list {
-    /*margin-bottom: 55px;*/
-    margin-top: 1px;
+    margin-top: 135px;
+    height:100%;
 }
 
 .cinema-list .list-wrap {
     background-color: #fff;
-    margin-right: 10px;
     margin-top: 0px;
-    min-height: 696px
+
 }
 
 .cinema-list .list-wrap .item {
