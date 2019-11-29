@@ -81,7 +81,7 @@ body {
 
 .my-center .header {
     background-color: #f03d37;
-    background-image: url(../img/beijing.png);
+    background-image: url(../../img/beijing.png);
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 100% 150px;
@@ -154,7 +154,7 @@ body {
 }
 
 .my-center .group .orders .list .order-item.movie {
-    background-image: url(../img/yingpian.png);
+    background-image: url(../../img/yingpian.png);
 }
 
 .my-center .group .list.list-two .order-item {
@@ -188,7 +188,7 @@ body {
 }
 
 .my-center .group .orders .list .order-item.store {
-    background-image: url(../img/shangpin.png);
+    background-image: url(../../img/shangpin.png);
 }
 
 .mb-outline-tb {

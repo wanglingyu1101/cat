@@ -30,12 +30,11 @@ class MovieOnInfo extends React.Component{
                             this.setState({ refreshing: false });
                             setTimeout(() => {
                                 this.props.upMovie(this.$tools.moviePage(onInfoPage++,this.props.allMoviesId))
-
                             },1000);
                         }}
                     >
                 {
-                    this.props.movieList.map((v,i)=>(
+                    this.props.movieList?this.props.movieList.map((v,i)=>(
                         <div className="item"  data-bid="dp_wx_home_movie_list" key={i}>
                             <div className="main-block">
                                 <div className="avatar" sort-flag="">
@@ -65,7 +64,7 @@ class MovieOnInfo extends React.Component{
                                     </div>
                                     <div className="button-block" data-id="247949">
                                         {
-                                            v.sc===0?
+                                            v.globalReleased===false?
                                                 <div className="btn pre"><span className="fix" data-bid="dp_wx_home_movie_btn">预售</span></div>:
                                                 <div className="btn normal"><span className="fix" data-bid="dp_wx_home_movie_btn">购票</span></div>
                                         }
@@ -74,12 +73,10 @@ class MovieOnInfo extends React.Component{
                             </div>
                         </div>
 
-                    ))
+                    )):null
                 }
                     </PullToRefresh>
 
-
-                    <button onClick={this.props.upMovie.bind(this,this.$tools.moviePage(onInfoPage++,this.props.allMoviesId))}>加载更多</button>
                 </div>
 
         </div>

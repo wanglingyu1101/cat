@@ -1,4 +1,6 @@
-
+#oninfo {
+    padding-bottom: 47px;
+}
 .download-app-bar {
     height: 63px;
     position: relative;
@@ -127,7 +129,7 @@
     width: 20px;
     height: 20px;
     margin-right: 14px;
-    background: url(../img/sousuo.png) no-repeat;
+    background: url(../../img/sousuo.png) no-repeat;
     background-size: 20px;
     padding: 10px 15px 10px 10px;
     background-position: 10px;
@@ -212,7 +214,7 @@ img {
 
 .version.v3d.imax {
     width: 43px;
-    background-image: url("../img/3d.png");
+    background-image: url("../../img/3d.png");
 }
 
 .version {
@@ -305,7 +307,7 @@ img {
     bottom: 100px;
     width: 64px;
     height: 90px;
-    background: url("../img/open.png") no-repeat;
+    background: url("../../img/open.png") no-repeat;
     background-size: contain;
     z-index: 9;
 }
@@ -435,7 +437,7 @@ img {
         width: 20px;
         height: 20px;
         margin-right: 14px;
-        background: url(../img/sousuo.png) no-repeat;
+        background: url(../../img/sousuo.png) no-repeat;
         background-size: 20px;
         padding: 10px 15px 10px 10px;
         background-position: 10px;
@@ -511,7 +513,7 @@ img {
 
     .version.v3d.imax {
         width: 43px;
-        background-image: url("../img/3d.png");
+        background-image: url("../../img/3d.png");
     }
     .version {
         background-size: contain;
@@ -592,7 +594,7 @@ img {
         bottom: 100px;
         width: 64px;
         height: 90px;
-        background: url("../img/open.png") no-repeat;
+        background: url("../../img/open.png") no-repeat;
         background-size: contain;
         z-index: 10;
     }
