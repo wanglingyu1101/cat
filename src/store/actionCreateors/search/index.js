@@ -21,12 +21,25 @@ export  const clearCinema = ()=>({
     }
 })
 /*电影列表搜索*/
-export const  searchMovie = (movieList)=>({
+export const  movieList = (movieList)=>({
     type:searchType.getMovieList,
     payload:{
         movieList
     }
 })
+export const  cinemaList = (cinemaList)=>({
+    type:searchType.getCinemaList,
+    payload:{
+        cinemaList
+    }
+})
+export  const searchMovie = (searchMovieList)=>({
+    type:searchType.upSearchMovie,
+    payload:{
+        searchMovieList
+    }
+})
+
 export  const searchCinema = (searchCinemaList)=>({
     type:searchType.upSearchCinema,
     payload:{
@@ -44,8 +57,8 @@ export  default  {
           })
           //当无数据时 将状态中的list清空
           if(data.movies)  {
-              dispatch(searchMovie(data.movies.list))
               dispatch(upTitle(data.movies.total))
+              dispatch(searchMovie(data.movies.list))
           }
                 else dispatch(clearMovie())
 
@@ -61,9 +74,9 @@ export  default  {
               }
           })
           //当无数据时 将状态中的list清空
-          if(data.cinema)  {
-              dispatch(searchMovie(data.cinema.list))
-              dispatch(upTitle(data.cinema.total))
+          if(data.cinemas)  {
+              dispatch(searchCinema(data.cinemas.list))
+              dispatch(upTitle(data.cinemas.total))
           }
           else dispatch(clearCinema())
 
@@ -71,7 +84,7 @@ export  default  {
   },
     // http://m.maoyan.com/searchlist/movies?keyword=bing&ci=20&offset=20&limit=20
     getMovieList(keyword='',page=1){
-        let offset = page*10;
+        let offset = page*10 - 7;
         return async (dispatch)=>{
             const data = await  axios.get("/m/searchlist/movies",{
                 params:{
@@ -83,7 +96,26 @@ export  default  {
             })
             //当无数据时 将状态中的list清空
             if(data.movies)  {
-                dispatch(searchMovie(data.movies))
+                dispatch(movieList(data.movies))
+            }
+            else dispatch(clearMovie())
+
+        }
+    },
+    getCinemaList(keyword='',page=1){
+        let offset = page*10-7;
+        return async (dispatch)=>{
+            const data = await  axios.get("/m/searchlist/cinemas",{
+                params:{
+                    keyword,
+                    ci:1,
+                    offset,
+                    limit:10
+                }
+            })
+            //当无数据时 将状态中的list清空
+            if(data.cinemas)  {
+                dispatch(cinemaList(data.cinemas))
             }
             else dispatch(clearMovie())
 

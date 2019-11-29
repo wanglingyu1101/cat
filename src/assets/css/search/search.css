@@ -317,3 +317,75 @@ a, img {
     margin: auto;
 }
 
+.result .cinema {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 15px 15px 15px 0;
+}
+.result .cinema .info {
+    -webkit-box-flex: 1;
+    flex: 1;
+    overflow: hidden;
+}
+.result .cinema .name-price {
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    display: flex;
+}
+.one-line {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.result .cinema .sell-price {
+    font-size: 11px;
+    color: #999;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+.result .cinema .price {
+    font-size: 17px;
+    color: #ef4238;
+}
+.result .cinema .address {
+    font-size: 13px;
+    color: #999;
+}
+.one-line {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.result .cinema .feature-tags span {
+    border: 1px solid #589daf;
+    color: #589daf;
+    position: relative;
+    display: inline-block;
+    padding: 0 3px;
+    height: 15px;
+    line-height: 15px;
+    border-radius: 2px;
+    font-size:10px;
+    margin-top:5px;
+}
+.result .cinema .feature-tags span.featrue {
+    color: #f90;
+    border-color: #f90;
+}
+.result .cinema .distance {
+    font-size: 13px;
+    color: #999;
+}

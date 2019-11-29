@@ -1,6 +1,7 @@
 import searchObj from '../../state/search'
 function seaRenducer(state=searchObj,{type,payload}) {
     state = JSON.parse(JSON.stringify(state))
+    // 获取电影总数
     if(type === "CLEAR_MOVIE"){
         state.searchMovieList = payload.searchMovieList
         state.total = payload.total
@@ -11,6 +12,8 @@ function seaRenducer(state=searchObj,{type,payload}) {
     }
     if(type === 'GET_MOVIE_LIST')
         state.movieList = [...state.movieList,...payload.movieList]
+    if(type === 'GET_CINEMA_LIST')
+        state.cinemaList = [...state.cinemaList,...payload.cinemaList]
 
     if(type === "UP_SEARCH_MOVIE")
         state.searchMovieList = payload.searchMovieList
@@ -18,7 +21,6 @@ function seaRenducer(state=searchObj,{type,payload}) {
         state.searchCinemaList = payload.searchCinemaList
     if(type === 'UP_TOTAL')
         state.total = payload.total
-    console.log(state.movieList)
     return state
 }
 export  default  seaRenducer
