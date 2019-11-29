@@ -8,6 +8,8 @@ function cinRenducer(state=cinemaObj,{type,payload}) {
             ...state.cinemaList,
             ...payload.cinemaList
         ]
+    if(type === 'GET_CINEMA_DETAIL')
+        state.cinemaDetail = payload.cinemaDetail
     return state
 }
 export  default  cinRenducer

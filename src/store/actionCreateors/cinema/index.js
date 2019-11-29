@@ -1,6 +1,12 @@
 import cinemaType from '../../actionType/cinema'
 import axios from 'axios';
 import tools from '../../../filters'
+export const getCinemaDetail = (cinemaDetail)=>({
+    type:cinemaType.getCinemaDetail,
+    payload:{
+        cinemaDetail
+    }
+})
 export const  getCinemaList = (cinemaList)=>({
     type:cinemaType.getCinemaList,
     payload:{
@@ -44,6 +50,16 @@ export default {
                 }
             })
             dispatch(upCinemaList(data.cinemas))
+        }
+    },
+    getCinemaDetail(cinemaId=0){
+        return async (dispatch)=>{
+            const data = await  axios.get("/m/ajax/cinemaDetail",{
+                params:{
+                    cinemaId
+                }
+            })
+            dispatch(getCinemaDetail(data))
         }
     }
 }

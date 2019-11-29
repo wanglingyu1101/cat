@@ -13,16 +13,16 @@ class Cinema extends React.Component {
         this.state = {
             refreshing: false,
             cinemaPage : 1,
-            height: document.documentElement.clientHeight,
+            width:document.documentElement.offsetWidth
         };
     }
     render() {
         return (
-            <div>
+            <>
                 {/* 影院头部*/}
                 <Header head={"影院"}></Header>
                 {/*定位及搜索*/}
-                <section className="topbar">
+                <section className="topbarc">
                     <div className="gray-bg topbar-bg ">
                         <div className="city-entry">
                             <span className="city-name">北京</span><i className="city-entry-arrow"></i>
@@ -43,16 +43,15 @@ class Cinema extends React.Component {
                             <div className="item">品牌<span className="drop"></span></div>
                             <div className="item">特色<span className="drop"></span></div>
                         </div>
-
-
-
+                    </div>
+                </section>
                         {/*影院*/}
                             <div className="cinema-list">
                                 <div className="list-wrap">
                                     <PullToRefresh
                                         damping={60}
                                         style={{
-                                            height: this.state.height,
+                                            width:this.state.width,
                                             overflow: 'auto',
                                         }}
                                         indicator={{ deactivate: '上拉可以刷新' }}
@@ -66,12 +65,15 @@ class Cinema extends React.Component {
                                     >
                                     {
                                         this.props.cinemaList.map((v, i) => (
+                                            <Link to={'/cinemadetail/'+v.id}>
                                     <div className="item mb-line-b" key={i}>
                                         <div className="title-block box-flex middle">
                                             <div className="title line-ellipsis">
                                                 <span>{v.nm}</span>
                                                 <span className="price-block">
-                                                <span className="price">{v.sellPrice}</span><span className="q">元起</span>
+                                                    {
+                                                        v.sellPrice === ''?null:<span className="price">{v.sellPrice}<span className={"q"}>元起</span></span>
+                                                    }
                                             </span>
                                             </div>
                                             <div className="location-block box-flex">
@@ -112,21 +114,20 @@ class Cinema extends React.Component {
                                             }
                                         </div>
                                     </div>
+                                            </Link>
                                         ))
                                     }
                                     </PullToRefresh>
                                 </div>
                             </div>
-                    </div>
-                </section>
 
-            </div>
+
+            </>
         )
     }
 
     componentDidMount() {
         this.props.getCinema()
-        // console.log(this.props.cinemaList)
     }
 }
 

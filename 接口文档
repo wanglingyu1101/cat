@@ -93,3 +93,18 @@
        ct_pois: [{ct_poi: "936879945111165696_a2243_c0", poiid: 1677952},…]
        paging: {hasMore: true, limit: 20, offset: 20, total: 283}
     }
+
+    3.影院
+        请求地址：http://m.maoyan.com/ajax/cinemaDetail
+        请求方式：get
+        发送参数:cinemaId=16116
+        返回参数：
+             cinemaData: {nm: "银河电影公园", addr: "伊宁市新疆伊宁市解放路79号", shopId: 68164482, lat: 43.921688, lng: 81.31994,…}
+             addr: "伊宁市新疆伊宁市解放路79号"
+             cinemaId: 16116
+             lat: 43.921688
+             lng: 81.31994
+             nm: "银河电影公园"
+             sell: true
+             shopId: 68164482
+             cinemaId: "16116"

@@ -1,0 +1,60 @@
+
+.download-app-bar {
+    height: 63px;
+    margin-top: 50px;
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fff;
+}
+
+.download-app-bar img {
+    position: absolute;
+    left: 15px;
+    top: 11px;
+    width: 44px;
+    height: 44px;
+}
+
+.download-app-bar .app-name-desc {
+    position: absolute;
+    left: 66px;
+    top: 13px;
+}
+
+.download-app-bar .app-name-desc .app-name {
+    font-size: 17px;
+    color: #222;
+    line-height: 23px;
+}
+
+.download-app-bar .app-name-desc .app-desc {
+    font-size: 12px;
+    color: #999999;
+}
+
+.download-app-bar .btn-open-app {
+    position: absolute;
+    right: 15px;
+    top: 17px;
+    width: 68px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #ef4238;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #fff;
+}
+
+
+.download-tip {
+    display: block;
+    position: fixed;
+    right: 16px;
+    bottom: 100px;
+    width: 64px;
+    height: 90px;
+    background: url("../img/open.png") no-repeat;
+    background-size: contain;
+    z-index: 10;
+}
