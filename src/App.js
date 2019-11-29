@@ -10,12 +10,14 @@ import MyCinemaOrder from "./views/My/MyCinemaOrder";
 import MyShop from "./views/My/MyShop";
 import OnlineCinema from "./views/My/OnlineCinema";
 import CinemaSearch from './views/search/cinemaSearch'
+import CinemaMovie from "./views/cinema/cinemaMovie";
 
 class App extends  React.Component{
   render(){
     return(
         <>
             <Switch>
+                <Route path={'/cinema/movie'} render={()=><GuardRouter component={CinemaMovie}></GuardRouter>}></Route>
                 <Route path={'/my/coupon'} render={()=><GuardRouter component={Coupon}></GuardRouter>}></Route>
                 <Route path={'/my/discountcard'} render={()=><GuardRouter component={DiscountCard}></GuardRouter>}></Route>
                 <Route path={'/my/mycinemaorder'} render={()=><GuardRouter component={MyCinemaOrder}></GuardRouter>}></Route>

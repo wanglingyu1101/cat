@@ -6,7 +6,7 @@ class Coupon extends React.Component{
         return (
             <div>
                 <Header head={"我的优惠券"} back={true}></Header>
-                <div className="coupon">
+                <div className="couponAdd">
                     <div className="input-wrapper">
                         <input type="text" placeholder="请输入优惠券密码" className="coupon-psw"/>
                     </div>
