@@ -15,7 +15,7 @@ class MovieSearch extends  React.Component{
             width:document.documentElement.clientWidth,
             showCat:'none'
         };
-    }                                                                                                                                                        
+    }
     render(){
         return(
             <div>

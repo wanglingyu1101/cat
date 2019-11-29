@@ -11,6 +11,7 @@ import MyShop from "./views/My/MyShop";
 import OnlineCinema from "./views/My/OnlineCinema";
 import MovieSearch from './views/search/MovieSearch';
 import CinemaSearch from './views/search/cinemaSearch'
+import  CinemaDetail from './views/cinema/CinemaDetail'
 
 class App extends  React.Component{
   render(){
@@ -24,9 +25,13 @@ class App extends  React.Component{
                 <Route path={'/my/onlinecinema'} render={()=><GuardRouter component={OnlineCinema}></GuardRouter>}></Route>
 
 
+
                 <Route path={'/search/:title'} render={()=><GuardRouter component={Search}></GuardRouter>}></Route>
                 <Route path={'/cinemasearch/:keyword'} render={()=><GuardRouter component={CinemaSearch}></GuardRouter>}></Route>
                 <Route path={'/moviesearch/:keyword'} render={()=><GuardRouter component={MovieSearch}></GuardRouter>}></Route>
+
+                <Route path={'/cinemadetail'} render={()=><GuardRouter component={CinemaDetail}></GuardRouter>}></Route>
+
                 <Route path={'/login'} render={()=><GuardRouter component={Login}></GuardRouter>}></Route>
                 <Route path={'/'} render={()=><GuardRouter component={Home}></GuardRouter>}></Route>
             </Switch>
