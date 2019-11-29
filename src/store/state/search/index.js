@@ -1,6 +1,12 @@
-const searchList = []
+const searchMovieList = []
 const searchCinemaList = []
+const movieList = []
+const cinemaList = []
+let total = 0
 export  default {
-    searchList,
-    searchCinemaList
+    searchMovieList,
+    searchCinemaList,
+    movieList,
+    cinemaList,
+    total
 }

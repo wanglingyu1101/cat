@@ -1,7 +1,7 @@
 import  React from 'react'
 import {bindActionCreators} from "redux";
 import {connect} from 'react-redux'
-import '../../assets/css/movieComing.css'
+import '../../assets/css/movie/movieComing.css'
 import {PullToRefresh} from 'antd-mobile'
 import actionMovieCreators from '../../store/actionCreateors/movie/index'
 let comingPage = 2;

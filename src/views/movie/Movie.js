@@ -4,7 +4,7 @@ import MovieComing from './MovieComing'
 import {NavLink, Route, Link} from 'react-router-dom'
 import Header from '../../component/Header'
 import GuardRouter from '../../router/GuardRouter'
-import '../../assets/css/movieOnInfo.css'
+import '../../assets/css/movie/movieOnInfo.css'
 
 class Movie extends React.Component {
     constructor() {
@@ -45,7 +45,7 @@ class Movie extends React.Component {
                                          to={'/movie/coming'}>即将上映</NavLink>
                             </div>
                         </div>
-                        <Link to={'/search'}>
+                        <Link to={'/search/movie'}>
                             <div className="search-entry search-icon" data-type="movie"></div>
                         </Link>
                     </div>

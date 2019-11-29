@@ -150,7 +150,7 @@ img {
 }
 
 .expected-item-ll .poster .toggle-wish-ll[data-wishst="0"] span {
-    background-image: url(../img/xin.png);
+    background-image: url(../../img/xin.png);
 }
 
 .expected-item-ll .poster .toggle-wish-ll span {
@@ -180,4 +180,140 @@ img {
     color: #999;
 }
 
+
+ .result {
+     margin-bottom: 10px;
+     background-color: #fff;
+ }
+.result h3 {
+    font-size: 15px;
+    color: #999;
+    padding: 9px 15px;
+}
+h3, p {
+    margin: 0;
+}
+h3 {
+    font-weight: 400;
+}
+.result .list {
+    padding-left: 15px;
+    border-top: 1px solid #e6e6e6;
+}
+.result .movie {
+    padding: 12px 0;
+    min-height: 90px;
+}
+.result .cell, .result .list {
+    border-bottom: 1px solid #e6e6e6;
+}
+.result .movie .poster {
+    background-color: #eee;
+    width: 64px;
+    height: 90px;
+    float: left;
+    margin-right: 10px;
+}
+img {
+    width: 100%;
+}
+a, img {
+    display: block;
+}
+.result .movie .info {
+    margin-right: 15px;
+    margin-top: 1px;
+}
+.result .movie .name-score {
+    font-size: 16px;
+    color: #222;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+.result .movie .name-score .name {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    max-height: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.result .movie .name-score .name .one-line {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 17px;
+}
+.one-line {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.version {
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 14px;
+    margin-left: 5px;
+    display: inline-block;
+}
+.result .movie .name-score .score, .result .movie .name-score .wish {
+    color: #fa0;
+    font-size: 10px;
+    flex-shrink: 0;
+    padding-left: 5px;
+}
+.result .movie .name-score .num {
+    font-size: 16px;
+}
+.result .movie .detail-section {
+    position: relative;
+}
+.result .movie .detail-section .detail-items {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    overflow: hidden;
+    padding-right: 10px;
+    margin-right: 48px;
+    min-height: 27px;
+}
+.result .movie .detail-section .catogary, .result .movie .detail-section .ename, .result .movie .detail-section .release {
+    font-size: 13px;
+    color: #666;
+    margin-top: 2px;
+}
+.result .movie .detail-section .sale {
+    background-color: #ef4238;
+}
+.result .more-result {
+    font-size: 15px;
+    color: #ef4238;
+    line-height: 44px;
+    height: 44px;
+    text-align: center;
+}
+.result .movie .detail-section .btn, .result .movie .detail-section .buy-btn {
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 13px;
+    margin-bottom: 7px;
+    -webkit-align-self: flex-end;
+    align-self: flex-end;
+    flex-shrink: 0;
+    width: 48px;
+    text-align: center;
+    height: 27px;
+    line-height: 27px;
+    right: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
 
