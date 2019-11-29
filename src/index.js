@@ -9,6 +9,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import store from './store'
 import axios from 'axios'
 import tools from './filters'
+import 'antd-mobile/dist/antd-mobile.css';
 React.Component.prototype.$tools = tools
 React.Component.prototype.$axios = axios
 
