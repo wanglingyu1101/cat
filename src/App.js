@@ -25,7 +25,7 @@ class App extends  React.Component{
                 <Route path={'/search'} render={()=><GuardRouter component={Search}></GuardRouter>}></Route>
                 <Route path={'/cinemasearch'} render={()=><GuardRouter component={CinemaSearch}></GuardRouter>}></Route>
                 <Route path={'/moviesearch/:keyword/:ci/:offset/:limit'} render={()=><GuardRouter component={Search}></GuardRouter>}></Route>
-                <Route path={'/cinemadetail'} render={()=><GuardRouter component={CinemaDetail}></GuardRouter>}></Route>
+                <Route path={'/cinemadetail/:cinemaId'} render={()=><GuardRouter component={CinemaDetail}></GuardRouter>}></Route>
                 <Route path={'/login'} render={()=><GuardRouter component={Login}></GuardRouter>}></Route>
                 <Route path={'/'} render={()=><GuardRouter component={Home}></GuardRouter>}></Route>
             </Switch>

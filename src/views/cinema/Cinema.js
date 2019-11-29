@@ -66,6 +66,7 @@ class Cinema extends React.Component {
                                     >
                                     {
                                         this.props.cinemaList.map((v, i) => (
+                                            <Link to={'/cinemadetail/'+v.id}>
                                     <div className="item mb-line-b" key={i}>
                                         <div className="title-block box-flex middle">
                                             <div className="title line-ellipsis">
@@ -112,6 +113,7 @@ class Cinema extends React.Component {
                                             }
                                         </div>
                                     </div>
+                                            </Link>
                                         ))
                                     }
                                     </PullToRefresh>
@@ -126,7 +128,6 @@ class Cinema extends React.Component {
 
     componentDidMount() {
         this.props.getCinema()
-        // console.log(this.props.cinemaList)
     }
 }
 
