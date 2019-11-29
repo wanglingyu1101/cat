@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../assets/css/myshop.css'
+import '../../assets/css/my/myshop.css'
 import Header from '../../component/Header'
 class OnlineCinema extends React.Component {
     render() {

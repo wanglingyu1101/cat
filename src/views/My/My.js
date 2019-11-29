@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../assets/css/my.css'
+import '../../assets/css/my/my.css'
 import Header from '../../component/Header'
 class My extends React.Component {
     render() {
