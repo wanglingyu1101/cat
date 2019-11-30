@@ -98,77 +98,89 @@ class CinemaDetail extends React.Component{
                     <div className="nav-block mb-line-t">
                         <div className="nav-bar mb-line-b">
                             <div className="nav-bar-wrap">
-                                <div className="nav-item active" >
-                                    <span className="date-title">今天11月27日</span>
+                                {
+                                    this.props.cinemaDetail.showData&&this.props.cinemaDetail.showData.movies&&
+                                    this.props.cinemaDetail.showData.movies[0].shows.map((v,i)=>(
+                                        <div className="nav-item active" key={i}>
+                                            <span className="date-title">{v.dateShow}</span>
+                                        </div>
+                                    ))
+                                }
 
-                                </div>
-                                <div className="nav-item active" >
-                                    <span className="date-title">今天11月28日</span>
 
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="seat-wrap">
-                    <div className="discount-block">
-
+                <div className="discount-block">
+                    {
+                        this.props.cinemaDetail.showData.vipInfo?
                         <div className="vip-tips">
                             <a>
-                                <div className="label">折扣卡</div>
-                                <div className="label-text line-ellipsis">现在开卡，首单2张最高立减6元</div>
-                                <div className="process">20元起开卡</div>
+                                <div className="label">{this.props.cinemaDetail.showData.vipInfo[0].tag}</div>
+                                <div className="label-text line-ellipsis">{this.props.cinemaDetail.showData.vipInfo[0].title}</div>
+                                <div className="process">{this.props.cinemaDetail.showData.vipInfo[0].process}</div>
                             </a>
-                        </div>
-                    </div>
-                    <div className="seat-inner-wrap">
-                        <div className="seat-list">
-                            <div className="list-wrap">
-                                <div className="item-outer mb-line-b" >
+                        </div>:null
+                    }
 
-                                    <div className="item box-flex">
-                                        <div className="time-block">
-                                            <div className="begin">16:00</div>
-                                            <div className="end">17:44<span className="tui">散场</span></div>
-
-                                        </div>
-                                        <div className="info-block">
-                                            <div className="lan">原版 3D</div>
-                                            <div className="hall">1号激光厅</div>
-                                        </div>
-                                        <div className="price">
-                                            <div className="sellPr"><span className="d">¥</span><span><span className="stonefont"></span></span>
-                                            </div>
-                                            <div className="vipPrice"><span className="icon">折扣卡</span><span className="num">¥28</span>
-                                            </div>
-                                            <div className="extraDesc">折扣卡首单特惠</div>
-                                        </div>
-                                        <div className="button-block">
-                                            <div className="button" >购票</div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
+                {
+                    this.props.cinemaDetail.showData.movies[0].shows[0].plist.map((v,i)=>(
+                    <div className="seat-wrap" key={i}>
+                        <div className="seat-inner-wrap">
+                            <div className="seat-list">
+                                <div className="list-wrap">
+                                    <div className="item-outer mb-line-b">
 
+                                        <div className="item box-flex">
+                                            <div className="time-block">
+                                                <div className="begin">{v.tm}</div>
+                                                <div className="end">{this.$tools.clockMin(v.tm,this.props.cinemaDetail.showData.movies[0].dur)}<span className="tui">散场</span></div>
+
+                                            </div>
+                                            <div className="info-block">
+                                                <div className="lan">{v.lang} {v.tp}</div>
+                                                <div className="hall">{v.th}</div>
+                                            </div>
+                                            <div className="price">
+                                                <div className="sellPr"><span className="d">¥</span><span><span
+                                                    className="stonefont">{this.$tools.add(v.vipPrice,v.reservedMin)}</span></span>
+                                                </div>
+                                                <div className="vipPrice" style={{display:v.vipPriceName?'inline-block':'none'}}>
+                                                    <span className="icon" >
+                                                        {v.vipPriceName}</span>
+                                                    <span className="num">{v.vipPrice}</span>
+                                                </div>
+                                                <div className="extraDesc">{v.extraDesc}</div>
+                                            </div>
+                                            <div className="button-block">
+                                                <div className="button">购票</div>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    ))
+                }
             </div>
         </div>
-        <div className="tuan-wrap">
-            <div className="no-seat">
+        <div className="tuan-wrap"  >
+            <div className="no-seat" style={{display:this.props.cinemaDetail.showData.movies[0].shows?'none':'block'}}>
             <div className="icon">
                 <img src={noBody}/>
             </div>
 
         <div className="text">今日暂无场次</div>
-        <div className="next-date-button" >
-            点击查看11月27日场次
-            </div>
+                        <div className="next-date-button">
+                            点击查看场次
+                        </div>
     </div>
 
         <div className="gap" style={{height: '10px',backgroundColor:'#f0f0f0'}}></div>
