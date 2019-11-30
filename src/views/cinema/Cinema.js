@@ -8,14 +8,15 @@ import actionCinemaCreators from "../../store/actionCreateors/cinema/index";
 import '../../assets/css/cinema/cinema.css';
 
 class Cinema extends React.Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             refreshing: false,
-            cinemaPage : 1,
-            width:document.documentElement.offsetWidth
+            cinemaPage: 1,
+            width: document.documentElement.offsetWidth
         };
     }
+
     render() {
         return (
             <>
@@ -45,81 +46,87 @@ class Cinema extends React.Component {
                         </div>
                     </div>
                 </section>
-                        {/*影院*/}
-                            <div className="cinema-list">
-                                <div className="list-wrap">
-                                    <PullToRefresh
-                                        damping={60}
-                                        style={{
-                                            width:this.state.width,
-                                            overflow: 'auto',
-                                        }}
-                                        indicator={{ deactivate: '上拉可以刷新' }}
-                                        direction={'up'}
-                                        refreshing={this.state.refreshing}
-                                        onRefresh={() => {
-                                            setTimeout(() => {
-                                                this.props.upCinema(this.state.cinemaPage++)
-                                            }, 1000);
-                                        }}
-                                    >
-                                    {
-                                        this.props.cinemaList.map((v, i) => (
-                                            <Link to={'/cinemadetail/'+v.id}>
-                                    <div className="item mb-line-b" key={i}>
-                                        <div className="title-block box-flex middle">
-                                            <div className="title line-ellipsis">
-                                                <span>{v.nm}</span>
-                                                <span className="price-block">
+                {/*影院*/}
+                <div className="cinema-list">
+                    <div className="list-wrap">
+                        <PullToRefresh
+                            damping={60}
+                            style={{
+                                width: this.state.width,
+                                overflow: 'auto',
+                            }}
+                            indicator={{deactivate: '上拉可以刷新'}}
+                            direction={'up'}
+                            refreshing={this.state.refreshing}
+                            onRefresh={() => {
+                                setTimeout(() => {
+                                    this.props.upCinema(this.state.cinemaPage++)
+                                }, 1000);
+                            }}
+                        >
+                            {
+                                this.props.cinemaList.map((v) => (
+                                    <Link to={'/cinemadetail/' + v.id} key={v.id}>
+                                        <div className="item mb-line-b">
+                                            <div className="title-block box-flex middle">
+                                                <div className="title line-ellipsis">
+                                                    <span>{v.nm}</span>
+                                                    <span className="price-block">
                                                     {
-                                                        v.sellPrice === ''?null:<span className="price">{v.sellPrice}<span className={"q"}>元起</span></span>
+                                                        v.sellPrice === '' ? null :
+                                                            <span className="price">{v.sellPrice}<span
+                                                                className={"q"}>元起</span></span>
                                                     }
                                             </span>
-                                            </div>
-                                            <div className="location-block box-flex">
-                                                <div className="flex line-ellipsis">{v.addr}</div>
-                                                <div className="distance">{v.distance}</div>
-                                            </div>
-                                            <div className="flex"></div>
-                                            {/*折扣卡等优惠判断*/}
-                                            <div className="label-block">
-                                                {
-                                                    v.tag.allowRefund === 1?<div className="allowRefund">退</div>:null
-                                                }
-                                                {
-                                                    v.tag.endorse === 1?<div className="endorse">改签</div>:null
-                                                }
-                                                {
-                                                    v.tag.snack === 1?<div className="snack">小吃</div>:null
-                                                }
-                                                {
-                                                    v.tag.vipTag?<div className="vipTag">折扣卡</div>:null
-                                                }
-                                                {
-                                                    v.tag.hallType?v.tag.hallType.map((v,i)=>(
+                                                </div>
+                                                <div className="location-block box-flex">
+                                                    <div className="flex line-ellipsis">{v.addr}</div>
+                                                    <div className="distance">{v.distance}</div>
+                                                </div>
+                                                <div className="flex"></div>
+                                                {/*折扣卡等优惠判断*/}
+                                                <div className="label-block">
+                                                    {
+                                                        v.tag.allowRefund === 1 ?
+                                                            <div className="allowRefund">退</div> : null
+                                                    }
+                                                    {
+                                                        v.tag.endorse === 1 ? <div className="endorse">改签</div> : null
+                                                    }
+                                                    {
+                                                        v.tag.snack === 1 ? <div className="snack">小吃</div> : null
+                                                    }
+                                                    {
+                                                        v.tag.vipTag ? <div className="vipTag">折扣卡</div> : null
+                                                    }
+                                                    {
+                                                        v.tag.hallType ? v.tag.hallType.map((v, i) => (
                                                             <div className="hallType" key={i}>{v}</div>
-                                                    )):null
-                                                }
+                                                        )) : null
+                                                    }
 
-                                            </div>
-                                            {
-                                                v.promotion.cardPromotionTag?<div className="discount-block">
-                                                    <div>
-                                                        <div className="discount-label normal card">
-                                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAAAXNSR0IArs4c6QAAAgFJREFUSA3Nlz1LA0EQhmf3kouFEQwi+FEYQ+xEsImFoCDoL/CLaKd/QbC0sbCzFVuxsRS1jEVAsUqrIILRQAhaBGKMuawzwpGAm83mNhddCHfZnd3n3Z2ZuxsG2JI3YtQpVw6AiTkhYJj6/GqMwSsIdm312DsnMyzLCF79rGRAiIhfUOm6jL0FQvZU4Gfn0GU4KcINE5vjsc9LFXajE9kcfT7UDZaMQWwuG9Dpi/YyiIWZjqnSxrOAtWgANsYDysV1Bj0L0Flcx8ZoC1F0wf50UMo5fqjCY1FIxxo7jQSUHWgK+ag2YprfGwnIlQTQTk3a/46B2UEOIUu+v0gIIMgZLLTIZHJTOl+TL4K9ShckMc36Q+pc356QB6FLLJQFCqi4f39d2WoKLTy03ckg2OjAvcyXh9n1KX8eA0YC4n0MtuLoJru+o3bvjAS8o2vpfXCYsGEzZkFYHQ5SbcoglM5o6KQAoxhIDHBYiVqYERZcZB04f3aghNGv04wEuIDbQg3u8Lc4YsHymAVLeD17cuDypbWKjgggIZTpVwhM5x1YxzdlpaaXXB0T4J5GEbPy6F7/8WwUhC7U5OpZgIPfU5qnrNTn+UmoXLWNQc8n0AZDacqxUskpLXwcJDbHMinlI0O9NLI51WiAZZLa0odRZBKbU4FINRoDdtoNdxCDWMQk9jePWpE8hVOLbwAAAABJRU5ErkJggg==" alt="" style={{height:'15px',width:'15px'}}/>
+                                                </div>
+                                                {
+                                                    v.promotion.cardPromotionTag ? <div className="discount-block">
+                                                        <div>
+                                                            <div className="discount-label normal card">
+                                                                <img
+                                                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAAAXNSR0IArs4c6QAAAgFJREFUSA3Nlz1LA0EQhmf3kouFEQwi+FEYQ+xEsImFoCDoL/CLaKd/QbC0sbCzFVuxsRS1jEVAsUqrIILRQAhaBGKMuawzwpGAm83mNhddCHfZnd3n3Z2ZuxsG2JI3YtQpVw6AiTkhYJj6/GqMwSsIdm312DsnMyzLCF79rGRAiIhfUOm6jL0FQvZU4Gfn0GU4KcINE5vjsc9LFXajE9kcfT7UDZaMQWwuG9Dpi/YyiIWZjqnSxrOAtWgANsYDysV1Bj0L0Flcx8ZoC1F0wf50UMo5fqjCY1FIxxo7jQSUHWgK+ag2YprfGwnIlQTQTk3a/46B2UEOIUu+v0gIIMgZLLTIZHJTOl+TL4K9ShckMc36Q+pc356QB6FLLJQFCqi4f39d2WoKLTy03ckg2OjAvcyXh9n1KX8eA0YC4n0MtuLoJru+o3bvjAS8o2vpfXCYsGEzZkFYHQ5SbcoglM5o6KQAoxhIDHBYiVqYERZcZB04f3aghNGv04wEuIDbQg3u8Lc4YsHymAVLeD17cuDypbWKjgggIZTpVwhM5x1YxzdlpaaXXB0T4J5GEbPy6F7/8WwUhC7U5OpZgIPfU5qnrNTn+UmoXLWNQc8n0AZDacqxUskpLXwcJDbHMinlI0O9NLI51WiAZZLa0odRZBKbU4FINRoDdtoNdxCDWMQk9jePWpE8hVOLbwAAAABJRU5ErkJggg=="
+                                                                    alt="" style={{height: '15px', width: '15px'}}/>
+                                                            </div>
+                                                            <div
+                                                                className="discount-label-text">{v.promotion.cardPromotionTag}</div>
                                                         </div>
-                                                        <div className="discount-label-text">{v.promotion.cardPromotionTag}</div>
-                                                    </div>
-                                                </div> :null
-                                            }
+                                                    </div> : null
+                                                }
+                                            </div>
                                         </div>
-                                    </div>
-                                            </Link>
-                                        ))
-                                    }
-                                    </PullToRefresh>
-                                </div>
-                            </div>
+                                    </Link>
+                                ))
+                            }
+                        </PullToRefresh>
+                    </div>
+                </div>
 
 
             </>
@@ -129,6 +136,7 @@ class Cinema extends React.Component {
     componentDidMount() {
         this.props.getCinema()
     }
+
 }
 
 function mapStateToProps(state) {
@@ -137,4 +145,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, dispatch => bindActionCreators(actionCinemaCreators, dispatch)) (Cinema)
+export default connect(mapStateToProps, dispatch => bindActionCreators(actionCinemaCreators, dispatch))(Cinema)

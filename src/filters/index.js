@@ -10,9 +10,6 @@ class Tools {
     static  expectedImg(imgUrl=''){
          return "https://p0.meituan.net/170.230/"+imgUrl.slice(imgUrl.search('movie'))
     }
-    static exactedImg(imgUrl=''){
-         return  false
-    }
     static moviePage(page,Ids){
          if(page*12-12>=Ids){
              return -1
@@ -24,6 +21,9 @@ class Tools {
         return date.getFullYear()+"-"
             + (date.getMonth()+1).toString().padStart(2,0) + "-"
             +date.getDate().toString().padStart(2,0)
+    }
+    static people(v){
+         return Math.round(v/1000)/10
     }
 }
 export  default  Tools

@@ -37,12 +37,12 @@ export default {
             dispatch(getCinemaList(data.cinemas))
         }
     },
-    upCinema(pige = 1) {
+    upCinema(page = 1) {
         return async (dispatch)=>{
             const data =await axios.get("/m/ajax/cinemaList", {
                 params: {
                     day: tools.date(Date.now()),
-                    offset : 20*pige,
+                    offset : 20*page,
                     limit: 20,
                     item: '',
                     updateShowDay: true,

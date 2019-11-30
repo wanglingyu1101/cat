@@ -107,7 +107,6 @@ class MovieComing extends React.Component{
                 }
                     </PullToRefresh>
 
-                    <a id="download-tip" className="download-tip" href="/app?channel=mymovie1yuan-dy" style={{display:this.state.showCat}}></a>
                 </div>
             </div>
         )
@@ -115,19 +114,6 @@ class MovieComing extends React.Component{
     componentDidMount(){
         this.props.getComing()
         this.props.getExpectMovie()
-
-        window.addEventListener('scroll', this.handleScroll);
-
-    }
-
-    handleScroll =()=>{
-        let ctx=this;
-        let scrollTop  = document.documentElement.scrollTop;  //滚动条滚动高度
-        if(scrollTop>100){
-            ctx.setState( {showCat: "block"})
-        }else{
-            ctx.setState({showCat:'none'})
-        }
     }
 }
 function mapStateToProps(state) {

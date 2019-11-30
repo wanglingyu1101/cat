@@ -108,3 +108,52 @@
              sell: true
              shopId: 68164482
              cinemaId: "16116"
+
+四、电影详情
+
+    1.电影详情
+        请求方式：http://m.maoyan.com/ajax/detailmovie
+        请求方式：get
+        发送参数：movieId=247949
+        返回参数：
+            detailMovie: {albumImg: "http://p0.meituan.net/moviemachine/07ca672353dd376197723dc8d9bfc79850637.jpg",…}
+
+    2.筛选条件
+            请求方式：http://m.maoyan.com/ajax/filterCinemas
+            请求方式：get
+            发送参数：movieId=247949&day=2019-11-30
+            返回参数：
+                brand: {name: "品牌", subItems: [{count: 230, id: -1, name: "全部"}, {count: 13, id: 102642, name: "万达影城"},…]}
+                district: {name: "行政区", subItems: [{count: 230, id: -1, name: "全部"}, {count: 71, id: 14, name: "朝阳区",…},…]}
+                hallType: {name: "特殊厅",…}
+                service: {name: "服务",…}
+                showType: {name: "特殊版本", subItems: [{count: 230, id: -1, name: "全部"}, {count: 1372, id: 3, name: "国语配音场次"},…]}
+                subway: {name: "地铁", subItems: [{count: 230, id: -1, name: "全部"}, {count: 30, id: 4, name: "1号线",…},…]}
+                timeRanges: {name: "时段",…}
+
+    3.影院列表
+            请求方式：http://m.maoyan.com/ajax/movie
+            请求方式：post
+            发送参数：movieId: 247949
+                     day: 2019-11-30
+                     offset: 0
+                     limit: 20
+                     districtId: -1
+                     lineId: -1
+                     hallType: -1
+                     brandId: -1
+                     serviceId: -1
+                     areaId: -1
+                     stationId: -1
+                     item:
+                     updateShowDay: true
+                     reqId: 1575084536865
+                     cityId: 1
+            返回参数：
+                cinemas: [{id: 63, mark: 0, nm: "正华影城", sellPrice: "28", addr: "丰台区宋家庄顺八条4号政馨园三区5号楼底商正华商城地下一层（宋家庄地铁B出口）",…},…]
+                day: "2019-11-30"
+                movieId: "247949"
+                paging: {hasMore: true, limit: 20, offset: 0, total: 228}
+                random: 1575084535862
+                resId: "1575084536865"
+                showDays: {dates: [{date: "2019-11-30", isPredate: 0}, {date: "2019-12-01", isPredate: 0},…]}
