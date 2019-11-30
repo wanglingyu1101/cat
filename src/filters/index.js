@@ -22,8 +22,26 @@ class Tools {
             + (date.getMonth()+1).toString().padStart(2,0) + "-"
             +date.getDate().toString().padStart(2,0)
     }
+
     static people(v){
          return Math.round(v/1000)/10
+
+    static add(v,n){
+         if(v)
+         return v-0+(n-0)
+        else
+            return 666
+    }
+
+    static clockMin(clock,min)
+    {
+        const nowTime = '2019-11-30 ' + clock +':00';
+        let STimeMs =+ new Date(nowTime)
+        let ETimeMs = STimeMs + min*60*1000
+        console.log(nowTime,STimeMs,ETimeMs)
+        let data = new Date(ETimeMs)
+        return (data.getHours().toString().padStart(2,0)+':'+data.getMinutes())
+
     }
 }
 export  default  Tools
