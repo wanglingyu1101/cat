@@ -108,7 +108,6 @@ class MovieComing extends React.Component{
                 }
                     </PullToRefresh>
 
-                    <a id="download-tip" className="download-tip" href="/app?channel=mymovie1yuan-dy" style={{display:this.state.showCat}}></a>
                 </div>
             </div>
         )
@@ -116,6 +115,7 @@ class MovieComing extends React.Component{
     componentDidMount(){
         this.props.getComing()
         this.props.getExpectMovie()
+
         window.addEventListener('scroll', this.handleScroll);
     }
 
@@ -127,6 +127,7 @@ class MovieComing extends React.Component{
         }else{
             ctx.setState({showCat:'none'})
         }
+
     }
 
     spaceCinemaMovie(movieId){

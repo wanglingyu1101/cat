@@ -2,39 +2,50 @@ import React from 'react';
 import Header from '../../component/Header'
 import DlAppBar from "../../component/dl_app_bar";
 import '../../assets/css/cinemaMovie.css'
+import {connect} from "react-redux";
+import {withRouter} from 'react-router-dom';
+import {PullToRefresh} from 'antd-mobile';
+import actionCinemaCreators from "../../store/actionCreateors/cinemaMovie";
+import {bindActionCreators} from "redux";
+
+
 class CinemaMovie extends React.Component {
-    constructor() {
+    constructor(){
         super();
-
+        this.state={
+            deCinemaPage:1
+        }
     }
-
     render() {
         return (
             <div>
-                <Header back={true} head={"冰雪奇缘2"}></Header>
+                <Header back={true} head={this.props.detailMovie.nm}></Header>
                 <DlAppBar></DlAppBar>
 
                 <div className="movie-detail">
                     <div className="movie-filter"></div>
                     <div className="poster-bg"
-                         style={{backgroundImage: 'url(//p0.meituan.net/71.100/moviemachine/58ee13be6dc60bf5e636cf915bbbaaa55787785.jpg)'}}></div>
+                         style={{backgroundImage:'url('+this.$tools.movieImg(this.props.detailMovie.img)+')'}}></div>
                     <div className="detail box-flex">
                         <div className="poster">
-                            <img src="//p0.meituan.net/148.208/moviemachine/58ee13be6dc60bf5e636cf915bbbaaa55787785.jpg"/>
+                            <img src={this.$tools.movieImg(this.props.detailMovie.img)}/>
                         </div>
                         <div className="content flex">
-                            <div className="title middle line-ellipsis">冰雪奇缘2</div>
-                            <div className="title-en-name line-ellipsis">Frozen II</div>
-                            <div className="score line-ellipsis">9.0<span className="snum">(12.7万人评)</span>
+                            <div className="title middle line-ellipsis">{this.props.detailMovie.nm}</div>
+                            <div className="title-en-name line-ellipsis">{this.props.detailMovie.enm}</div>
+                            <div className="score line-ellipsis">{this.props.detailMovie.sc}
+                                {
+                                    this.props.detailMovie.snum?<span className="snum">({this.$tools.people(this.props.detailMovie.snum)}万人评)</span>:null
+                                }
                             </div>
                             <div className="type line-ellipsis">
-                                <span>喜剧,动画,冒险</span>
+                                <span>{this.props.detailMovie.cat}</span>
                                 <div className="type-group"><img style={{width: '42px'}} className="sd-imax"
                                                                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAAeCAYAAADTsBuJAAAD+0lEQVRoge2aPUwUQRSAPy4YiZh4DbT8VJhIvA4KkyOhBq+Uyi2gFlssPAtoPW01cWm0RaxVTCi0EkOhFXe0WoiJGhJJ1uK9cefW/ZnF3K3R/ZLNDDNvfnhv5s3bvRkIggBgGLgIjACDlPSSE+AT8B74NhAEwXngCnCm0Gn9f/wAdgeBKf5O5T8regI9Ygi4DIwCUxXE7ZT0j2PgneZHKpQ+vwiONR2sFDqNEkoDFExpgIJx9f+TwDJwySprA0+A11bZCjCR0EcbeAp8zDnHKDWgBfj6oH/XgC3Np9EAVoE9TaNUtR+AJrCTMP4R4GkaZUv7iWvfhcsOmAQ2EOW/QZT+BlH0GjBtyU6o3L71gIRcC8B9YN5hzDSqQB0Yt8pqWtZ0aN9S2VpCfUPr68QbaE+fq4QLINr/VcQwO1mTcdkBS8A54B7w3CpfRHbFIqGiDU9i8tPALeAGshsOHMbOywVkVfoJ9Q1gLKMPo/RXiCLHgU6MzJzW2+PNIf/foZZn4rIDZoDvdCsfQtcz7DIQYqR1zS86tsnLF9J3QdyKtqkhL0mbhK7MS5D1dLwWYiTbdTWId02/4WKAReBaTPmspnl8+r7Kz2YJnpIWssIbMXVziFvZTGlvDOQjykxbyeYMuaCyW5q/qXVO5I2C5hGXtIG4n4/A45x9tBGX1gt8TeNWuqdpM6FtFTHcIaHv9hGDerEtpH4T2TV1JMjICgK6OK0BTDS0Tf6ophe+39BBFFJHVrxhHLiO+PVOQtsGsoJtBfqaeiljbiXknchrgDXEJd1CIiFzCOdhMqd8XpqaelbZaqQurZ1vlXUQo0WjLkPVkrfPA2eyDDCMRC+jkfJ9wpWS1wATyKHeKzqI0q4THo4e8gFsJ6HNHGF09BkIrKeu5XFuzfj9O3SfB85khaGTSOTSRsIrm2+I+4kaJ415lX+Ro81paAIvEaUc8btrieJpeo/46GVVZVYjZXXE2E0tayChaYvsiAvINsA+slonkJ1gx/tGmW2XgVR+RfvLe3DnZYcwgjnSvJ8gW0V2yyHJSqsiC9DTfmrAXcTteJach0RAN3QOmbvB5UXsgXa4jvj9AySMNJ8cHsa0WbLyxoWNIspf488/R7jQBB4RuogkPE3TdkiL0AAm5DRtO5bcEbIL3iKGGifjfcDFAM8Rd7OMvJTNaHkbUX70LRi6DdBGFL5t9dUPfMQIVdKVa1Z92mrtIGdIXeXGkGgrrs0eYvDbOoe4d5JfDARBsJAmEMMw/VHiv/qTpGEBTvc5ul8r+L+g/D2gYEoDFExpgIKpIDe1SvrLWU1PKsg1uZL+MUT4a9yn8mpicfwAdgf0cu555IpieTm395jLuR+Arz8BrLjpSMoYSlEAAAAASUVORK5CYII="/>
                                 </div>
                             </div>
-                            <div className="src line-ellipsis">美国/104分钟</div>
-                            <div className="pubDesc line-ellipsis">2019-11-22大陆上映</div>
+                            <div className="src line-ellipsis">{this.props.detailMovie.fra}/{this.props.detailMovie.dur}分钟</div>
+                            <div className="pubDesc line-ellipsis">{this.props.detailMovie.pubDesc}</div>
                         </div>
                     </div>
                     <div className="arrow-g iconfont icon-xiayige"></div>
@@ -42,12 +53,11 @@ class CinemaMovie extends React.Component {
 
                 <div id="showDays">
                     <ul id="timeline" className="mb-line-b">
-                        <li data-day="2019-11-29" className="showDay chosen">后天11月29日</li>
-                        <li data-day="2019-11-30" className="showDay">周六11月30日</li>
-                        <li data-day="2019-12-01" className="showDay">周日12月01日</li>
-                        <li data-day="2019-12-02" className="showDay">周一12月02日</li>
-                        <li data-day="2019-12-03" className="showDay">周二12月03日</li>
-                        <li data-day="2019-12-07" className="showDay">周六12月07日</li>
+                        {
+                            this.props.deMovieList.showDays?this.props.deMovieList.showDays.dates.map((v,i)=>(
+                                <li className="showDay" key={i} className="showDay chosen">{v.date}</li>
+                            )):null
+                        }
                     </ul>
                 </div>
 
@@ -379,136 +389,108 @@ class CinemaMovie extends React.Component {
                     </div>
                 </div>
 
+
                 <div className="cinema-list cinema" style={{marginTop:'0',minHeight:'700px'}}>
-                    <div className="list-wrap">
-                        <div className="item mb-line-b">
-                            <div className="title-block box-flex middle">
-                                <div className="title line-ellipsis">
-                                    <span>华美国际影城</span>
-                                    <span className="price-block">
-                <span className="price">19.9</span><span className="q">元起</span>
-            </span>
-                                </div>
-                                <div className="location-block box-flex">
-                                    <div className="flex line-ellipsis">大兴区旧宫小红门路39号</div>
-                                    <div className="distance">1877.9km</div>
-                                </div>
-                                <div className="flex"></div>
-                                <div className="label-block">
-                                    <div className="allowRefund">退</div>
-                                    <div className="endorse">改签</div>
-                                    <div className="snack">小吃</div>
-                                    <div className="vipTag">折扣卡</div>
-                                    <div className="hallType">4K厅</div>
-                                </div>
-                            </div>
-                            <div className="min-show-block  disabled  J-fload">
-                                <span>近期场次：</span>
-                                <span className="time-line">10:25 </span>
-                                <span className="time-line"> 11:25 </span>
-                                <span className="time-line"> 11:55</span>
-                            </div>
-                        </div>
-                    </div>
+                    <PullToRefresh
+                        damping={60}
+                        style={{
+                            width: this.state.width,
+                            overflow: 'auto',
+                        }}
+                        indicator={{deactivate: '上拉可以刷新'}}
+                        direction={'up'}
+                        refreshing={this.state.refreshing}
+                        onRefresh={() => {
+                            setTimeout(() => {
+                                this.props.upMovieCinemaList(this.state.deCinemaPage++,this.props.movieId)
+                            }, 1000);
+                        }}
+                    >
+                    {
+                        this.props.deMovieList.cinemas?this.props.deMovieList.cinemas.map((v)=>(
+                            <div className="list-wrap" key={v.id}>
+                                <div className="item mb-line-b">
+                                    <div className="title-block box-flex middle">
+                                        <div className="title line-ellipsis">
+                                            <span>{v.nm}</span>
+                                            {
+                                                v.sellPrice?<span className="price-block">
+                                                    <span className="price">{v.sellPrice}</span>
+                                                    <span className="q">元起</span>
+                                                </span>:null
+                                            }
+                                        </div>
+                                        <div className="location-block box-flex">
+                                            <div className="flex line-ellipsis">{v.addr}</div>
+                                            <div className="distance">{v.distance}</div>
+                                        </div>
+                                        <div className="flex"></div>
+                                        <div className="label-block">
 
-                    <div className="list-wrap">
-                        <div className="item mb-line-b">
-                            <div className="title-block box-flex middle">
-                                <div className="title line-ellipsis">
-                                    <span>华美国际影城</span>
-                                    <span className="price-block">
-                <span className="price">19.9</span><span className="q">元起</span>
-            </span>
-                                </div>
-                                <div className="location-block box-flex">
-                                    <div className="flex line-ellipsis">大兴区旧宫小红门路39号</div>
-                                    <div className="distance">1877.9km</div>
-                                </div>
-                                <div className="flex"></div>
-                                <div className="label-block">
-                                    <div className="allowRefund">退</div>
-                                    <div className="endorse">改签</div>
-                                    <div className="snack">小吃</div>
-                                    <div className="vipTag">折扣卡</div>
-                                    <div className="hallType">4K厅</div>
+                                            {
+                                                v.tag.allowRefund === 1 ?
+                                                    <div className="allowRefund">退</div> : null
+                                            }
+                                            {
+                                                v.tag.endorse === 1 ? <div className="endorse">改签</div> : null
+                                            }
+                                            {
+                                                v.tag.snack === 1 ? <div className="snack">小吃</div> : null
+                                            }
+                                            {
+                                                v.tag.vipTag ? <div className="vipTag">折扣卡</div> : null
+                                            }
+                                            {
+                                                v.tag.hallType ? v.tag.hallType.map((v, i) => (
+                                                    <div className="hallType" key={i}>{v}</div>
+                                                )) : null
+                                            }
+                                        </div>
+                                        {
+                                            v.promotion.cardPromotionTag ? <div className="discount-block">
+                                                <div>
+                                                    <div className="discount-label normal card">
+                                                        <img
+                                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAAAXNSR0IArs4c6QAAAgFJREFUSA3Nlz1LA0EQhmf3kouFEQwi+FEYQ+xEsImFoCDoL/CLaKd/QbC0sbCzFVuxsRS1jEVAsUqrIILRQAhaBGKMuawzwpGAm83mNhddCHfZnd3n3Z2ZuxsG2JI3YtQpVw6AiTkhYJj6/GqMwSsIdm312DsnMyzLCF79rGRAiIhfUOm6jL0FQvZU4Gfn0GU4KcINE5vjsc9LFXajE9kcfT7UDZaMQWwuG9Dpi/YyiIWZjqnSxrOAtWgANsYDysV1Bj0L0Flcx8ZoC1F0wf50UMo5fqjCY1FIxxo7jQSUHWgK+ag2YprfGwnIlQTQTk3a/46B2UEOIUu+v0gIIMgZLLTIZHJTOl+TL4K9ShckMc36Q+pc356QB6FLLJQFCqi4f39d2WoKLTy03ckg2OjAvcyXh9n1KX8eA0YC4n0MtuLoJru+o3bvjAS8o2vpfXCYsGEzZkFYHQ5SbcoglM5o6KQAoxhIDHBYiVqYERZcZB04f3aghNGv04wEuIDbQg3u8Lc4YsHymAVLeD17cuDypbWKjgggIZTpVwhM5x1YxzdlpaaXXB0T4J5GEbPy6F7/8WwUhC7U5OpZgIPfU5qnrNTn+UmoXLWNQc8n0AZDacqxUskpLXwcJDbHMinlI0O9NLI51WiAZZLa0odRZBKbU4FINRoDdtoNdxCDWMQk9jePWpE8hVOLbwAAAABJRU5ErkJggg=="
+                                                            alt="" style={{height: '15px', width: '15px'}}/>
+                                                    </div>
+                                                    <div
+                                                        className="discount-label-text">{v.promotion.cardPromotionTag}</div>
+                                                </div>
+                                            </div> : null
+                                        }
+                                        {
+                                        v.showTimes?<div className="min-show-block  disabled  J-fload">
+                                            <span>近期场次：</span>
+                                            <span className="time-line">{v.showTimes}</span>
+                                        </div>:null
+                                    }
+                                    </div>
                                 </div>
                             </div>
-                            <div className="min-show-block  disabled  J-fload">
-                                <span>近期场次：</span>
-                                <span className="time-line">10:25 </span>
-                                <span className="time-line"> 11:25 </span>
-                                <span className="time-line"> 11:55</span>
-                            </div>
-                        </div>
-                    </div>
+                        )):null
+                    }
+                    </PullToRefresh>
 
-                    <div className="list-wrap">
-                        <div className="item mb-line-b">
-                            <div className="title-block box-flex middle">
-                                <div className="title line-ellipsis">
-                                    <span>华美国际影城</span>
-                                    <span className="price-block">
-                <span className="price">19.9</span><span className="q">元起</span>
-            </span>
-                                </div>
-                                <div className="location-block box-flex">
-                                    <div className="flex line-ellipsis">大兴区旧宫小红门路39号</div>
-                                    <div className="distance">1877.9km</div>
-                                </div>
-                                <div className="flex"></div>
-                                <div className="label-block">
-                                    <div className="allowRefund">退</div>
-                                    <div className="endorse">改签</div>
-                                    <div className="snack">小吃</div>
-                                    <div className="vipTag">折扣卡</div>
-                                    <div className="hallType">4K厅</div>
-                                </div>
-                            </div>
-                            <div className="min-show-block  disabled  J-fload">
-                                <span>近期场次：</span>
-                                <span className="time-line">10:25 </span>
-                                <span className="time-line"> 11:25 </span>
-                                <span className="time-line"> 11:55</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="list-wrap">
-                        <div className="item mb-line-b">
-                            <div className="title-block box-flex middle">
-                                <div className="title line-ellipsis">
-                                    <span>华美国际影城</span>
-                                    <span className="price-block">
-                <span className="price">19.9</span><span className="q">元起</span>
-            </span>
-                                </div>
-                                <div className="location-block box-flex">
-                                    <div className="flex line-ellipsis">大兴区旧宫小红门路39号</div>
-                                    <div className="distance">1877.9km</div>
-                                </div>
-                                <div className="flex"></div>
-                                <div className="label-block">
-                                    <div className="allowRefund">退</div>
-                                    <div className="endorse">改签</div>
-                                    <div className="snack">小吃</div>
-                                    <div className="vipTag">折扣卡</div>
-                                    <div className="hallType">4K厅</div>
-                                </div>
-                            </div>
-                            <div className="min-show-block  disabled  J-fload">
-                                <span>近期场次：</span>
-                                <span className="time-line">10:25 </span>
-                                <span className="time-line"> 11:25 </span>
-                                <span className="time-line"> 11:55</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
         )
     }
+    componentDidMount(){
+        this.props.getCinemaMovieDetail(this.props.movieId)
+        this.props.getCinemaMovieFilter(this.props.movieId)
+        this.props.getMovieCinemaList(this.props.movieId)
+    }
 }
 
 
-export default CinemaMovie
+function mapStateToProps(state) {
+    return {
+        detailMovie:state.cinemaMovie.detailMovie,
+        MovieFilter:state.cinemaMovie.MovieFilter,
+        deMovieList:state.cinemaMovie.deMovieList
+    }
+}
+
+export default connect(mapStateToProps, dispatch => bindActionCreators(actionCinemaCreators, dispatch))(withRouter(CinemaMovie))

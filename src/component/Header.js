@@ -11,7 +11,9 @@ class Header extends React.Component{
                         this.props.back === true?<span onClick={()=>this.props.history.go(-1)} className="iconfont icon-houtuishangyige"></span>:null
                     }
                 </div>
-                <h1 className="nav-header">{this.props.head}</h1>
+                {
+                    this.props.head?<h1 className="nav-header">{this.props.head}</h1>:<h1 className="nav-header">猫眼电影</h1>
+                }
             </header>
         )
     }
