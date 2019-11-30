@@ -14,12 +14,14 @@ import CinemaSearch from './views/search/cinemaSearch'
 import CinemaMovie from "./views/cinema/cinemaMovie";
 import  CinemaDetail from './views/cinema/CinemaDetail'
 
+
 class App extends  React.Component{
   render(){
     return(
         <>
             <Switch>
-                <Route path={'/cinema/movie'} render={()=><GuardRouter component={CinemaMovie}></GuardRouter>}></Route>
+                {/*根据电影搜影院*/}
+                <Route path={'/cinema/movie/:movieId'} render={()=><GuardRouter component={CinemaMovie}></GuardRouter>}></Route>
                 <Route path={'/my/coupon'} render={()=><GuardRouter component={Coupon}></GuardRouter>}></Route>
                 <Route path={'/my/discountcard'} render={()=><GuardRouter component={DiscountCard}></GuardRouter>}></Route>
                 <Route path={'/my/mycinemaorder'} render={()=><GuardRouter component={MyCinemaOrder}></GuardRouter>}></Route>
@@ -27,6 +29,7 @@ class App extends  React.Component{
                 <Route path={'/my/onlinecinema'} render={()=><GuardRouter component={OnlineCinema}></GuardRouter>}></Route>
 
                 <Route path={'/cinemadetail/:cinemaId'} render={()=><GuardRouter component={CinemaDetail}></GuardRouter>}></Route>
+
 
 
 

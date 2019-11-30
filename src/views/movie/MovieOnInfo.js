@@ -3,6 +3,7 @@ import {bindActionCreators} from "redux";
 import {connect} from 'react-redux'
 import actionMovieCreators from '../../store/actionCreateors/movie/index'
 import {PullToRefresh} from 'antd-mobile'
+import {withRouter} from 'react-router-dom'
 
 let onInfoPage = 2
 class MovieOnInfo extends React.Component{
@@ -35,7 +36,7 @@ class MovieOnInfo extends React.Component{
                     >
                 {
                     this.props.movieList?this.props.movieList.map((v,i)=>(
-                        <div className="item"  data-bid="dp_wx_home_movie_list" key={i}>
+                        <div className="item" key={i} onClick={this.spaceCinemaMovie.bind(this,v.id)}>
                             <div className="main-block">
                                 <div className="avatar" sort-flag="">
                                     <div className="default-img-bg">
@@ -86,6 +87,10 @@ class MovieOnInfo extends React.Component{
     componentDidMount(){
         this.props.getOnInfo()
     }
+    spaceCinemaMovie(movieId){
+
+        this.props.history.push("/cinema/movie/"+movieId)
+    }
 }
 function mapStateToProps(state) {
     return {
@@ -94,4 +99,4 @@ function mapStateToProps(state) {
     }
 }
 
-export  default connect(mapStateToProps,dispatch=>bindActionCreators(actionMovieCreators,dispatch))(MovieOnInfo)
+export  default connect(mapStateToProps,dispatch=>bindActionCreators(actionMovieCreators,dispatch))(withRouter(MovieOnInfo))

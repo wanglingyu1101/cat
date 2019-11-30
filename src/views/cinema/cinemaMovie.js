@@ -478,9 +478,9 @@ class CinemaMovie extends React.Component {
         )
     }
     componentDidMount(){
-        this.props.getCinemaMovieDetail(this.props.movieId)
-        this.props.getCinemaMovieFilter(this.props.movieId)
-        this.props.getMovieCinemaList(this.props.movieId)
+        this.props.getCinemaMovieDetail(this.props.match.params.movieId)
+        this.props.getCinemaMovieFilter(this.props.match.params.movieId)
+        this.props.getMovieCinemaList(this.props.match.params.movieId)
     }
 }
 

@@ -46,6 +46,8 @@ class Cinema extends React.Component {
                         </div>
                     </div>
                 </section>
+
+
                 {/*影院*/}
                 <div className="cinema-list">
                     <div className="list-wrap">
@@ -72,6 +74,7 @@ class Cinema extends React.Component {
                                                 <div className="title line-ellipsis">
                                                     <span>{v.nm}</span>
                                                     <span className="price-block">
+
                                                     {
                                                         v.sellPrice === '' ? null :
                                                             <span className="price">{v.sellPrice}<span

@@ -363,13 +363,7 @@ a, img {
     text-overflow: ellipsis;
     overflow: hidden;
 }
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
+
 .result .cinema .feature-tags span {
     border: 1px solid #589daf;
     color: #589daf;
@@ -389,4 +383,10 @@ p {
 .result .cinema .distance {
     font-size: 13px;
     color: #999;
+}
+
+
+/*修改搜索电影样式*/
+.listsss{
+    padding-top:62px;
 }
