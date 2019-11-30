@@ -61,7 +61,7 @@ class CinemaSearch extends React.Component{
                                                             <span key={w}>{q}</span>
                                                         ))
                                                     }
-                                                    <span className="featrue">{v.snack===1?'小吃':''}</span>
+                                                    <span className="featrue" style={{display:v.sncak?'block':'none'}}>{v.snack===1?'小吃':''}</span>
                                                 </p>
                                             </div>
                                             <div className="distance">{v.distance}</div>

@@ -71,7 +71,7 @@ class Search extends React.Component {
 
                         </div>
 
-                        <div className="more-result" style={{display:this.props.match.params.title === 'movie'&&this.props.searchMovieList.length>0?'block':'none'}} onClick={()=>this.props.history.push("/moviesearch/"+this.refs.search.value)}>查看全部{this.props.total}部影视剧</div>
+                        <div className="more-result" style={{display:this.props.match.params.title === 'movie'&&this.props.searchMovieList&&this.props.searchMovieList.length>0?'block':'none'}} onClick={()=>this.props.history.push("/moviesearch/"+this.refs.search.value)}>查看全部{this.props.total}部影视剧</div>
 
 
                     </div>
@@ -116,7 +116,7 @@ class Search extends React.Component {
                         )) : null
                     }
 
-                    <div className="more-result" style={{display:this.props.match.params.title !== 'movie'&&this.props.searchCinemaList.length>0?'block':'none'}} onClick={()=>this.props.history.push("/cinemasearch/"+this.refs.search.value)}>查看全部{this.props.total}影院</div>
+                    <div className="more-result" style={{display:this.props.match.params.title !== 'movie'&&this.props.searchCinemaList&&this.props.searchCinemaList.length>0?'block':'none'}} onClick={()=>this.props.history.push("/cinemasearch/"+this.refs.search.value)}>查看全部{this.props.total}影院</div>
                 </div>
             </div>
 
