@@ -3,6 +3,7 @@ import {bindActionCreators} from "redux";
 import {connect} from 'react-redux'
 import '../../assets/css/movie/movieComing.css'
 import {PullToRefresh} from 'antd-mobile'
+import {withRouter} from 'react-router-dom'
 import actionMovieCreators from '../../store/actionCreateors/movie/index'
 let comingPage = 2;
 // let exactedPage = 2;
@@ -63,7 +64,7 @@ class MovieComing extends React.Component{
                 {
 
                     this.props.movieList?this.props.movieList.map((v,i)=>(
-                        <div className="item"  data-bid="dp_wx_home_movie_list" key={i}>
+                        <div className="item"  data-bid="dp_wx_home_movie_list" key={i} onClick={this.spaceCinemaMovie.bind(this,v.id)}>
 
                             <div className="main-block" >
                                 <p style={{paddingTop:'10px'}}>
@@ -115,9 +116,7 @@ class MovieComing extends React.Component{
     componentDidMount(){
         this.props.getComing()
         this.props.getExpectMovie()
-
         window.addEventListener('scroll', this.handleScroll);
-
     }
 
     handleScroll =()=>{
@@ -129,6 +128,16 @@ class MovieComing extends React.Component{
             ctx.setState({showCat:'none'})
         }
     }
+
+    spaceCinemaMovie(movieId){
+
+        this.props.history.push("/cinema/movie/"+movieId)
+    }
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        };
+    }
 }
 function mapStateToProps(state) {
     return {
@@ -138,4 +147,4 @@ function mapStateToProps(state) {
     }
 }
 
-export  default connect(mapStateToProps,dispatch=>bindActionCreators(actionMovieCreators,dispatch))(MovieComing)
+export  default connect(mapStateToProps,dispatch=>bindActionCreators(actionMovieCreators,dispatch))(withRouter(MovieComing))

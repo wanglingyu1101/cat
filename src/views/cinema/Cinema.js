@@ -65,8 +65,8 @@ class Cinema extends React.Component {
                                     >
                                     {
                                         this.props.cinemaList.map((v, i) => (
-                                            <Link to={'/cinemadetail/'+v.id}>
-                                    <div className="item mb-line-b" key={i}>
+                                            <Link to={'/cinemadetail/'+v.id} key={v.id}>
+                                    <div className="item mb-line-b">
                                         <div className="title-block box-flex middle">
                                             <div className="title line-ellipsis">
                                                 <span>{v.nm}</span>

@@ -24,7 +24,7 @@ class CinemaSearch extends React.Component{
 
                 <div className="result">
 
-                    <div className="list">
+                    <div className="listsss">
                         <PullToRefresh
                             damping={60}
                             style={{
@@ -79,6 +79,11 @@ class CinemaSearch extends React.Component{
     componentDidMount(){
         this.props.getCinemaList(this.props.match.params.keyword)
         // http://m.maoyan.com/searchlist/movies?keyword=bing&ci=20&offset=20&limit=20
+    }
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        };
     }
 }
 function mapStateToProps(state) {

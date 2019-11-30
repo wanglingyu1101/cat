@@ -390,3 +390,9 @@ p {
     font-size: 13px;
     color: #999;
 }
+
+
+/*修改搜索电影样式*/
+.listsss{
+    padding-top:62px;
+}

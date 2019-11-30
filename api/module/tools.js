@@ -77,6 +77,7 @@ module.exports.deCode = function (token) {
     // 1、解析失败  2、解析成功，但过期了。 3、解析成功未过期
     try{
         const info = jwt.decode(token,KEY);
+
         if(info.lastTime < Date.now()){
             // 过期了
             return {
@@ -94,7 +95,7 @@ module.exports.deCode = function (token) {
         // 解析失败  token不对。
         return {
             ok:-1,
-            msg:"token异常"
+            msg:"token异常",token
         }
     }
 

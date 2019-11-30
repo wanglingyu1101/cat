@@ -18,12 +18,12 @@ class MovieSearch extends  React.Component{
     }
     render(){
         return(
-            <div>
+            <div >
                 <Header back={true} head={"猫眼电影"}></Header>
 
                 <div className="result">
 
-                <div className="list">
+                <div className="listsss">
                     <PullToRefresh
                         damping={60}
                         style={{
