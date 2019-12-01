@@ -47,8 +47,8 @@ class MovieOnInfo extends React.Component{
                                     <div className="column content">
                                         <div className="box-flex movie-title">
                                             <div className="title line-ellipsis v3dimax_title">{v.nm}</div>
-                                            <span className={v.version}></span>
-
+                                            <span className={'version'+' '+v.version}></span>
+                                            <span className={v.preShow?'version pre-show':''}></span>
                                         </div>
                                         <div className="detail column">
                                             <div className="score line-ellipsis">

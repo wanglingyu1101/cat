@@ -171,7 +171,19 @@ img {
 
 .version.v3d.imax {
     width: 43px;
+    background-image: url("../../img/3d_imax.png");
+}
+.version.v2d.imax {
+     width: 43px;
+     background-image: url("../../img/2Dimax.png");
+ }
+.version.v3d {
+    width: 43px;
     background-image: url("../../img/3d.png");
+}
+.version.pre-show {
+    width: 43px;
+    background-image: url("../../img/pre_show.png");
 }
 
 .version {
