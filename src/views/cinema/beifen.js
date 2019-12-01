@@ -1,4 +1,4 @@
-import  React from 'react'
+import  React,{Fragment} from 'react'
 import {connect} from 'react-redux';
 import Header from '../../component/Header'
 import {bindActionCreators} from "redux";
@@ -6,23 +6,15 @@ import "../../assets/css/cinemadetail.css"
 import {withRouter} from 'react-router-dom'
 import actionCinemaCreators from "../../store/actionCreateors/cinema"
 import noBody from "../../assets/img/noBody.png"
-import Demo from '../../component/lunbotu'
-
 
 class CinemaDetail extends React.Component{
-    state = {
-        index:0,
-        showIndex:0
-    }
+    constructor(){
+        super();
+        this.state = {
 
-    changIndex(i){
-        this.setState({
-            index:i
-        })
+        }
     }
-
     render(){
-
         return(
 
             this.props.cinemaDetail.channelId?
@@ -56,23 +48,41 @@ class CinemaDetail extends React.Component{
                                         </div>
                                     </div>
 
-                                    <Demo dataP={this.props.cinemaDetail.showData.movies} changeIndex={this.changIndex.bind(this)}></Demo>
                                     <div>
                                         {
-                                            this.props.cinemaDetail.showData?
-                                                <div className="movie-info">
-                                                    <div className="movie-title line-ellipsis">
-                                                        <span className="title">{this.props.cinemaDetail.showData.movies[this.state.index].nm}</span>
-                                                        <span className="grade">
-                                                                {
-                                                                    this.props.cinemaDetail.showData.movies[this.state.index].sc!=='0.0'?<span>{this.props.cinemaDetail.showData.movies[this.state.index].sc}<span className="small">分</span></span>
-                                                                        :<span>{this.props.cinemaDetail.showData.movies[this.state.index].wish}<span className="small">人想看</span></span>
-                                                                }
-                                                            </span>
+                                            this.props.cinemaDetail.showData?this.props.cinemaDetail.showData.movies.map((v,i)=>(
+                                                <div key={i}>
+                                                    <div className="cinema-nav swiper-container swiper-container-horizontal">
+                                                        <div className="post-bg"
+                                                             style={{backgroundImage: `url(&quot;//p0.meituan.net/148.208/moviemachine/58ee13be6dc60bf5e636cf915bbbaaa55787785.jpg&quot;)`}}></div>
+                                                        <div className="post-bg-filter"></div>
+                                                        <div className="swiper-wrapper"
+                                                             style={{transform: 'translate3d(159.5px, 0px, 0px)',transitionDuration: '0ms'}}>
+                                                            <div className="swiper-slide swiper-slide-active">
+                                                                <div className="post" >
+
+                                                                    <img src={this.$tools.movieImg(v.img)}/>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div className="movie-desc line-ellipsis">{this.props.cinemaDetail.showData.movies[this.state.index].desc}</div>
-                                                </div>:null
+                                                    <div className="movie-info">
+                                                        <div className="movie-title line-ellipsis">
+                                                            <span className="title">{v.nm}</span>
+                                                            <span className="grade">
+                                <span>{v.sc}<span className="small">分</span></span>
+
+                                </span>
+
+                                                        </div>
+                                                        <div className="movie-desc line-ellipsis">{v.desc}</div>
+                                                    </div>
+                                                </div>
+                                            )):null
                                         }
+
+
                                     </div>
                                 </div>
                             </div>
@@ -90,14 +100,13 @@ class CinemaDetail extends React.Component{
                                         <div className="nav-bar-wrap">
                                             {
                                                 this.props.cinemaDetail.showData&&this.props.cinemaDetail.showData.movies&&
-                                                this.props.cinemaDetail.showData.movies[this.state.index].shows.map((v,i)=>(
-                                                    <div className={this.state.showIndex===i?'nav-item active':'nav-item'} key={i} onClick={                                                                    ()=>this.setState({
-                                                        showIndex:i
-                                                    })}>
+                                                this.props.cinemaDetail.showData.movies[0].shows.map((v,i)=>(
+                                                    <div className="nav-item active" key={i}>
                                                         <span className="date-title">{v.dateShow}</span>
                                                     </div>
                                                 ))
                                             }
+
 
                                         </div>
                                     </div>
@@ -117,7 +126,7 @@ class CinemaDetail extends React.Component{
 
                             </div>
                             {
-                                this.props.cinemaDetail.showData.movies[this.state.index].shows[this.state.showIndex].plist.map((v,i)=>(
+                                this.props.cinemaDetail.showData.movies[0].shows[0].plist.map((v,i)=>(
                                     <div className="seat-wrap" key={i}>
                                         <div className="seat-inner-wrap">
                                             <div className="seat-list">
@@ -147,10 +156,14 @@ class CinemaDetail extends React.Component{
                                                             </div>
                                                             <div className="button-block">
                                                                 <div className="button">购票</div>
+
+
                                                             </div>
                                                         </div>
+
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -159,9 +172,9 @@ class CinemaDetail extends React.Component{
                         </div>
                     </div>
                     <div className="tuan-wrap"  >
-                        <div className="no-seat" style={{display:this.props.cinemaDetail.showData.movies[this.state.index].shows[0].plist.length>0?'none':'block'}}>
+                        <div className="no-seat" style={{display:this.props.cinemaDetail.showData.movies[0].shows?'none':'block'}}>
                             <div className="icon">
-                                <img alt="" className={'noBody'} src={noBody}/>
+                                <img src={noBody}/>
                             </div>
 
                             <div className="text">今日暂无场次</div>
@@ -170,35 +183,33 @@ class CinemaDetail extends React.Component{
                             </div>
                         </div>
 
-                        {/*影院零食部分*/}
                         <div className="gap" style={{height: '10px',backgroundColor:'#f0f0f0'}}></div>
                         <div className="tuan-list">
-                            <div className="tuan-title mb-line-b" style={{display:this.props.cinemaDetail.dealList.divideDealList.length>0?'block':'none'}}>影院超值套餐</div>
-                            {
-                                this.props.cinemaDetail.dealList.divideDealList.map((L)=>
-                                    L.dealList.map((v)=>(
-                                        <div className="tuan-item mb-line-b" key={v.dealId}>
-                                            <img alt="" src={this.$tools.movieImg(v.imageUrl)}/>
-                                            <span className={v.cardTag==='HOT'?'hot-tag':'' }>{v.cardTag==='HOT'?'HOT':'' }</span>
-                                            <div className="item-info">
-                                                <div className="title">
-                                                    <span>{v.titleTag}</span>
-                                                    {v.title}
-                                                </div>
-                                                <div className="sell-num">{v.curNumberDesc}</div>
-                                                <div className="price">
-                                                <span className="sell-price">
-                                                    <span>¥</span><span className="num">{v.price}</span>
-                                                </span>
+                            <div className="tuan-title mb-line-b">影院超值套餐</div>
+                            <div className="tuan-item mb-line-b">
+                                <img src="//p0.meituan.net/440.0/movie/4b94cdb55d271185e2ecb17a97a6f61f1020393.png@750w_750h_1e_1c"/>
 
-                                                </div>
-                                                <div className="buy-btn">去购买</div>
-                                            </div>
-                                        </div>
-                                    ))
-                                )
-                            }
+                                <span className="hot-tag ">HOT</span>
 
+                                <div className="item-info">
+                                    <div className="title">
+
+                                        <span>双人</span>
+
+                                        85oz爆米花1桶+22oz可乐2杯
+                                    </div>
+
+                                    <div className="sell-num">已售464</div>
+                                    <div className="price">
+
+				<span className="sell-price">
+					<span>¥</span><span className="num">38</span>
+				</span>
+
+                                    </div>
+                                    <div className="buy-btn">去购买</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>:null
@@ -208,8 +219,8 @@ class CinemaDetail extends React.Component{
     }
     componentDidMount(){
         this.props.getCinemaDetail(this.props.match.params.cinemaId)
+        console.log(this.props)
     }
-
 }
 function mapStateToProps(state) {
     return {

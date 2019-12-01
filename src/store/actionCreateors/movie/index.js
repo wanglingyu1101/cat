@@ -40,6 +40,7 @@ export  default  {
     //获取第一页正在热映的电影  和 所有movieids
     getOnInfo(){
         return async (dispatch) =>{
+            dispatch(clearMovie([]))
             const data = await axios.get("/m/ajax/movieOnInfoList")
             dispatch(clearMovie(data.movieList))
             dispatch(getMoviesId(data.movieIds))
@@ -48,6 +49,7 @@ export  default  {
     //获取第一页即将上映的电影  和 所有movieids
     getComing(){
         return async (dispatch) =>{
+            dispatch(clearMovie([]))
             const data = await axios.get("/m/ajax/comingList",{
                 params:{
                     ci:1,

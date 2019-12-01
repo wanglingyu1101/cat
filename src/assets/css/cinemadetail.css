@@ -1,4 +1,7 @@
-
+.noBody{
+    margin-left:145px;
+    padding-top:20px;
+}
 element.style {
     transform: translate3d(157px, 0px, 0px);
     transition-duration: 0ms;
