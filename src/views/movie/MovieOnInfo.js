@@ -40,7 +40,7 @@ class MovieOnInfo extends React.Component{
                             <div className="main-block">
                                 <div className="avatar" sort-flag="">
                                     <div className="default-img-bg">
-                                        <img src={this.props.movieList?this.$tools.movieImg(v.img):''} />
+                                        <img alt="" src={this.props.movieList?this.$tools.movieImg(v.img):''} />
                                     </div>
                                 </div>
                                 <div className="mb-outline-b content-wrapper">

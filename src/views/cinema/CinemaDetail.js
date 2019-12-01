@@ -1,4 +1,4 @@
-import  React,{Fragment} from 'react'
+import  React from 'react'
 import {connect} from 'react-redux';
 import Header from '../../component/Header'
 import {bindActionCreators} from "redux";
@@ -61,7 +61,7 @@ class CinemaDetail extends React.Component{
                                                             <div className="swiper-slide swiper-slide-active">
                                                                 <div className="post" >
 
-                                                                    <img src={this.$tools.movieImg(v.img)}/>
+                                                                    <img alt="" src={this.$tools.movieImg(v.img)}/>
 
                                                                 </div>
                                                             </div>
@@ -174,7 +174,7 @@ class CinemaDetail extends React.Component{
                     <div className="tuan-wrap"  >
                         <div className="no-seat" style={{display:this.props.cinemaDetail.showData.movies[0].shows?'none':'block'}}>
                             <div className="icon">
-                                <img src={noBody}/>
+                                <img alt="" src={noBody}/>
                             </div>
 
                             <div className="text">今日暂无场次</div>
@@ -187,7 +187,7 @@ class CinemaDetail extends React.Component{
                         <div className="tuan-list">
                             <div className="tuan-title mb-line-b">影院超值套餐</div>
                             <div className="tuan-item mb-line-b">
-                                <img src="//p0.meituan.net/440.0/movie/4b94cdb55d271185e2ecb17a97a6f61f1020393.png@750w_750h_1e_1c"/>
+                                <img alt="" src="//p0.meituan.net/440.0/movie/4b94cdb55d271185e2ecb17a97a6f61f1020393.png@750w_750h_1e_1c"/>
 
                                 <span className="hot-tag ">HOT</span>
 

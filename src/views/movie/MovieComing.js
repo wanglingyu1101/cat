@@ -30,7 +30,7 @@ class MovieComing extends React.Component{
                         this.props.expectedList?this.props.expectedList.map((v,i)=>(
                                 <div className="expected-item-ll" key={i}>
                                     <div className="poster default-img-bg-ll">
-                                        <img src={this.props.movieList?this.$tools.movieImg(v.img):''}/>
+                                        <img alt="" src={this.props.movieList?this.$tools.movieImg(v.img):''}/>
                                         <span className="wish-bg-ll"></span>
                                         <span className="wish-ll"><span className="wish-num-ll">{v.wish}</span>人想看</span>
                                         <div className="toggle-wish-ll" data-wishst="0" data-movieid="1217023">
@@ -75,7 +75,7 @@ class MovieComing extends React.Component{
                                 {/*<p>{v.comingTitle}</p>*/}
                                 <div className="avatar" sort-flag="">
                                     <div className="default-img-bg">
-                                        <img src={this.props.movieList?this.$tools.movieImg(v.img):''} />
+                                        <img alt="" src={this.props.movieList?this.$tools.movieImg(v.img):''} />
                                     </div>
                                 </div>
                                 <div className="mb-outline-b content-wrapper">
@@ -115,19 +115,6 @@ class MovieComing extends React.Component{
     componentDidMount(){
         this.props.getComing()
         this.props.getExpectMovie()
-
-        window.addEventListener('scroll', this.handleScroll);
-    }
-
-    handleScroll =()=>{
-        let ctx=this;
-        let scrollTop  = document.documentElement.scrollTop;  //滚动条滚动高度
-        if(scrollTop>100){
-            ctx.setState( {showCat: "block"})
-        }else{
-            ctx.setState({showCat:'none'})
-        }
-
     }
 
     spaceCinemaMovie(movieId){

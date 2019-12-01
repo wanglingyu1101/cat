@@ -50,11 +50,11 @@ export default {
             dispatch(getCinemaMovieFilter(data))
         }
     },
-    getMovieCinemaList(id) {
+    getMovieCinemaList(id,day = tools.date(Date.now()) ) {
         return async (dispatch) => {
             const data = await axios.post("/m/ajax/movie", {
                 movieId: id,
-                day:tools.date(Date.now()),
+                day:day,
                 offset: 0,
                 limit: 20,
                 updateShowDay: true,
@@ -76,6 +76,17 @@ export default {
                 cityId: 1
             })
             dispatch(upMovieCinemaList(data))
+        }
+    },
+    changeDate(e){
+        if(e.target.className === "showDay"){
+            Array.from(this.refs.showDay.children).map(function (v) {
+                v.className = 'showDay'
+            });
+            this.props.getMovieCinemaList(this.props.match.params.movieId,e.target.innerText)
+            e.target.className = 'showDay chosen'
+        } else {
+            e.target.className = 'showDay'
         }
     }
 }

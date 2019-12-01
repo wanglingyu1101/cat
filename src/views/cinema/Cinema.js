@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {PullToRefresh} from 'antd-mobile';
 import {bindActionCreators} from "redux";
 import Header from '../../component/Header'
@@ -68,12 +68,12 @@ class Cinema extends React.Component {
                         >
                             {
                                 this.props.cinemaList.map((v) => (
-                                    <Link to={'/cinemadetail/' + v.id} key={v.id}>
-                                        <div className="item mb-line-b">
-                                            <div className="title-block box-flex middle">
-                                                <div className="title line-ellipsis">
-                                                    <span>{v.nm}</span>
-                                                    <span className="price-block">
+                                    <div className="item mb-line-b" key={v.id}
+                                         onClick={this.spaceCinemaDetail.bind(this, v.id)}>
+                                        <div className="title-block box-flex middle">
+                                            <div className="title line-ellipsis">
+                                                <span>{v.nm}</span>
+                                                <span className="price-block">
 
                                                     {
                                                         v.sellPrice === '' ? null :
@@ -81,36 +81,41 @@ class Cinema extends React.Component {
                                                                 className={"q"}>元起</span></span>
                                                     }
                                             </span>
-                                                </div>
-                                                <div className="location-block box-flex">
-                                                    <div className="flex line-ellipsis">{v.addr}</div>
-                                                    <div className="distance">{v.distance}</div>
-                                                </div>
-                                                <div className="flex"></div>
-                                                {/*折扣卡等优惠判断*/}
-                                                <div className="label-block">
-                                                    {
-                                                        v.tag.allowRefund === 1 ?
-                                                            <div className="allowRefund">退</div> : null
-                                                    }
-                                                    {
-                                                        v.tag.endorse === 1 ? <div className="endorse">改签</div> : null
-                                                    }
-                                                    {
-                                                        v.tag.snack === 1 ? <div className="snack">小吃</div> : null
-                                                    }
-                                                    {
-                                                        v.tag.vipTag ? <div className="vipTag">折扣卡</div> : null
-                                                    }
-                                                    {
-                                                        v.tag.hallType ? v.tag.hallType.map((v, i) => (
-                                                            <div className="hallType" key={i}>{v}</div>
-                                                        )) : null
-                                                    }
+                                            </div>
+                                            <div className="location-block box-flex">
+                                                <div className="flex line-ellipsis">{v.addr}</div>
+                                                <div className="distance">{v.distance}</div>
+                                            </div>
+                                            <div className="flex"></div>
+                                            {/*折扣卡等优惠判断*/}
+                                            <div className="label-block">
 
-                                                </div>
                                                 {
-                                                    v.promotion.cardPromotionTag ? <div className="discount-block">
+                                                    v.tag ? v.tag.allowRefund === 1 ?
+                                                        <div className="allowRefund">退</div> : null : null
+                                                }
+                                                {
+                                                    v.tag ? v.tag.endorse === 1 ?
+                                                        <div className="endorse">改签</div> : null : null
+                                                }
+                                                {
+                                                    v.tag ? v.tag.snack === 1 ?
+                                                        <div className="snack">小吃</div> : null : null
+                                                }
+                                                {
+                                                    v.tag ? v.tag.vipTag ?
+                                                        <div className="vipTag">折扣卡</div> : null : null
+                                                }
+                                                {
+                                                    v.tag ? v.tag.hallType ? v.tag.hallType.map((v, i) => (
+                                                        <div className="hallType" key={i}>{v}</div>
+                                                    )) : null : null
+                                                }
+
+                                            </div>
+                                            {
+                                                v.promotion ? v.promotion.cardPromotionTag ?
+                                                    <div className="discount-block">
                                                         <div>
                                                             <div className="discount-label normal card">
                                                                 <img
@@ -120,18 +125,15 @@ class Cinema extends React.Component {
                                                             <div
                                                                 className="discount-label-text">{v.promotion.cardPromotionTag}</div>
                                                         </div>
-                                                    </div> : null
-                                                }
-                                            </div>
+                                                    </div> : null : null
+                                            }
                                         </div>
-                                    </Link>
+                                    </div>
                                 ))
                             }
                         </PullToRefresh>
                     </div>
                 </div>
-
-
             </>
         )
     }
@@ -140,6 +142,9 @@ class Cinema extends React.Component {
         this.props.getCinema()
     }
 
+    spaceCinemaDetail(cinemaId) {
+        this.props.history.push("/cinemaDetail/" + cinemaId)
+    }
 }
 
 function mapStateToProps(state) {
@@ -148,4 +153,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, dispatch => bindActionCreators(actionCinemaCreators, dispatch))(Cinema)
+export default connect(mapStateToProps, dispatch => bindActionCreators(actionCinemaCreators, dispatch))(withRouter(Cinema))
