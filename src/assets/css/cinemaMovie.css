@@ -184,8 +184,10 @@ img {
 }
 
 .nav-wrap.filter-nav-wrap {
-    position: sticky;
-    top: 94px;
+    width: 100%;
+    height: 40px;
+    z-index: 10;
+    background-color: #fff;
 }
 
 .body .nav-wrap {
@@ -240,7 +242,6 @@ img {
     background: #fff;
     z-index: 100;
     overflow: scroll;
-    display: none;
 }
 
 .close-tab .tab-content {
@@ -354,6 +355,27 @@ img {
     padding: 0 0 0 25px;
 }
 
+.fixed {
+    height: 100%;
+    overflow: hidden;
+}
+.fixed .movie-detail {
+    display: none;
+}
+.fixed #showDays {
+    position: relative;
+    z-index: 101;
+    top:0;
+}
+.fixed .nav-wrap.filter-nav-wrap {
+    z-index: 100;
+    position: relative;
+    top:0;
+}
+.fixed .close-tab, .fixed .close-tab .page {
+    display: block;
+    top:200px;
+}
 .fixed .blacker {
     z-index: 99;
     position: fixed;
@@ -362,4 +384,7 @@ img {
     height: 100%;
     width: 100%;
     background: rgba(0,0,0,.3);
+}
+.body .tab .chosenTitle {
+    color: #e54847;
 }
