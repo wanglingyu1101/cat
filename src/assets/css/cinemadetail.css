@@ -1,7 +1,4 @@
-.noBody{
-    margin-left:145px;
-    padding-top:20px;
-}
+
 element.style {
     transform: translate3d(157px, 0px, 0px);
     transition-duration: 0ms;
@@ -344,6 +341,7 @@ element.style {
     -ms-flex: 1;
     flex: 1;
     overflow-x: hidden;
+    margin-right: 22px;
 }
 
 .seat-list .list-wrap .item .info-block .lan {
@@ -359,6 +357,7 @@ element.style {
     font-size: 11px;
     color: #999;
     white-space: normal;
+    line-height: 16px;
 }
 
 .seat-list .list-wrap .item .price {
@@ -445,7 +444,8 @@ element.style {
 
 .tuan-wrap .tuan-list {
     position: relative;
-    margin: 0 0 0 15px;
+    padding: 0 0 0 15px;
+    background-color: white;
 }
 
 .tuan-wrap .tuan-list .tuan-title {
@@ -583,6 +583,8 @@ element.style {
 
 .no-seat .icon {
     width: 77.5px;
+    margin: 0 auto;
+    padding-top:20px ;
 }
 
 .no-seat .text {
