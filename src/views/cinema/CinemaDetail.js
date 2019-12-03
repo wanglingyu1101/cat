@@ -179,7 +179,7 @@ class CinemaDetail extends React.Component{
                         <div className="tuan-list">
                             <div className="tuan-title mb-line-b" style={{display:this.props.cinemaDetail.dealList.divideDealList.length>0?'block':'none'}}>影院超值套餐</div>
                             {
-<<<<<<< HEAD
+
                                this.props.cinemaDetail.dealList.divideDealList.map((L)=>
                                   L.dealList.map((v)=>(
                                       <div className="tuan-item mb-line-b" key={v.dealId}>
@@ -192,20 +192,7 @@ class CinemaDetail extends React.Component{
                                               </div>
                                               <div className="sell-num">{v.curNumberDesc}</div>
                                               <div className="price">
-=======
-                                this.props.cinemaDetail.dealList.divideDealList.map((L)=>
-                                    L.dealList.map((v)=>(
-                                        <div className="tuan-item mb-line-b" key={v.dealId}>
-                                            <img alt="" src={this.$tools.movieImg(v.imageUrl)}/>
-                                            <span className={v.cardTag==='HOT'?'hot-tag':'' }>{v.cardTag==='HOT'?'HOT':'' }</span>
-                                            <div className="item-info">
-                                                <div className="title">
-                                                    <span>{v.titleTag}</span>
-                                                    {v.title}
-                                                </div>
-                                                <div className="sell-num">{v.curNumberDesc}</div>
-                                                <div className="price">
->>>>>>> 52cc6b168ec45cb59915d9fd260bbfe1c1df2b89
+
                                                 <span className="sell-price">
                                                     <span>¥</span><span className="num">{v.price}</span>
                                                 </span>
