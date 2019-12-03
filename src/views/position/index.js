@@ -22,17 +22,21 @@ class Position extends React.Component{
                 </div>
                     <div className="city-list city-list-inline clearfix" onClick={this.changeCity.bind(this)}>
 
-                        <div className="city-item"  data-id={List[0].id}>
-                            {List[0].name}
-                        </div>
-
-                        <div className="city-item"  data-id={List[1].id}>
-                            {List[1].name}
-                        </div>
-
-                        <div className="city-item"  data-id={List[2].id}>
-                            {List[2].name}
-                        </div>
+                        {
+                            List[0]?<div className="city-item"  data-id={List[0].id}>
+                                {List[0].name}
+                            </div>:null
+                        }
+                        {
+                            List[1]?<div className="city-item"  data-id={List[1].id}>
+                                {List[1].name}
+                            </div>:null
+                        }
+                        {
+                            List[2]?<div className="city-item"  data-id={List[2].id}>
+                                {List[2].name}
+                            </div>:null
+                        }
 
                     </div>
                 </section>
@@ -7194,15 +7198,8 @@ class Position extends React.Component{
             if(localStorage.cityHis){
                  hisList = JSON.parse(localStorage.cityHis)
             }
-            for(var i =0;i<hisList.length;i++){
-                if(hisList[i].id === newHis.id){
-                    hisList.pop(newHis)
-                }
-
-            }
             hisList.unshift(newHis);
             localStorage.cityHis = JSON.stringify(hisList.slice(0,3));
-            //此处跳转避免了  三个city 一样
             this.props.history.push('/')
         }
     }
