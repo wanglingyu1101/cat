@@ -7,7 +7,6 @@ class Demo extends React.Component {
         super()
         this.state = {
             data: this.props?this.props.datap:[],
-            imgHeight: 176,
         }
     }
     componentDidMount() {
@@ -29,8 +28,10 @@ class Demo extends React.Component {
                           slideWidth={0.8}
                           swipeSpeed={1}
                           dots={false}
-                          // beforeChange={() => console.log(`slide from ${from} to ${to}`)}
-                          afterChange={index => changeIndex(index)}
+                          afterChange={index => {
+                              changeIndex(index)
+                              this.setState({ slideIndex: index })
+                          }}
                           style={{width:'100px'}}
                 >
                     {this.props.dataP.map((val, index) => (
@@ -41,20 +42,23 @@ class Demo extends React.Component {
                             style={{
                                 display: 'block',
                                 position: 'relative',
-                                top: this.state.slideIndex === index ? -10 : 0,
-                                height: this.state.imgHeight,
-                                scale:1.2,
-                                boxShadow: '2px 1px 1px rgba(0, 0, 0, 0.2)',
+                                top:0,
+                                border:this.state.slideIndex === index?'2px solid #fff':'none',
+                                transform:this.state.slideIndex === index ? 'scale(1.15)' :"scale(1)",
+                                height:'95px',
+                                width:'65px',
                                 slideWidth:'100px'
                             }}
                         >
                             <img
                                 src={val.img?tools.movieImg(val.img):''}
                                 alt=""
-                                style={{ width: '80px',height:'100px',  }}
+                                style={{
+                                    width: '100%',
+                                    height:'100%',
+                                }}
 
                                 onLoad={() => {
-                                    // fire window resize event to change height
                                     window.dispatchEvent(new Event('resize'));
                                     this.setState({ imgHeight: 'auto' });
                                 }}
