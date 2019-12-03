@@ -1,9 +1,10 @@
 const detailMovie = [];
 const MovieFilter = [];
-const deMovieList = []
+const deMovieList = [];
+
 
 export default {
     detailMovie,
     MovieFilter,
-    deMovieList
+    deMovieList,
 }

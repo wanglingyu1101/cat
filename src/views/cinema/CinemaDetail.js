@@ -1,4 +1,4 @@
-import  React,{Fragment} from 'react'
+import  React from 'react'
 import {connect} from 'react-redux';
 import Header from '../../component/Header'
 import {bindActionCreators} from "redux";
@@ -16,10 +16,12 @@ class CinemaDetail extends React.Component{
     }
 
     changIndex(i){
+
        this.setState({
            index:i,
            showIndex:0
        })
+
     }
 
     render(){
@@ -61,18 +63,18 @@ class CinemaDetail extends React.Component{
                                     <div>
                                         {
                                             this.props.cinemaDetail.showData?
-                                                    <div className="movie-info">
-                                                        <div className="movie-title line-ellipsis">
-                                                            <span className="title">{this.props.cinemaDetail.showData.movies[this.state.index].nm}</span>
-                                                            <span className="grade">
+                                                <div className="movie-info">
+                                                    <div className="movie-title line-ellipsis">
+                                                        <span className="title">{this.props.cinemaDetail.showData.movies[this.state.index].nm}</span>
+                                                        <span className="grade">
                                                                 {
                                                                     this.props.cinemaDetail.showData.movies[this.state.index].sc!=='0.0'?<span>{this.props.cinemaDetail.showData.movies[this.state.index].sc}<span className="small">分</span></span>
                                                                         :<span>{this.props.cinemaDetail.showData.movies[this.state.index].wish}<span className="small">人想看</span></span>
                                                                 }
                                                             </span>
-                                                        </div>
-                                                        <div className="movie-desc line-ellipsis">{this.props.cinemaDetail.showData.movies[this.state.index].desc}</div>
-                                                    </div>:null
+                                                    </div>
+                                                    <div className="movie-desc line-ellipsis">{this.props.cinemaDetail.showData.movies[this.state.index].desc}</div>
+                                                </div>:null
                                         }
                                     </div>
                                 </div>
@@ -163,7 +165,7 @@ class CinemaDetail extends React.Component{
                     <div className="tuan-wrap"  >
                         <div className="no-seat" style={{display:this.props.cinemaDetail.showData.movies[this.state.index].shows[this.state.showIndex].plist.length>0?'none':'block'}}>
                             <div className="icon">
-                                <img className={'noBody'} src={noBody}/>
+                                <img alt="" className={'noBody'} src={noBody}/>
                             </div>
 
                             <div className="text">今日暂无场次</div>
@@ -177,6 +179,7 @@ class CinemaDetail extends React.Component{
                         <div className="tuan-list">
                             <div className="tuan-title mb-line-b" style={{display:this.props.cinemaDetail.dealList.divideDealList.length>0?'block':'none'}}>影院超值套餐</div>
                             {
+<<<<<<< HEAD
                                this.props.cinemaDetail.dealList.divideDealList.map((L)=>
                                   L.dealList.map((v)=>(
                                       <div className="tuan-item mb-line-b" key={v.dealId}>
@@ -189,15 +192,29 @@ class CinemaDetail extends React.Component{
                                               </div>
                                               <div className="sell-num">{v.curNumberDesc}</div>
                                               <div className="price">
+=======
+                                this.props.cinemaDetail.dealList.divideDealList.map((L)=>
+                                    L.dealList.map((v)=>(
+                                        <div className="tuan-item mb-line-b" key={v.dealId}>
+                                            <img alt="" src={this.$tools.movieImg(v.imageUrl)}/>
+                                            <span className={v.cardTag==='HOT'?'hot-tag':'' }>{v.cardTag==='HOT'?'HOT':'' }</span>
+                                            <div className="item-info">
+                                                <div className="title">
+                                                    <span>{v.titleTag}</span>
+                                                    {v.title}
+                                                </div>
+                                                <div className="sell-num">{v.curNumberDesc}</div>
+                                                <div className="price">
+>>>>>>> 52cc6b168ec45cb59915d9fd260bbfe1c1df2b89
                                                 <span className="sell-price">
                                                     <span>¥</span><span className="num">{v.price}</span>
                                                 </span>
 
-                                              </div>
-                                              <div className="buy-btn">去购买</div>
-                                          </div>
-                                      </div>
-                                  ))
+                                                </div>
+                                                <div className="buy-btn">去购买</div>
+                                            </div>
+                                        </div>
+                                    ))
                                 )
                             }
 
