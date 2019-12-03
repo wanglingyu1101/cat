@@ -13,6 +13,7 @@ import MovieSearch from './views/search/MovieSearch';
 import CinemaSearch from './views/search/cinemaSearch'
 import CinemaMovie from "./views/cinema/cinemaMovie";
 import  CinemaDetail from './views/cinema/CinemaDetail'
+import Position from './views/position'
 
 
 class App extends  React.Component{
@@ -30,7 +31,7 @@ class App extends  React.Component{
 
                 <Route path={'/cinemadetail/:cinemaId'} render={()=><GuardRouter component={CinemaDetail}></GuardRouter>}></Route>
 
-
+                <Route path={'/position'} render={()=><GuardRouter component={Position}></GuardRouter>}></Route>
 
 
 

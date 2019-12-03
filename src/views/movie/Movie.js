@@ -5,6 +5,7 @@ import {NavLink, Route, Link} from 'react-router-dom'
 import Header from '../../component/Header'
 import GuardRouter from '../../router/GuardRouter'
 import DlAppBar from "../../component/dl_app_bar";
+import {withRouter} from 'react-router-dom'
 import '../../assets/css/movie/movieOnInfo.css'
 
 
@@ -17,7 +18,7 @@ class Movie extends React.Component {
                 <section className="topbar">
                     <div className="white-bg topbar-bg">
                         <div className="city-entry">
-                            <span className="city-name">北京</span><i className="city-entry-arrow"></i>
+                            <span className="city-name" onClick={()=>this.props.history.push('/position')}>{localStorage.cityName?localStorage.cityName:'北京'}</span><i className="city-entry-arrow"></i>
                         </div>
                         <div className="switch-hot" data-active=".n-hot">
                             <div className="hot-item active" data-tab=".n-hot">
@@ -43,4 +44,4 @@ class Movie extends React.Component {
     }
 }
 
-export default Movie
+export default withRouter(Movie)
