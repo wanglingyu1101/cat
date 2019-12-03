@@ -16,9 +16,12 @@ class CinemaDetail extends React.Component{
     }
 
     changIndex(i){
-        this.setState({
-            index:i
-        })
+
+       this.setState({
+           index:i,
+           showIndex:0
+       })
+
     }
 
     render(){
@@ -104,6 +107,7 @@ class CinemaDetail extends React.Component{
                                 </div>
                             </div>
                             <div className="discount-block">
+                                {/*问题出现  plist   121   163 原因  俩个index之间的问题   */}
                                 {
                                     this.props.cinemaDetail.showData.vipInfo?
                                         <div className="vip-tips">
@@ -159,7 +163,7 @@ class CinemaDetail extends React.Component{
                         </div>
                     </div>
                     <div className="tuan-wrap"  >
-                        <div className="no-seat" style={{display:this.props.cinemaDetail.showData.movies[this.state.index].shows[0].plist.length>0?'none':'block'}}>
+                        <div className="no-seat" style={{display:this.props.cinemaDetail.showData.movies[this.state.index].shows[this.state.showIndex].plist.length>0?'none':'block'}}>
                             <div className="icon">
                                 <img alt="" className={'noBody'} src={noBody}/>
                             </div>
@@ -175,18 +179,20 @@ class CinemaDetail extends React.Component{
                         <div className="tuan-list">
                             <div className="tuan-title mb-line-b" style={{display:this.props.cinemaDetail.dealList.divideDealList.length>0?'block':'none'}}>影院超值套餐</div>
                             {
-                                this.props.cinemaDetail.dealList.divideDealList.map((L)=>
-                                    L.dealList.map((v)=>(
-                                        <div className="tuan-item mb-line-b" key={v.dealId}>
-                                            <img alt="" src={this.$tools.movieImg(v.imageUrl)}/>
-                                            <span className={v.cardTag==='HOT'?'hot-tag':'' }>{v.cardTag==='HOT'?'HOT':'' }</span>
-                                            <div className="item-info">
-                                                <div className="title">
-                                                    <span>{v.titleTag}</span>
-                                                    {v.title}
-                                                </div>
-                                                <div className="sell-num">{v.curNumberDesc}</div>
-                                                <div className="price">
+
+                               this.props.cinemaDetail.dealList.divideDealList.map((L)=>
+                                  L.dealList.map((v)=>(
+                                      <div className="tuan-item mb-line-b" key={v.dealId}>
+                                          <img src={this.$tools.movieImg(v.imageUrl)}/>
+                                          <span className={v.cardTag==='HOT'?'hot-tag':'' }>{v.cardTag==='HOT'?'HOT':'' }</span>
+                                          <div className="item-info">
+                                              <div className="title">
+                                                  <span>{v.titleTag}</span>
+                                                  {v.title}
+                                              </div>
+                                              <div className="sell-num">{v.curNumberDesc}</div>
+                                              <div className="price">
+
                                                 <span className="sell-price">
                                                     <span>¥</span><span className="num">{v.price}</span>
                                                 </span>
